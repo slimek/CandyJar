@@ -2,4 +2,4 @@
 Versions of each libraris
 
 Boost   1.54.0
-zlib    1.2.3
+zlib    1.2.8
