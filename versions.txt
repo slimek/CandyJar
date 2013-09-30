@@ -1,5 +1,6 @@
 
 Versions of each libraries
 
-Boost   1.54.0
-zlib    1.2.8
+Boost   	1.54.0
+UnitTest++	1.4
+zlib    	1.2.8
