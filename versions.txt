@@ -1,5 +1,5 @@
 
-Versions of each libraris
+Versions of each libraries
 
 Boost   1.54.0
 zlib    1.2.8
