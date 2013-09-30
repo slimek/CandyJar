@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Sources">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="cmdline.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="config_file.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="convert.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="options_description.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="parsers.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="positional_options.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="split.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="utf8_codecvt_facet.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="value_semantic.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="variables_map.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="winmain.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
