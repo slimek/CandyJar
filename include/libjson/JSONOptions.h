@@ -30,6 +30,11 @@
  */
 #define JSON_DEBUG
 
+// Disable debuggin in release built
+#if defined( NDEBUG )
+#undef JSON_DEBUG
+#endif
+
 
 /*
  *  JSON_ISO_STRICT turns off all code that uses non-standard C++.  This removes all

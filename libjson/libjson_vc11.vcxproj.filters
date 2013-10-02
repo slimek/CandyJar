@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Sources">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Public Headers">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Public Headers\JSONDefs">
+      <UniqueIdentifier>{4d2649b0-eb00-4369-86d9-1c784e87130b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sources\Dependencies">
+      <UniqueIdentifier>{d549835a-4035-4f58-9b8e-1a3f4f384321}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sources\Dependencies\libbase64++">
+      <UniqueIdentifier>{128736a9-351d-4ac0-a79e-0ff9cc7c044c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sources\Dependencies\mempool++">
+      <UniqueIdentifier>{8336504e-dcd2-4957-b29e-7aa1dbdd3949}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\include\libjson\JSONDefs.h">
+      <Filter>Public Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\libjson\JSONOptions.h">
+      <Filter>Public Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\libjson\libjson.h">
+      <Filter>Public Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\libjson\JSONDefs\GNU_C.h">
+      <Filter>Public Headers\JSONDefs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\libjson\JSONDefs\Strings_Defs.h">
+      <Filter>Public Headers\JSONDefs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\libjson\JSONDefs\Unknown_C.h">
+      <Filter>Public Headers\JSONDefs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\libjson\JSONDefs\Visual_C.h">
+      <Filter>Public Headers\JSONDefs</Filter>
+    </ClInclude>
+    <ClInclude Include="internalJSONNode.h">
+      <Filter>Sources</Filter>
+    </ClInclude>
+    <ClInclude Include="JSON_Base64.h">
+      <Filter>Sources</Filter>
+    </ClInclude>
+    <ClInclude Include="JSONAllocator.h">
+      <Filter>Sources</Filter>
+    </ClInclude>
+    <ClInclude Include="JSONChildren.h">
+      <Filter>Sources</Filter>
+    </ClInclude>
+    <ClInclude Include="JSONDebug.h">
+      <Filter>Sources</Filter>
+    </ClInclude>
+    <ClInclude Include="JSONGlobals.h">
+      <Filter>Sources</Filter>
+    </ClInclude>
+    <ClInclude Include="JSONMemory.h">
+      <Filter>Sources</Filter>
+    </ClInclude>
+    <ClInclude Include="JSONMemoryPool.h">
+      <Filter>Sources</Filter>
+    </ClInclude>
+    <ClInclude Include="JSONNode.h">
+      <Filter>Sources</Filter>
+    </ClInclude>
+    <ClInclude Include="JSONPreparse.h">
+      <Filter>Sources</Filter>
+    </ClInclude>
+    <ClInclude Include="JSONSharedString.h">
+      <Filter>Sources</Filter>
+    </ClInclude>
+    <ClInclude Include="JSONSingleton.h">
+      <Filter>Sources</Filter>
+    </ClInclude>
+    <ClInclude Include="JSONStats.h">
+      <Filter>Sources</Filter>
+    </ClInclude>
+    <ClInclude Include="JSONStream.h">
+      <Filter>Sources</Filter>
+    </ClInclude>
+    <ClInclude Include="JSONValidator.h">
+      <Filter>Sources</Filter>
+    </ClInclude>
+    <ClInclude Include="JSONWorker.h">
+      <Filter>Sources</Filter>
+    </ClInclude>
+    <ClInclude Include="NumberToString.h">
+      <Filter>Sources</Filter>
+    </ClInclude>
+    <ClInclude Include="Dependencies\libbase64++\libbase64++.h">
+      <Filter>Sources\Dependencies\libbase64++</Filter>
+    </ClInclude>
+    <ClInclude Include="Dependencies\mempool++\mempool.h">
+      <Filter>Sources\Dependencies\mempool++</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="internalJSONNode.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="JSONAllocator.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="JSONChildren.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="JSONDebug.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="JSONIterators.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="JSONMemory.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="JSONNode.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="JSONNode_Mutex.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="JSONPreparse.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="JSONStream.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="JSONValidator.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="JSONWorker.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="JSONWriter.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="libjson.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
