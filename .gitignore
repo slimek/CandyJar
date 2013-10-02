@@ -4,3 +4,6 @@ lib/
 obj/
 *.opensdf
 *.user
+*.xcworkspacedata
+*.xcscheme
+xcschememanagement.plist
