@@ -50,36 +50,19 @@
 		6DBE49F117FBFE0F006F5B37 /* liblibjson.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = liblibjson.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		6DBE4A0117FBFE0F006F5B37 /* libjsonTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = libjsonTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6DBE4A2317FBFE6D006F5B37 /* internalJSONNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = internalJSONNode.cpp; sourceTree = "<group>"; };
-		6DBE4A2417FBFE6D006F5B37 /* internalJSONNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = internalJSONNode.h; sourceTree = "<group>"; };
-		6DBE4A2517FBFE6D006F5B37 /* JSON_Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSON_Base64.h; sourceTree = "<group>"; };
 		6DBE4A2617FBFE6D006F5B37 /* JSONAllocator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = JSONAllocator.cpp; sourceTree = "<group>"; };
-		6DBE4A2717FBFE6D006F5B37 /* JSONAllocator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONAllocator.h; sourceTree = "<group>"; };
 		6DBE4A2817FBFE6D006F5B37 /* JSONChildren.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = JSONChildren.cpp; sourceTree = "<group>"; };
-		6DBE4A2917FBFE6D006F5B37 /* JSONChildren.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONChildren.h; sourceTree = "<group>"; };
 		6DBE4A2A17FBFE6D006F5B37 /* JSONDebug.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = JSONDebug.cpp; sourceTree = "<group>"; };
-		6DBE4A2B17FBFE6D006F5B37 /* JSONDebug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONDebug.h; sourceTree = "<group>"; };
-		6DBE4A2C17FBFE6D006F5B37 /* JSONGlobals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONGlobals.h; sourceTree = "<group>"; };
 		6DBE4A2D17FBFE6D006F5B37 /* JSONIterators.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = JSONIterators.cpp; sourceTree = "<group>"; };
 		6DBE4A2E17FBFE6D006F5B37 /* JSONMemory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = JSONMemory.cpp; sourceTree = "<group>"; };
-		6DBE4A2F17FBFE6D006F5B37 /* JSONMemory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONMemory.h; sourceTree = "<group>"; };
-		6DBE4A3017FBFE6D006F5B37 /* JSONMemoryPool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONMemoryPool.h; sourceTree = "<group>"; };
 		6DBE4A3117FBFE6D006F5B37 /* JSONNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = JSONNode.cpp; sourceTree = "<group>"; };
-		6DBE4A3217FBFE6D006F5B37 /* JSONNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONNode.h; sourceTree = "<group>"; };
 		6DBE4A3317FBFE6D006F5B37 /* JSONNode_Mutex.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = JSONNode_Mutex.cpp; sourceTree = "<group>"; };
 		6DBE4A3417FBFE6D006F5B37 /* JSONPreparse.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = JSONPreparse.cpp; sourceTree = "<group>"; };
-		6DBE4A3517FBFE6D006F5B37 /* JSONPreparse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONPreparse.h; sourceTree = "<group>"; };
-		6DBE4A3617FBFE6D006F5B37 /* JSONSharedString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONSharedString.h; sourceTree = "<group>"; };
-		6DBE4A3717FBFE6D006F5B37 /* JSONSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONSingleton.h; sourceTree = "<group>"; };
-		6DBE4A3817FBFE6D006F5B37 /* JSONStats.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONStats.h; sourceTree = "<group>"; };
 		6DBE4A3917FBFE6D006F5B37 /* JSONStream.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = JSONStream.cpp; sourceTree = "<group>"; };
-		6DBE4A3A17FBFE6D006F5B37 /* JSONStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONStream.h; sourceTree = "<group>"; };
 		6DBE4A3B17FBFE6D006F5B37 /* JSONValidator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = JSONValidator.cpp; sourceTree = "<group>"; };
-		6DBE4A3C17FBFE6D006F5B37 /* JSONValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONValidator.h; sourceTree = "<group>"; };
 		6DBE4A3D17FBFE6D006F5B37 /* JSONWorker.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = JSONWorker.cpp; sourceTree = "<group>"; };
-		6DBE4A3E17FBFE6D006F5B37 /* JSONWorker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONWorker.h; sourceTree = "<group>"; };
 		6DBE4A3F17FBFE6D006F5B37 /* JSONWriter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = JSONWriter.cpp; sourceTree = "<group>"; };
 		6DBE4A4017FBFE6D006F5B37 /* libjson.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = libjson.cpp; sourceTree = "<group>"; };
-		6DBE4A4417FBFE6D006F5B37 /* NumberToString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NumberToString.h; sourceTree = "<group>"; };
 		6DBE4A5517FBFE99006F5B37 /* GNU_C.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNU_C.h; sourceTree = "<group>"; };
 		6DBE4A5617FBFE99006F5B37 /* Strings_Defs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Strings_Defs.h; sourceTree = "<group>"; };
 		6DBE4A5717FBFE99006F5B37 /* Unknown_C.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Unknown_C.h; sourceTree = "<group>"; };
@@ -87,8 +70,25 @@
 		6DBE4A5917FBFE99006F5B37 /* JSONDefs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONDefs.h; sourceTree = "<group>"; };
 		6DBE4A5A17FBFE99006F5B37 /* JSONOptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONOptions.h; sourceTree = "<group>"; };
 		6DBE4A5B17FBFE99006F5B37 /* libjson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = libjson.h; sourceTree = "<group>"; };
-		6DBE4A5F17FBFFEB006F5B37 /* libbase64++.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "libbase64++.h"; sourceTree = "<group>"; };
-		6DBE4A6117FBFFEB006F5B37 /* mempool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mempool.h; sourceTree = "<group>"; };
+		6DBE75D617FC32BD006F5B37 /* JSONNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONNode.h; sourceTree = "<group>"; };
+		6DBE75D717FC32BD006F5B37 /* JSONPreparse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONPreparse.h; sourceTree = "<group>"; };
+		6DBE75D817FC32BD006F5B37 /* JSONStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONStream.h; sourceTree = "<group>"; };
+		6DBE75D917FC32BD006F5B37 /* JSONValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONValidator.h; sourceTree = "<group>"; };
+		6DBE75DA17FC32BD006F5B37 /* JSONWorker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONWorker.h; sourceTree = "<group>"; };
+		6DBE75DB17FC3317006F5B37 /* JSONDebug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONDebug.h; sourceTree = "<group>"; };
+		6DBE75DC17FC335D006F5B37 /* internalJSONNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = internalJSONNode.h; sourceTree = "<group>"; };
+		6DBE75DD17FC335D006F5B37 /* JSON_Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSON_Base64.h; sourceTree = "<group>"; };
+		6DBE75DE17FC335D006F5B37 /* JSONAllocator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONAllocator.h; sourceTree = "<group>"; };
+		6DBE75DF17FC335D006F5B37 /* JSONChildren.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONChildren.h; sourceTree = "<group>"; };
+		6DBE75E017FC335D006F5B37 /* JSONGlobals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONGlobals.h; sourceTree = "<group>"; };
+		6DBE75E117FC335D006F5B37 /* JSONMemory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONMemory.h; sourceTree = "<group>"; };
+		6DBE75E217FC335D006F5B37 /* JSONMemoryPool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONMemoryPool.h; sourceTree = "<group>"; };
+		6DBE75E317FC335D006F5B37 /* JSONSharedString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONSharedString.h; sourceTree = "<group>"; };
+		6DBE75E417FC335D006F5B37 /* JSONSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONSingleton.h; sourceTree = "<group>"; };
+		6DBE75E517FC335D006F5B37 /* JSONStats.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONStats.h; sourceTree = "<group>"; };
+		6DBE75E617FC335D006F5B37 /* NumberToString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NumberToString.h; sourceTree = "<group>"; };
+		6DBE75E917FC33AD006F5B37 /* libbase64++.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "libbase64++.h"; sourceTree = "<group>"; };
+		6DBE75EB17FC33AD006F5B37 /* mempool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mempool.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,38 +131,20 @@
 		6DBE4A1B17FBFE6D006F5B37 /* libjson */ = {
 			isa = PBXGroup;
 			children = (
-				6DBE4A5D17FBFFEB006F5B37 /* Dependencies */,
 				6DBE4A2317FBFE6D006F5B37 /* internalJSONNode.cpp */,
-				6DBE4A2417FBFE6D006F5B37 /* internalJSONNode.h */,
-				6DBE4A2517FBFE6D006F5B37 /* JSON_Base64.h */,
 				6DBE4A2617FBFE6D006F5B37 /* JSONAllocator.cpp */,
-				6DBE4A2717FBFE6D006F5B37 /* JSONAllocator.h */,
 				6DBE4A2817FBFE6D006F5B37 /* JSONChildren.cpp */,
-				6DBE4A2917FBFE6D006F5B37 /* JSONChildren.h */,
 				6DBE4A2A17FBFE6D006F5B37 /* JSONDebug.cpp */,
-				6DBE4A2B17FBFE6D006F5B37 /* JSONDebug.h */,
-				6DBE4A2C17FBFE6D006F5B37 /* JSONGlobals.h */,
 				6DBE4A2D17FBFE6D006F5B37 /* JSONIterators.cpp */,
 				6DBE4A2E17FBFE6D006F5B37 /* JSONMemory.cpp */,
-				6DBE4A2F17FBFE6D006F5B37 /* JSONMemory.h */,
-				6DBE4A3017FBFE6D006F5B37 /* JSONMemoryPool.h */,
 				6DBE4A3117FBFE6D006F5B37 /* JSONNode.cpp */,
-				6DBE4A3217FBFE6D006F5B37 /* JSONNode.h */,
 				6DBE4A3317FBFE6D006F5B37 /* JSONNode_Mutex.cpp */,
 				6DBE4A3417FBFE6D006F5B37 /* JSONPreparse.cpp */,
-				6DBE4A3517FBFE6D006F5B37 /* JSONPreparse.h */,
-				6DBE4A3617FBFE6D006F5B37 /* JSONSharedString.h */,
-				6DBE4A3717FBFE6D006F5B37 /* JSONSingleton.h */,
-				6DBE4A3817FBFE6D006F5B37 /* JSONStats.h */,
 				6DBE4A3917FBFE6D006F5B37 /* JSONStream.cpp */,
-				6DBE4A3A17FBFE6D006F5B37 /* JSONStream.h */,
 				6DBE4A3B17FBFE6D006F5B37 /* JSONValidator.cpp */,
-				6DBE4A3C17FBFE6D006F5B37 /* JSONValidator.h */,
 				6DBE4A3D17FBFE6D006F5B37 /* JSONWorker.cpp */,
-				6DBE4A3E17FBFE6D006F5B37 /* JSONWorker.h */,
 				6DBE4A3F17FBFE6D006F5B37 /* JSONWriter.cpp */,
 				6DBE4A4017FBFE6D006F5B37 /* libjson.cpp */,
-				6DBE4A4417FBFE6D006F5B37 /* NumberToString.h */,
 			);
 			name = libjson;
 			sourceTree = "<group>";
@@ -170,10 +152,28 @@
 		6DBE4A5317FBFE99006F5B37 /* libjson */ = {
 			isa = PBXGroup;
 			children = (
+				6DBE75E717FC33AD006F5B37 /* Dependencies */,
+				6DBE75DC17FC335D006F5B37 /* internalJSONNode.h */,
+				6DBE75DD17FC335D006F5B37 /* JSON_Base64.h */,
+				6DBE75DE17FC335D006F5B37 /* JSONAllocator.h */,
+				6DBE75DF17FC335D006F5B37 /* JSONChildren.h */,
+				6DBE75DB17FC3317006F5B37 /* JSONDebug.h */,
 				6DBE4A5417FBFE99006F5B37 /* JSONDefs */,
 				6DBE4A5917FBFE99006F5B37 /* JSONDefs.h */,
+				6DBE75E017FC335D006F5B37 /* JSONGlobals.h */,
+				6DBE75E117FC335D006F5B37 /* JSONMemory.h */,
+				6DBE75E217FC335D006F5B37 /* JSONMemoryPool.h */,
+				6DBE75D617FC32BD006F5B37 /* JSONNode.h */,
 				6DBE4A5A17FBFE99006F5B37 /* JSONOptions.h */,
+				6DBE75D717FC32BD006F5B37 /* JSONPreparse.h */,
+				6DBE75E317FC335D006F5B37 /* JSONSharedString.h */,
+				6DBE75E417FC335D006F5B37 /* JSONSingleton.h */,
+				6DBE75E517FC335D006F5B37 /* JSONStats.h */,
+				6DBE75D817FC32BD006F5B37 /* JSONStream.h */,
+				6DBE75D917FC32BD006F5B37 /* JSONValidator.h */,
+				6DBE75DA17FC32BD006F5B37 /* JSONWorker.h */,
 				6DBE4A5B17FBFE99006F5B37 /* libjson.h */,
+				6DBE75E617FC335D006F5B37 /* NumberToString.h */,
 			);
 			name = libjson;
 			path = ../include/libjson;
@@ -198,27 +198,27 @@
 			name = include;
 			sourceTree = "<group>";
 		};
-		6DBE4A5D17FBFFEB006F5B37 /* Dependencies */ = {
+		6DBE75E717FC33AD006F5B37 /* Dependencies */ = {
 			isa = PBXGroup;
 			children = (
-				6DBE4A5E17FBFFEB006F5B37 /* libbase64++ */,
-				6DBE4A6017FBFFEB006F5B37 /* mempool++ */,
+				6DBE75E817FC33AD006F5B37 /* libbase64++ */,
+				6DBE75EA17FC33AD006F5B37 /* mempool++ */,
 			);
 			path = Dependencies;
 			sourceTree = "<group>";
 		};
-		6DBE4A5E17FBFFEB006F5B37 /* libbase64++ */ = {
+		6DBE75E817FC33AD006F5B37 /* libbase64++ */ = {
 			isa = PBXGroup;
 			children = (
-				6DBE4A5F17FBFFEB006F5B37 /* libbase64++.h */,
+				6DBE75E917FC33AD006F5B37 /* libbase64++.h */,
 			);
 			path = "libbase64++";
 			sourceTree = "<group>";
 		};
-		6DBE4A6017FBFFEB006F5B37 /* mempool++ */ = {
+		6DBE75EA17FC33AD006F5B37 /* mempool++ */ = {
 			isa = PBXGroup;
 			children = (
-				6DBE4A6117FBFFEB006F5B37 /* mempool.h */,
+				6DBE75EB17FC33AD006F5B37 /* mempool.h */,
 			);
 			path = "mempool++";
 			sourceTree = "<group>";
