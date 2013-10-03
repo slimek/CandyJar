@@ -7,22 +7,22 @@
 	#define LIBJSON_OBJECT(name)\
 		static size_t & getCtorCounter(void){\
 			static size_t count = 0;\
-			static int i = JSONStats::setCallbacks(getCtorCounter, getCopyCtorCounter, getAssignmentCounter, getDtorCounter, #name);\
+			JSONStats::setCallbacks(getCtorCounter, getCopyCtorCounter, getAssignmentCounter, getDtorCounter, #name);\
 			return count;\
 		}\
 		static size_t & getCopyCtorCounter(void){\
 			static size_t count = 0;\
-			static int i = JSONStats::setCallbacks(getCtorCounter, getCopyCtorCounter, getAssignmentCounter, getDtorCounter, #name);\
+			JSONStats::setCallbacks(getCtorCounter, getCopyCtorCounter, getAssignmentCounter, getDtorCounter, #name);\
 			return count;\
 		}\
 		static size_t & getAssignmentCounter(void){\
 			static size_t count = 0;\
-			static int i = JSONStats::setCallbacks(getCtorCounter, getCopyCtorCounter, getAssignmentCounter, getDtorCounter, #name);\
+			JSONStats::setCallbacks(getCtorCounter, getCopyCtorCounter, getAssignmentCounter, getDtorCounter, #name);\
 			return count;\
 		}\
 		static size_t & getDtorCounter(void){\
 			static size_t count = 0;\
-			static int i = JSONStats::setCallbacks(getCtorCounter, getCopyCtorCounter, getAssignmentCounter, getDtorCounter, #name);\
+			JSONStats::setCallbacks(getCtorCounter, getCopyCtorCounter, getAssignmentCounter, getDtorCounter, #name);\
 			return count;\
 		}
 	#define LIBJSON_CTOR getCtorCounter() += 1
