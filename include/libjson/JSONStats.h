@@ -3,7 +3,8 @@
 
 #include "JSONOptions.h"
 
-#if defined(JSON_UNIT_TEST) || defined(JSON_DEBUG)
+//#if defined(JSON_UNIT_TEST) || defined(JSON_DEBUG)  FIX: The following counters may confuse memory leak detection in Visual C++.
+#if defined(JSON_UNIT_TEST)
 	#define LIBJSON_OBJECT(name)\
 		static size_t & getCtorCounter(void){\
 			static size_t count = 0;\
