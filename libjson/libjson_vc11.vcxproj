@@ -11,32 +11,32 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\include\libjson\Dependencies\libbase64++\libbase64++.h" />
+    <ClInclude Include="..\include\libjson\Dependencies\mempool++\mempool.h" />
+    <ClInclude Include="..\include\libjson\internalJSONNode.h" />
+    <ClInclude Include="..\include\libjson\JSONAllocator.h" />
+    <ClInclude Include="..\include\libjson\JSONChildren.h" />
+    <ClInclude Include="..\include\libjson\JSONDebug.h" />
     <ClInclude Include="..\include\libjson\JSONDefs.h" />
     <ClInclude Include="..\include\libjson\JSONDefs\GNU_C.h" />
     <ClInclude Include="..\include\libjson\JSONDefs\Strings_Defs.h" />
     <ClInclude Include="..\include\libjson\JSONDefs\Unknown_C.h" />
     <ClInclude Include="..\include\libjson\JSONDefs\Visual_C.h" />
+    <ClInclude Include="..\include\libjson\JSONGlobals.h" />
+    <ClInclude Include="..\include\libjson\JSONMemory.h" />
+    <ClInclude Include="..\include\libjson\JSONMemoryPool.h" />
+    <ClInclude Include="..\include\libjson\JSONNode.h" />
     <ClInclude Include="..\include\libjson\JSONOptions.h" />
+    <ClInclude Include="..\include\libjson\JSONPreparse.h" />
+    <ClInclude Include="..\include\libjson\JSONSharedString.h" />
+    <ClInclude Include="..\include\libjson\JSONSingleton.h" />
+    <ClInclude Include="..\include\libjson\JSONStats.h" />
+    <ClInclude Include="..\include\libjson\JSONStream.h" />
+    <ClInclude Include="..\include\libjson\JSONValidator.h" />
+    <ClInclude Include="..\include\libjson\JSONWorker.h" />
+    <ClInclude Include="..\include\libjson\JSON_Base64.h" />
     <ClInclude Include="..\include\libjson\libjson.h" />
-    <ClInclude Include="Dependencies\libbase64++\libbase64++.h" />
-    <ClInclude Include="Dependencies\mempool++\mempool.h" />
-    <ClInclude Include="internalJSONNode.h" />
-    <ClInclude Include="JSONAllocator.h" />
-    <ClInclude Include="JSONChildren.h" />
-    <ClInclude Include="JSONDebug.h" />
-    <ClInclude Include="JSONGlobals.h" />
-    <ClInclude Include="JSONMemory.h" />
-    <ClInclude Include="JSONMemoryPool.h" />
-    <ClInclude Include="JSONNode.h" />
-    <ClInclude Include="JSONPreparse.h" />
-    <ClInclude Include="JSONSharedString.h" />
-    <ClInclude Include="JSONSingleton.h" />
-    <ClInclude Include="JSONStats.h" />
-    <ClInclude Include="JSONStream.h" />
-    <ClInclude Include="JSONValidator.h" />
-    <ClInclude Include="JSONWorker.h" />
-    <ClInclude Include="JSON_Base64.h" />
-    <ClInclude Include="NumberToString.h" />
+    <ClInclude Include="..\include\libjson\NumberToString.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="internalJSONNode.cpp" />

@@ -12,26 +12,17 @@
     <Filter Include="Public Headers\JSONDefs">
       <UniqueIdentifier>{4d2649b0-eb00-4369-86d9-1c784e87130b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Sources\Dependencies">
-      <UniqueIdentifier>{d549835a-4035-4f58-9b8e-1a3f4f384321}</UniqueIdentifier>
+    <Filter Include="Public Headers\Dependencies">
+      <UniqueIdentifier>{810b697a-75d8-4351-9b41-534f3af88b72}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Sources\Dependencies\libbase64++">
-      <UniqueIdentifier>{128736a9-351d-4ac0-a79e-0ff9cc7c044c}</UniqueIdentifier>
+    <Filter Include="Public Headers\Dependencies\libbase64++">
+      <UniqueIdentifier>{bd0445f8-4263-4ffc-bd59-501ed3f83836}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Sources\Dependencies\mempool++">
-      <UniqueIdentifier>{8336504e-dcd2-4957-b29e-7aa1dbdd3949}</UniqueIdentifier>
+    <Filter Include="Public Headers\Dependencies\mempool++">
+      <UniqueIdentifier>{1615bb3c-9365-4e71-a1d6-daaf8a474856}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\include\libjson\JSONDefs.h">
-      <Filter>Public Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\include\libjson\JSONOptions.h">
-      <Filter>Public Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\include\libjson\libjson.h">
-      <Filter>Public Headers</Filter>
-    </ClInclude>
     <ClInclude Include="..\include\libjson\JSONDefs\GNU_C.h">
       <Filter>Public Headers\JSONDefs</Filter>
     </ClInclude>
@@ -44,62 +35,71 @@
     <ClInclude Include="..\include\libjson\JSONDefs\Visual_C.h">
       <Filter>Public Headers\JSONDefs</Filter>
     </ClInclude>
-    <ClInclude Include="internalJSONNode.h">
-      <Filter>Sources</Filter>
+    <ClInclude Include="..\include\libjson\internalJSONNode.h">
+      <Filter>Public Headers</Filter>
     </ClInclude>
-    <ClInclude Include="JSON_Base64.h">
-      <Filter>Sources</Filter>
+    <ClInclude Include="..\include\libjson\JSON_Base64.h">
+      <Filter>Public Headers</Filter>
     </ClInclude>
-    <ClInclude Include="JSONAllocator.h">
-      <Filter>Sources</Filter>
+    <ClInclude Include="..\include\libjson\JSONAllocator.h">
+      <Filter>Public Headers</Filter>
     </ClInclude>
-    <ClInclude Include="JSONChildren.h">
-      <Filter>Sources</Filter>
+    <ClInclude Include="..\include\libjson\JSONChildren.h">
+      <Filter>Public Headers</Filter>
     </ClInclude>
-    <ClInclude Include="JSONDebug.h">
-      <Filter>Sources</Filter>
+    <ClInclude Include="..\include\libjson\JSONDebug.h">
+      <Filter>Public Headers</Filter>
     </ClInclude>
-    <ClInclude Include="JSONGlobals.h">
-      <Filter>Sources</Filter>
+    <ClInclude Include="..\include\libjson\JSONDefs.h">
+      <Filter>Public Headers</Filter>
     </ClInclude>
-    <ClInclude Include="JSONMemory.h">
-      <Filter>Sources</Filter>
+    <ClInclude Include="..\include\libjson\JSONGlobals.h">
+      <Filter>Public Headers</Filter>
     </ClInclude>
-    <ClInclude Include="JSONMemoryPool.h">
-      <Filter>Sources</Filter>
+    <ClInclude Include="..\include\libjson\JSONMemory.h">
+      <Filter>Public Headers</Filter>
     </ClInclude>
-    <ClInclude Include="JSONNode.h">
-      <Filter>Sources</Filter>
+    <ClInclude Include="..\include\libjson\JSONMemoryPool.h">
+      <Filter>Public Headers</Filter>
     </ClInclude>
-    <ClInclude Include="JSONPreparse.h">
-      <Filter>Sources</Filter>
+    <ClInclude Include="..\include\libjson\JSONNode.h">
+      <Filter>Public Headers</Filter>
     </ClInclude>
-    <ClInclude Include="JSONSharedString.h">
-      <Filter>Sources</Filter>
+    <ClInclude Include="..\include\libjson\JSONOptions.h">
+      <Filter>Public Headers</Filter>
     </ClInclude>
-    <ClInclude Include="JSONSingleton.h">
-      <Filter>Sources</Filter>
+    <ClInclude Include="..\include\libjson\JSONPreparse.h">
+      <Filter>Public Headers</Filter>
     </ClInclude>
-    <ClInclude Include="JSONStats.h">
-      <Filter>Sources</Filter>
+    <ClInclude Include="..\include\libjson\JSONSharedString.h">
+      <Filter>Public Headers</Filter>
     </ClInclude>
-    <ClInclude Include="JSONStream.h">
-      <Filter>Sources</Filter>
+    <ClInclude Include="..\include\libjson\JSONSingleton.h">
+      <Filter>Public Headers</Filter>
     </ClInclude>
-    <ClInclude Include="JSONValidator.h">
-      <Filter>Sources</Filter>
+    <ClInclude Include="..\include\libjson\JSONStats.h">
+      <Filter>Public Headers</Filter>
     </ClInclude>
-    <ClInclude Include="JSONWorker.h">
-      <Filter>Sources</Filter>
+    <ClInclude Include="..\include\libjson\JSONStream.h">
+      <Filter>Public Headers</Filter>
     </ClInclude>
-    <ClInclude Include="NumberToString.h">
-      <Filter>Sources</Filter>
+    <ClInclude Include="..\include\libjson\JSONValidator.h">
+      <Filter>Public Headers</Filter>
     </ClInclude>
-    <ClInclude Include="Dependencies\libbase64++\libbase64++.h">
-      <Filter>Sources\Dependencies\libbase64++</Filter>
+    <ClInclude Include="..\include\libjson\JSONWorker.h">
+      <Filter>Public Headers</Filter>
     </ClInclude>
-    <ClInclude Include="Dependencies\mempool++\mempool.h">
-      <Filter>Sources\Dependencies\mempool++</Filter>
+    <ClInclude Include="..\include\libjson\libjson.h">
+      <Filter>Public Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\libjson\NumberToString.h">
+      <Filter>Public Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\libjson\Dependencies\libbase64++\libbase64++.h">
+      <Filter>Public Headers\Dependencies\libbase64++</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\libjson\Dependencies\mempool++\mempool.h">
+      <Filter>Public Headers\Dependencies\mempool++</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
