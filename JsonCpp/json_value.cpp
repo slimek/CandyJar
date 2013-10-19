@@ -5,6 +5,9 @@
 #include <stdexcept>
 #include <cstring>
 #include <cassert>
+// SIXION FIX: Allow convert number to string
+#include <sstream>
+// SIXION FIX END
 #ifdef JSON_USE_CPPTL
 # include <cpptl/conststring.h>
 #endif
@@ -692,9 +695,26 @@ Value::asString() const
       return value_.string_ ? value_.string_ : "";
    case booleanValue:
       return value_.bool_ ? "true" : "false";
+   // SIXION FIX: Allow convert number to string.
    case intValue:
+   {
+      std::stringstream ss;
+      ss << value_.int_;
+      return ss.str();
+   }   
    case uintValue:
+   {
+      std::stringstream ss;
+      ss << value_.uint_;
+      return ss.str();
+   }
    case realValue:
+   {
+      std::stringstream ss;
+      ss << value_.real_;
+      return ss.str();
+   }
+   // SIXION FIX END
    case arrayValue:
    case objectValue:
       JSON_ASSERT_MESSAGE( false, "Type is not convertible to string" );
