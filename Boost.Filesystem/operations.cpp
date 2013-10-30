@@ -74,8 +74,13 @@ using std::wstring;
 #   include <sys/types.h>
 #   include <sys/stat.h>
 #   if !defined(__APPLE__) && !defined(__OpenBSD__)
-#     include <sys/statvfs.h>
-#     define BOOST_STATVFS statvfs
+#     if defined( ANDROID )
+#       include <sys/vfs.h>
+#       define BOOST_STATVFS statfs
+#     else
+#       include <sys/statvfs.h>
+#       define BOOST_STATVFS statvfs
+#     endif
 #     define BOOST_STATVFS_F_FRSIZE vfs.f_frsize
 #   else
 #     ifdef __OpenBSD__
