@@ -4,10 +4,12 @@ include $(CLEAR_VARS)
 
 LOCAL_MODULE := boost-system
 
+MY_SRC_DIR := ../..
+
 LOCAL_SRC_FILES := \
-	error_code.cpp
+	$(MY_SRC_DIR)/error_code.cpp
 	
 LOCAL_C_INCLUDES := \
-	$(LOCAL_PATH)/../include
+	$(LOCAL_PATH)/../../../include
 	
 include $(BUILD_STATIC_LIBRARY)
