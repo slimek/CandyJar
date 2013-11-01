@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6DA89D2818233EA900657CB6 /* lockpool.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6DA89D2718233EA900657CB6 /* lockpool.cpp */; };
 		6DAFE2101815244100859097 /* future.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6DAFE2091815244100859097 /* future.cpp */; };
 		6DAFE2111815244100859097 /* once.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6DAFE20B1815244100859097 /* once.cpp */; };
 		6DAFE2121815244100859097 /* once_atomic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6DAFE20C1815244100859097 /* once_atomic.cpp */; };
@@ -27,6 +28,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		6DA89D2718233EA900657CB6 /* lockpool.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = lockpool.cpp; sourceTree = "<group>"; };
 		6DAFE1E01815242000859097 /* libBoost.Thread.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libBoost.Thread.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		6DAFE2091815244100859097 /* future.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = future.cpp; sourceTree = "<group>"; };
 		6DAFE20B1815244100859097 /* once.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = once.cpp; sourceTree = "<group>"; };
@@ -68,6 +70,7 @@
 		6DAFE20A1815244100859097 /* pthread */ = {
 			isa = PBXGroup;
 			children = (
+				6DA89D2718233EA900657CB6 /* lockpool.cpp */,
 				6DAFE20B1815244100859097 /* once.cpp */,
 				6DAFE20C1815244100859097 /* once_atomic.cpp */,
 				6DAFE20D1815244100859097 /* thread.cpp */,
@@ -131,6 +134,7 @@
 				6DAFE2141815244100859097 /* tss_null.cpp in Sources */,
 				6DAFE2101815244100859097 /* future.cpp in Sources */,
 				6DAFE2121815244100859097 /* once_atomic.cpp in Sources */,
+				6DA89D2818233EA900657CB6 /* lockpool.cpp in Sources */,
 				6DAFE2131815244100859097 /* thread.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -155,7 +159,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CONFIGURATION_BUILD_DIR = ../lib/ios;
+				CONFIGURATION_BUILD_DIR = "../lib/ios$(EFFECTIVE_PLATFORM_NAME)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -177,7 +181,7 @@
 					../include,
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -200,7 +204,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CONFIGURATION_BUILD_DIR = ../lib/ios;
+				CONFIGURATION_BUILD_DIR = "../lib/ios$(EFFECTIVE_PLATFORM_NAME)";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -216,6 +220,7 @@
 					../include,
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;

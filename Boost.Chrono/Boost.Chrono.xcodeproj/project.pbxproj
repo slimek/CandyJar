@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6DAFE2591815265900859097 /* chrono.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6DAFE2561815265900859097 /* chrono.cpp */; };
-		6DAFE25A1815265900859097 /* process_cpu_clocks.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6DAFE2571815265900859097 /* process_cpu_clocks.cpp */; };
-		6DAFE25B1815265900859097 /* thread_clock.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6DAFE2581815265900859097 /* thread_clock.cpp */; };
+		6D4CB89618223EC400A1E5DF /* chrono.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6D4CB89318223EC400A1E5DF /* chrono.cpp */; };
+		6D4CB89718223EC400A1E5DF /* process_cpu_clocks.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6D4CB89418223EC400A1E5DF /* process_cpu_clocks.cpp */; };
+		6D4CB89818223EC400A1E5DF /* thread_clock.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6D4CB89518223EC400A1E5DF /* thread_clock.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		6DAFE22B181525FE00859097 /* CopyFiles */ = {
+		6D4CB86818223E7C00A1E5DF /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "include/$(PRODUCT_NAME)";
@@ -25,14 +25,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		6DAFE22D181525FE00859097 /* libBoost.Chrono.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libBoost.Chrono.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		6DAFE2561815265900859097 /* chrono.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = chrono.cpp; sourceTree = "<group>"; };
-		6DAFE2571815265900859097 /* process_cpu_clocks.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = process_cpu_clocks.cpp; sourceTree = "<group>"; };
-		6DAFE2581815265900859097 /* thread_clock.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = thread_clock.cpp; sourceTree = "<group>"; };
+		6D4CB86A18223E7C00A1E5DF /* libBoost.Chrono.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libBoost.Chrono.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		6D4CB89318223EC400A1E5DF /* chrono.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = chrono.cpp; sourceTree = "<group>"; };
+		6D4CB89418223EC400A1E5DF /* process_cpu_clocks.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = process_cpu_clocks.cpp; sourceTree = "<group>"; };
+		6D4CB89518223EC400A1E5DF /* thread_clock.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = thread_clock.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		6DAFE22A181525FE00859097 /* Frameworks */ = {
+		6D4CB86718223E7C00A1E5DF /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -42,20 +42,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		6DAFE224181525FE00859097 = {
+		6D4CB86118223E7C00A1E5DF = {
 			isa = PBXGroup;
 			children = (
-				6DAFE2561815265900859097 /* chrono.cpp */,
-				6DAFE2571815265900859097 /* process_cpu_clocks.cpp */,
-				6DAFE2581815265900859097 /* thread_clock.cpp */,
-				6DAFE22E181525FE00859097 /* Products */,
+				6D4CB89318223EC400A1E5DF /* chrono.cpp */,
+				6D4CB89418223EC400A1E5DF /* process_cpu_clocks.cpp */,
+				6D4CB89518223EC400A1E5DF /* thread_clock.cpp */,
+				6D4CB86B18223E7C00A1E5DF /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		6DAFE22E181525FE00859097 /* Products */ = {
+		6D4CB86B18223E7C00A1E5DF /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				6DAFE22D181525FE00859097 /* libBoost.Chrono.a */,
+				6D4CB86A18223E7C00A1E5DF /* libBoost.Chrono.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -63,13 +63,13 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		6DAFE22C181525FE00859097 /* Boost.Chrono */ = {
+		6D4CB86918223E7C00A1E5DF /* Boost.Chrono */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6DAFE250181525FE00859097 /* Build configuration list for PBXNativeTarget "Boost.Chrono" */;
+			buildConfigurationList = 6D4CB88D18223E7D00A1E5DF /* Build configuration list for PBXNativeTarget "Boost.Chrono" */;
 			buildPhases = (
-				6DAFE229181525FE00859097 /* Sources */,
-				6DAFE22A181525FE00859097 /* Frameworks */,
-				6DAFE22B181525FE00859097 /* CopyFiles */,
+				6D4CB86618223E7C00A1E5DF /* Sources */,
+				6D4CB86718223E7C00A1E5DF /* Frameworks */,
+				6D4CB86818223E7C00A1E5DF /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -77,50 +77,50 @@
 			);
 			name = Boost.Chrono;
 			productName = Boost.Chrono;
-			productReference = 6DAFE22D181525FE00859097 /* libBoost.Chrono.a */;
+			productReference = 6D4CB86A18223E7C00A1E5DF /* libBoost.Chrono.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		6DAFE225181525FE00859097 /* Project object */ = {
+		6D4CB86218223E7C00A1E5DF /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = Sixion;
 			};
-			buildConfigurationList = 6DAFE228181525FE00859097 /* Build configuration list for PBXProject "Boost.Chrono" */;
+			buildConfigurationList = 6D4CB86518223E7C00A1E5DF /* Build configuration list for PBXProject "Boost.Chrono" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = 6DAFE224181525FE00859097;
-			productRefGroup = 6DAFE22E181525FE00859097 /* Products */;
+			mainGroup = 6D4CB86118223E7C00A1E5DF;
+			productRefGroup = 6D4CB86B18223E7C00A1E5DF /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				6DAFE22C181525FE00859097 /* Boost.Chrono */,
+				6D4CB86918223E7C00A1E5DF /* Boost.Chrono */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		6DAFE229181525FE00859097 /* Sources */ = {
+		6D4CB86618223E7C00A1E5DF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6DAFE25B1815265900859097 /* thread_clock.cpp in Sources */,
-				6DAFE2591815265900859097 /* chrono.cpp in Sources */,
-				6DAFE25A1815265900859097 /* process_cpu_clocks.cpp in Sources */,
+				6D4CB89818223EC400A1E5DF /* thread_clock.cpp in Sources */,
+				6D4CB89618223EC400A1E5DF /* chrono.cpp in Sources */,
+				6D4CB89718223EC400A1E5DF /* process_cpu_clocks.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		6DAFE24E181525FE00859097 /* Debug */ = {
+		6D4CB88B18223E7D00A1E5DF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -137,7 +137,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CONFIGURATION_BUILD_DIR = ../lib/ios;
+				CONFIGURATION_BUILD_DIR = "../lib/ios$(EFFECTIVE_PLATFORM_NAME)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -159,13 +159,13 @@
 					../include,
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		6DAFE24F181525FE00859097 /* Release */ = {
+		6D4CB88C18223E7D00A1E5DF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -182,7 +182,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CONFIGURATION_BUILD_DIR = ../lib/ios;
+				CONFIGURATION_BUILD_DIR = "../lib/ios$(EFFECTIVE_PLATFORM_NAME)";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -198,30 +198,41 @@
 					../include,
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
-		6DAFE251181525FE00859097 /* Debug */ = {
+		6D4CB88E18223E7D00A1E5DF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CONFIGURATION_BUILD_DIR = "$(inherited)";
 				DSTROOT = /tmp/Boost_Chrono.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
 		};
-		6DAFE252181525FE00859097 /* Release */ = {
+		6D4CB88F18223E7D00A1E5DF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CONFIGURATION_BUILD_DIR = "$(inherited)";
 				DSTROOT = /tmp/Boost_Chrono.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -231,25 +242,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		6DAFE228181525FE00859097 /* Build configuration list for PBXProject "Boost.Chrono" */ = {
+		6D4CB86518223E7C00A1E5DF /* Build configuration list for PBXProject "Boost.Chrono" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				6DAFE24E181525FE00859097 /* Debug */,
-				6DAFE24F181525FE00859097 /* Release */,
+				6D4CB88B18223E7D00A1E5DF /* Debug */,
+				6D4CB88C18223E7D00A1E5DF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6DAFE250181525FE00859097 /* Build configuration list for PBXNativeTarget "Boost.Chrono" */ = {
+		6D4CB88D18223E7D00A1E5DF /* Build configuration list for PBXNativeTarget "Boost.Chrono" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				6DAFE251181525FE00859097 /* Debug */,
-				6DAFE252181525FE00859097 /* Release */,
+				6D4CB88E18223E7D00A1E5DF /* Debug */,
+				6D4CB88F18223E7D00A1E5DF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 6DAFE225181525FE00859097 /* Project object */;
+	rootObject = 6D4CB86218223E7C00A1E5DF /* Project object */;
 }
