@@ -8,8 +8,8 @@ MY_SRC_DIR := ../..
 
 LOCAL_SRC_FILES := \
 	$(MY_SRC_DIR)/pthread/once.cpp \
+	$(MY_SRC_DIR)/pthread/lockpool.cpp \
 	$(MY_SRC_DIR)/pthread/thread.cpp \
-	$(MY_SRC_DIR)/android/lockpool.cpp \
 	$(MY_SRC_DIR)/future.cpp \
 	$(MY_SRC_DIR)/tss_null.cpp
 	
