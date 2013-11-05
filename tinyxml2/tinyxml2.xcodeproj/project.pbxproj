@@ -7,19 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6DBE49D117FBF8EB006F5B37 /* libtinyxml2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DBE49B917FBF8EB006F5B37 /* libtinyxml2.a */; };
 		6DBE49E317FBF91C006F5B37 /* tinyxml2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6DBE49E217FBF91C006F5B37 /* tinyxml2.cpp */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		6DBE49CF17FBF8EB006F5B37 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 6DBE49B117FBF8EB006F5B37 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 6DBE49B817FBF8EB006F5B37;
-			remoteInfo = tinyxml2;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		6DBE49B717FBF8EB006F5B37 /* CopyFiles */ = {
@@ -35,7 +24,6 @@
 
 /* Begin PBXFileReference section */
 		6DBE49B917FBF8EB006F5B37 /* libtinyxml2.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libtinyxml2.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		6DBE49C917FBF8EB006F5B37 /* tinyxml2Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = tinyxml2Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6DBE49E217FBF91C006F5B37 /* tinyxml2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tinyxml2.cpp; sourceTree = SOURCE_ROOT; };
 		6DBE49E617FBF97D006F5B37 /* tinyxml2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = tinyxml2.h; path = ../include/tinyxml2/tinyxml2.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -45,14 +33,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		6DBE49C617FBF8EB006F5B37 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				6DBE49D117FBF8EB006F5B37 /* libtinyxml2.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,7 +51,6 @@
 			isa = PBXGroup;
 			children = (
 				6DBE49B917FBF8EB006F5B37 /* libtinyxml2.a */,
-				6DBE49C917FBF8EB006F5B37 /* tinyxml2Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -105,24 +84,6 @@
 			productReference = 6DBE49B917FBF8EB006F5B37 /* libtinyxml2.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		6DBE49C817FBF8EB006F5B37 /* tinyxml2Tests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 6DBE49DF17FBF8EB006F5B37 /* Build configuration list for PBXNativeTarget "tinyxml2Tests" */;
-			buildPhases = (
-				6DBE49C517FBF8EB006F5B37 /* Sources */,
-				6DBE49C617FBF8EB006F5B37 /* Frameworks */,
-				6DBE49C717FBF8EB006F5B37 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				6DBE49D017FBF8EB006F5B37 /* PBXTargetDependency */,
-			);
-			name = tinyxml2Tests;
-			productName = tinyxml2Tests;
-			productReference = 6DBE49C917FBF8EB006F5B37 /* tinyxml2Tests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -145,20 +106,9 @@
 			projectRoot = "";
 			targets = (
 				6DBE49B817FBF8EB006F5B37 /* tinyxml2 */,
-				6DBE49C817FBF8EB006F5B37 /* tinyxml2Tests */,
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXResourcesBuildPhase section */
-		6DBE49C717FBF8EB006F5B37 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		6DBE49B517FBF8EB006F5B37 /* Sources */ = {
@@ -169,22 +119,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6DBE49C517FBF8EB006F5B37 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		6DBE49D017FBF8EB006F5B37 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 6DBE49B817FBF8EB006F5B37 /* tinyxml2 */;
-			targetProxy = 6DBE49CF17FBF8EB006F5B37 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		6DBE49DA17FBF8EB006F5B37 /* Debug */ = {
@@ -286,44 +221,6 @@
 			};
 			name = Release;
 		};
-		6DBE49E017FBF8EB006F5B37 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "tinyxml2/tinyxml2-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "tinyxml2Tests/tinyxml2Tests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Debug;
-		};
-		6DBE49E117FBF8EB006F5B37 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "tinyxml2/tinyxml2-Prefix.pch";
-				INFOPLIST_FILE = "tinyxml2Tests/tinyxml2Tests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -341,15 +238,6 @@
 			buildConfigurations = (
 				6DBE49DD17FBF8EB006F5B37 /* Debug */,
 				6DBE49DE17FBF8EB006F5B37 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		6DBE49DF17FBF8EB006F5B37 /* Build configuration list for PBXNativeTarget "tinyxml2Tests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				6DBE49E017FBF8EB006F5B37 /* Debug */,
-				6DBE49E117FBF8EB006F5B37 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
