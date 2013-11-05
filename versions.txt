@@ -3,7 +3,6 @@ Versions of each libraries
 
 Boost       1.54.0
 JsonCpp     0.5.0
-libjson     7.6.1
 tinyxml2    1.0.11
 UnitTest++  1.4
 zlib        1.2.8
