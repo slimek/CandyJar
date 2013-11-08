@@ -13,28 +13,28 @@
     <ClInclude Include="json_batchallocator.h">
       <Filter>Sources</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\JsonCpp\autolink.h">
+    <ClInclude Include="..\..\include\JsonCpp\autolink.h">
       <Filter>Public Headers</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\JsonCpp\config.h">
+    <ClInclude Include="..\..\include\JsonCpp\config.h">
       <Filter>Public Headers</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\JsonCpp\features.h">
+    <ClInclude Include="..\..\include\JsonCpp\features.h">
       <Filter>Public Headers</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\JsonCpp\forwards.h">
+    <ClInclude Include="..\..\include\JsonCpp\forwards.h">
       <Filter>Public Headers</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\JsonCpp\json.h">
+    <ClInclude Include="..\..\include\JsonCpp\json.h">
       <Filter>Public Headers</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\JsonCpp\reader.h">
+    <ClInclude Include="..\..\include\JsonCpp\reader.h">
       <Filter>Public Headers</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\JsonCpp\value.h">
+    <ClInclude Include="..\..\include\JsonCpp\value.h">
       <Filter>Public Headers</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\JsonCpp\writer.h">
+    <ClInclude Include="..\..\include\JsonCpp\writer.h">
       <Filter>Public Headers</Filter>
     </ClInclude>
   </ItemGroup>
@@ -50,13 +50,13 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="json_reader.cpp">
+    <ClCompile Include="..\src\json_reader.cpp">
       <Filter>Sources</Filter>
     </ClCompile>
-    <ClCompile Include="json_value.cpp">
+    <ClCompile Include="..\src\json_value.cpp">
       <Filter>Sources</Filter>
     </ClCompile>
-    <ClCompile Include="json_writer.cpp">
+    <ClCompile Include="..\src\json_writer.cpp">
       <Filter>Sources</Filter>
     </ClCompile>
   </ItemGroup>
