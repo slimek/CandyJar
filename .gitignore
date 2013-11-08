@@ -1,7 +1,6 @@
+obj/
 *.sdf
 *.suo
-lib/
-obj/
 *.opensdf
 *.user
 *.xcworkspacedata
