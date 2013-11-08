@@ -12,5 +12,6 @@ zlib        1.2.8
 
 # Prebuilt Libraries
 
+AdMob Android   6.4.1
 AdMob iOS       6.5.1
 Flurry Android  3.3.0
