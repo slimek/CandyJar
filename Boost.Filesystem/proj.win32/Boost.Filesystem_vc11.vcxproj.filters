@@ -7,33 +7,33 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="codecvt_error_category.cpp">
+    <ClCompile Include="..\src\codecvt_error_category.cpp">
       <Filter>Sources</Filter>
     </ClCompile>
-    <ClCompile Include="operations.cpp">
+    <ClCompile Include="..\src\operations.cpp">
       <Filter>Sources</Filter>
     </ClCompile>
-    <ClCompile Include="path.cpp">
+    <ClCompile Include="..\src\path.cpp">
       <Filter>Sources</Filter>
     </ClCompile>
-    <ClCompile Include="path_traits.cpp">
+    <ClCompile Include="..\src\path_traits.cpp">
       <Filter>Sources</Filter>
     </ClCompile>
-    <ClCompile Include="portability.cpp">
+    <ClCompile Include="..\src\portability.cpp">
       <Filter>Sources</Filter>
     </ClCompile>
-    <ClCompile Include="unique_path.cpp">
+    <ClCompile Include="..\src\unique_path.cpp">
       <Filter>Sources</Filter>
     </ClCompile>
-    <ClCompile Include="utf8_codecvt_facet.cpp">
+    <ClCompile Include="..\src\utf8_codecvt_facet.cpp">
       <Filter>Sources</Filter>
     </ClCompile>
-    <ClCompile Include="windows_file_codecvt.cpp">
+    <ClCompile Include="..\src\windows_file_codecvt.cpp">
       <Filter>Sources</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="windows_file_codecvt.hpp">
+    <ClInclude Include="..\src\windows_file_codecvt.hpp">
       <Filter>Sources</Filter>
     </ClInclude>
   </ItemGroup>

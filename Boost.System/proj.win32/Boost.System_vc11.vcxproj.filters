@@ -7,14 +7,13 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="chrono.cpp">
+    <ClCompile Include="..\src\error_code.cpp">
       <Filter>Sources</Filter>
     </ClCompile>
-    <ClCompile Include="process_cpu_clocks.cpp">
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\src\local_free_on_destruction.hpp">
       <Filter>Sources</Filter>
-    </ClCompile>
-    <ClCompile Include="thread_clock.cpp">
-      <Filter>Sources</Filter>
-    </ClCompile>
+    </ClInclude>
   </ItemGroup>
 </Project>

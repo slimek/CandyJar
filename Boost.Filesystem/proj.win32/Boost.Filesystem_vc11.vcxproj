@@ -11,17 +11,17 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="codecvt_error_category.cpp" />
-    <ClCompile Include="operations.cpp" />
-    <ClCompile Include="path.cpp" />
-    <ClCompile Include="path_traits.cpp" />
-    <ClCompile Include="portability.cpp" />
-    <ClCompile Include="unique_path.cpp" />
-    <ClCompile Include="utf8_codecvt_facet.cpp" />
-    <ClCompile Include="windows_file_codecvt.cpp" />
+    <ClCompile Include="..\src\codecvt_error_category.cpp" />
+    <ClCompile Include="..\src\operations.cpp" />
+    <ClCompile Include="..\src\path.cpp" />
+    <ClCompile Include="..\src\path_traits.cpp" />
+    <ClCompile Include="..\src\portability.cpp" />
+    <ClCompile Include="..\src\unique_path.cpp" />
+    <ClCompile Include="..\src\utf8_codecvt_facet.cpp" />
+    <ClCompile Include="..\src\windows_file_codecvt.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="windows_file_codecvt.hpp" />
+    <ClInclude Include="..\src\windows_file_codecvt.hpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{D7F1442E-C023-4D19-A346-B856CDAB38BD}</ProjectGuid>
@@ -53,13 +53,13 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <OutDir>..\lib\$(Platform).$(Configuration)\</OutDir>
-    <IntDir>..\obj\$(Platform).$(Configuration)\$(ProjectName)\</IntDir>
+    <OutDir>..\..\lib\$(Platform).$(Configuration)\</OutDir>
+    <IntDir>obj\$(Platform).$(Configuration)\$(ProjectName)\</IntDir>
     <TargetName>libboost_filesystem-vc110-mt-gd-1_54</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <OutDir>..\lib\$(Platform).$(Configuration)\</OutDir>
-    <IntDir>..\obj\$(Platform).$(Configuration)\$(ProjectName)\</IntDir>
+    <OutDir>..\..\lib\$(Platform).$(Configuration)\</OutDir>
+    <IntDir>obj\$(Platform).$(Configuration)\$(ProjectName)\</IntDir>
     <TargetName>libboost_filesystem-vc110-mt-1_54</TargetName>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -69,7 +69,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -85,7 +85,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
