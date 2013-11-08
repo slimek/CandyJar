@@ -7,14 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6DAFE2971815273900859097 /* codecvt_error_category.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6DAFE28E1815273900859097 /* codecvt_error_category.cpp */; };
-		6DAFE2981815273900859097 /* operations.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6DAFE28F1815273900859097 /* operations.cpp */; };
-		6DAFE2991815273900859097 /* path_traits.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6DAFE2901815273900859097 /* path_traits.cpp */; };
-		6DAFE29A1815273900859097 /* path.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6DAFE2911815273900859097 /* path.cpp */; };
-		6DAFE29B1815273900859097 /* portability.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6DAFE2921815273900859097 /* portability.cpp */; };
-		6DAFE29C1815273900859097 /* unique_path.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6DAFE2931815273900859097 /* unique_path.cpp */; };
-		6DAFE29D1815273900859097 /* utf8_codecvt_facet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6DAFE2941815273900859097 /* utf8_codecvt_facet.cpp */; };
-		6DAFE29E1815273900859097 /* windows_file_codecvt.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6DAFE2951815273900859097 /* windows_file_codecvt.cpp */; };
+		6D377549182B799600FF435C /* codecvt_error_category.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6D377540182B799600FF435C /* codecvt_error_category.cpp */; };
+		6D37754A182B799600FF435C /* operations.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6D377541182B799600FF435C /* operations.cpp */; };
+		6D37754B182B799600FF435C /* path_traits.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6D377542182B799600FF435C /* path_traits.cpp */; };
+		6D37754C182B799600FF435C /* path.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6D377543182B799600FF435C /* path.cpp */; };
+		6D37754D182B799600FF435C /* portability.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6D377544182B799600FF435C /* portability.cpp */; };
+		6D37754E182B799600FF435C /* unique_path.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6D377545182B799600FF435C /* unique_path.cpp */; };
+		6D37754F182B799600FF435C /* utf8_codecvt_facet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6D377546182B799600FF435C /* utf8_codecvt_facet.cpp */; };
+		6D377550182B799600FF435C /* windows_file_codecvt.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6D377547182B799600FF435C /* windows_file_codecvt.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -30,16 +30,16 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		6D377540182B799600FF435C /* codecvt_error_category.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = codecvt_error_category.cpp; path = ../codecvt_error_category.cpp; sourceTree = "<group>"; };
+		6D377541182B799600FF435C /* operations.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = operations.cpp; path = ../operations.cpp; sourceTree = "<group>"; };
+		6D377542182B799600FF435C /* path_traits.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = path_traits.cpp; path = ../path_traits.cpp; sourceTree = "<group>"; };
+		6D377543182B799600FF435C /* path.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = path.cpp; path = ../path.cpp; sourceTree = "<group>"; };
+		6D377544182B799600FF435C /* portability.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = portability.cpp; path = ../portability.cpp; sourceTree = "<group>"; };
+		6D377545182B799600FF435C /* unique_path.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = unique_path.cpp; path = ../unique_path.cpp; sourceTree = "<group>"; };
+		6D377546182B799600FF435C /* utf8_codecvt_facet.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = utf8_codecvt_facet.cpp; path = ../utf8_codecvt_facet.cpp; sourceTree = "<group>"; };
+		6D377547182B799600FF435C /* windows_file_codecvt.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = windows_file_codecvt.cpp; path = ../windows_file_codecvt.cpp; sourceTree = "<group>"; };
+		6D377548182B799600FF435C /* windows_file_codecvt.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = windows_file_codecvt.hpp; path = ../windows_file_codecvt.hpp; sourceTree = "<group>"; };
 		6DAFE265181526E700859097 /* libBoost.Filesystem.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libBoost.Filesystem.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		6DAFE28E1815273900859097 /* codecvt_error_category.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = codecvt_error_category.cpp; sourceTree = "<group>"; };
-		6DAFE28F1815273900859097 /* operations.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = operations.cpp; sourceTree = "<group>"; };
-		6DAFE2901815273900859097 /* path_traits.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = path_traits.cpp; sourceTree = "<group>"; };
-		6DAFE2911815273900859097 /* path.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = path.cpp; sourceTree = "<group>"; };
-		6DAFE2921815273900859097 /* portability.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = portability.cpp; sourceTree = "<group>"; };
-		6DAFE2931815273900859097 /* unique_path.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = unique_path.cpp; sourceTree = "<group>"; };
-		6DAFE2941815273900859097 /* utf8_codecvt_facet.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = utf8_codecvt_facet.cpp; sourceTree = "<group>"; };
-		6DAFE2951815273900859097 /* windows_file_codecvt.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = windows_file_codecvt.cpp; sourceTree = "<group>"; };
-		6DAFE2961815273900859097 /* windows_file_codecvt.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = windows_file_codecvt.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +56,15 @@
 		6DAFE25C181526E700859097 = {
 			isa = PBXGroup;
 			children = (
-				6DAFE28E1815273900859097 /* codecvt_error_category.cpp */,
-				6DAFE28F1815273900859097 /* operations.cpp */,
-				6DAFE2901815273900859097 /* path_traits.cpp */,
-				6DAFE2911815273900859097 /* path.cpp */,
-				6DAFE2921815273900859097 /* portability.cpp */,
-				6DAFE2931815273900859097 /* unique_path.cpp */,
-				6DAFE2941815273900859097 /* utf8_codecvt_facet.cpp */,
-				6DAFE2951815273900859097 /* windows_file_codecvt.cpp */,
-				6DAFE2961815273900859097 /* windows_file_codecvt.hpp */,
+				6D377540182B799600FF435C /* codecvt_error_category.cpp */,
+				6D377541182B799600FF435C /* operations.cpp */,
+				6D377542182B799600FF435C /* path_traits.cpp */,
+				6D377543182B799600FF435C /* path.cpp */,
+				6D377544182B799600FF435C /* portability.cpp */,
+				6D377545182B799600FF435C /* unique_path.cpp */,
+				6D377546182B799600FF435C /* utf8_codecvt_facet.cpp */,
+				6D377547182B799600FF435C /* windows_file_codecvt.cpp */,
+				6D377548182B799600FF435C /* windows_file_codecvt.hpp */,
 				6DAFE266181526E700859097 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -128,14 +128,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6DAFE2971815273900859097 /* codecvt_error_category.cpp in Sources */,
-				6DAFE2991815273900859097 /* path_traits.cpp in Sources */,
-				6DAFE29E1815273900859097 /* windows_file_codecvt.cpp in Sources */,
-				6DAFE29A1815273900859097 /* path.cpp in Sources */,
-				6DAFE29C1815273900859097 /* unique_path.cpp in Sources */,
-				6DAFE29B1815273900859097 /* portability.cpp in Sources */,
-				6DAFE29D1815273900859097 /* utf8_codecvt_facet.cpp in Sources */,
-				6DAFE2981815273900859097 /* operations.cpp in Sources */,
+				6D377549182B799600FF435C /* codecvt_error_category.cpp in Sources */,
+				6D37754B182B799600FF435C /* path_traits.cpp in Sources */,
+				6D377550182B799600FF435C /* windows_file_codecvt.cpp in Sources */,
+				6D37754C182B799600FF435C /* path.cpp in Sources */,
+				6D37754E182B799600FF435C /* unique_path.cpp in Sources */,
+				6D37754D182B799600FF435C /* portability.cpp in Sources */,
+				6D37754F182B799600FF435C /* utf8_codecvt_facet.cpp in Sources */,
+				6D37754A182B799600FF435C /* operations.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -159,7 +159,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CONFIGURATION_BUILD_DIR = "../lib/ios$(EFFECTIVE_PLATFORM_NAME)";
+				CONFIGURATION_BUILD_DIR = "../../lib/ios$(EFFECTIVE_PLATFORM_NAME)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -178,7 +178,7 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
-					../include,
+					../../include,
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				ONLY_ACTIVE_ARCH = NO;
@@ -204,7 +204,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CONFIGURATION_BUILD_DIR = "../lib/ios$(EFFECTIVE_PLATFORM_NAME)";
+				CONFIGURATION_BUILD_DIR = "../../lib/ios$(EFFECTIVE_PLATFORM_NAME)";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -217,7 +217,7 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
-					../include,
+					../../include,
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				ONLY_ACTIVE_ARCH = NO;

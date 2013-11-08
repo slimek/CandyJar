@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6D4CB89618223EC400A1E5DF /* chrono.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6D4CB89318223EC400A1E5DF /* chrono.cpp */; };
-		6D4CB89718223EC400A1E5DF /* process_cpu_clocks.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6D4CB89418223EC400A1E5DF /* process_cpu_clocks.cpp */; };
-		6D4CB89818223EC400A1E5DF /* thread_clock.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6D4CB89518223EC400A1E5DF /* thread_clock.cpp */; };
+		6D973A0A182B79180086C153 /* chrono.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6D973A07182B79180086C153 /* chrono.cpp */; };
+		6D973A0B182B79180086C153 /* process_cpu_clocks.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6D973A08182B79180086C153 /* process_cpu_clocks.cpp */; };
+		6D973A0C182B79180086C153 /* thread_clock.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6D973A09182B79180086C153 /* thread_clock.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -26,9 +26,9 @@
 
 /* Begin PBXFileReference section */
 		6D4CB86A18223E7C00A1E5DF /* libBoost.Chrono.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libBoost.Chrono.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		6D4CB89318223EC400A1E5DF /* chrono.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = chrono.cpp; sourceTree = "<group>"; };
-		6D4CB89418223EC400A1E5DF /* process_cpu_clocks.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = process_cpu_clocks.cpp; sourceTree = "<group>"; };
-		6D4CB89518223EC400A1E5DF /* thread_clock.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = thread_clock.cpp; sourceTree = "<group>"; };
+		6D973A07182B79180086C153 /* chrono.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = chrono.cpp; path = ../chrono.cpp; sourceTree = "<group>"; };
+		6D973A08182B79180086C153 /* process_cpu_clocks.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = process_cpu_clocks.cpp; path = ../process_cpu_clocks.cpp; sourceTree = "<group>"; };
+		6D973A09182B79180086C153 /* thread_clock.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = thread_clock.cpp; path = ../thread_clock.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,9 +45,9 @@
 		6D4CB86118223E7C00A1E5DF = {
 			isa = PBXGroup;
 			children = (
-				6D4CB89318223EC400A1E5DF /* chrono.cpp */,
-				6D4CB89418223EC400A1E5DF /* process_cpu_clocks.cpp */,
-				6D4CB89518223EC400A1E5DF /* thread_clock.cpp */,
+				6D973A07182B79180086C153 /* chrono.cpp */,
+				6D973A08182B79180086C153 /* process_cpu_clocks.cpp */,
+				6D973A09182B79180086C153 /* thread_clock.cpp */,
 				6D4CB86B18223E7C00A1E5DF /* Products */,
 			);
 			sourceTree = "<group>";
@@ -111,9 +111,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6D4CB89818223EC400A1E5DF /* thread_clock.cpp in Sources */,
-				6D4CB89618223EC400A1E5DF /* chrono.cpp in Sources */,
-				6D4CB89718223EC400A1E5DF /* process_cpu_clocks.cpp in Sources */,
+				6D973A0C182B79180086C153 /* thread_clock.cpp in Sources */,
+				6D973A0A182B79180086C153 /* chrono.cpp in Sources */,
+				6D973A0B182B79180086C153 /* process_cpu_clocks.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,7 +137,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CONFIGURATION_BUILD_DIR = "../lib/ios$(EFFECTIVE_PLATFORM_NAME)";
+				CONFIGURATION_BUILD_DIR = "../../lib/ios$(EFFECTIVE_PLATFORM_NAME)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -156,7 +156,7 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
-					../include,
+					../../include,
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				ONLY_ACTIVE_ARCH = NO;
@@ -182,7 +182,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CONFIGURATION_BUILD_DIR = "../lib/ios$(EFFECTIVE_PLATFORM_NAME)";
+				CONFIGURATION_BUILD_DIR = "../../lib/ios$(EFFECTIVE_PLATFORM_NAME)";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -195,7 +195,7 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
-					../include,
+					../../include,
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				ONLY_ACTIVE_ARCH = NO;
