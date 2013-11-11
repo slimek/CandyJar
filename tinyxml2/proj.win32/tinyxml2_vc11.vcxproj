@@ -11,10 +11,10 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="tinyxml2.cpp" />
+    <ClCompile Include="..\src\tinyxml2.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\include\tinyxml2\tinyxml2.h" />
+    <ClInclude Include="..\..\include\tinyxml2\tinyxml2.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{F7BA5BF8-4C2C-4925-B182-668C46846185}</ProjectGuid>
@@ -46,13 +46,13 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <OutDir>..\lib\$(Platform).$(Configuration)\</OutDir>
-    <IntDir>..\obj\$(Configuration)\$(ProjectName)\</IntDir>
+    <OutDir>..\..\lib\$(Platform).$(Configuration)\</OutDir>
+    <IntDir>obj\$(Configuration)\$(ProjectName)\</IntDir>
     <TargetName>tinyxml2</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <OutDir>..\lib\$(Platform).$(Configuration)\</OutDir>
-    <IntDir>..\obj\$(Configuration)\$(ProjectName)\</IntDir>
+    <OutDir>..\..\lib\$(Platform).$(Configuration)\</OutDir>
+    <IntDir>obj\$(Configuration)\$(ProjectName)\</IntDir>
     <TargetName>tinyxml2</TargetName>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -62,7 +62,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\include\tinyxml2</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\include\tinyxml2</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -78,7 +78,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\include\tinyxml2</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\include\tinyxml2</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
