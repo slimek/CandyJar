@@ -4,7 +4,7 @@ include $(CLEAR_VARS)
 
 LOCAL_MODULE := boost-chrono
 
-MY_SRC_DIR := ../..
+MY_SRC_DIR := ../../src
 
 LOCAL_SRC_FILES := \
 	$(MY_SRC_DIR)/chrono.cpp \

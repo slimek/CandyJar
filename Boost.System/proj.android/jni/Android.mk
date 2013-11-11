@@ -4,7 +4,7 @@ include $(CLEAR_VARS)
 
 LOCAL_MODULE := boost-system
 
-MY_SRC_DIR := ../..
+MY_SRC_DIR := ../../src
 
 LOCAL_SRC_FILES := \
 	$(MY_SRC_DIR)/error_code.cpp

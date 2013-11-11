@@ -4,7 +4,7 @@ include $(CLEAR_VARS)
 
 LOCAL_MODULE := JsonCpp
 
-MY_SRC_DIR := ../..
+MY_SRC_DIR := ../../src
 
 LOCAL_SRC_FILES := \
 	$(MY_SRC_DIR)/json_reader.cpp \
