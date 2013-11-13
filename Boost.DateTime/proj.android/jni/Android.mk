@@ -2,7 +2,7 @@ LOCAL_PATH := $(call my-dir)
 
 include $(CLEAR_VARS)
 
-LOCAL_MODULE := boost-datetime
+LOCAL_MODULE := boost-date_time
 
 MY_SRC_DIR := ../../src
 
