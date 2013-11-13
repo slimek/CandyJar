@@ -1,10 +1,25 @@
+#
+# Store the local path
+# - Otherwise it would be overwriten by other Android.mk files.
+#
+
 MY_LOCAL_PATH := $(call my-dir)
 
-include ../../Boost.Chrono/proj.android/jni/Android.mk
 
+#
+# Build each libraries
+#
+
+include ../../Boost.Chrono/proj.android/jni/Android.mk
 include ../../Boost.System/proj.android/jni/Android.mk
 
-LOCAL_PATH := MY_LOCAL_PATH
+
+#
+# Build a dummy local module
+# - Use this to launch the copy commands.
+#
+
+LOCAL_PATH := $(MY_LOCAL_PATH)
 
 include $(CLEAR_VARS)
 
@@ -14,13 +29,29 @@ LOCAL_WHOLE_STATIC_LIBRARIES := \
 	boost-chrono \
 	boost-system
 
-CANDY_JAR_LIB := ../../lib
-
 include $(BUILD_SHARED_LIBRARY)
 
-$(LOCAL_BUILT_MODULE): copy-work-$(TARGET_ARCH_ABI)
+include $(CLEAR_VARS)
 
-copy-work-$(TARGET_ARCH_ABI):
-	$(call host-mkdir,$(CANDY_JAR_LIB)/Android.Ndk)
-	$(call host-mkdir,$(CANDY_JAR_LIB)/Android.Ndk/$(TARGET_ARCH_ABI))
+#
+# Make output directories, then copy all built libraries
+#
+
+CANDY_LIB := ../../lib
+MY_ARCH_ABI := $(TARGET_ARCH_ABI)
+
+# $(call candy-copy,lib-name)
+define candy-copy
+  $(call host-cp,obj/local/$@/$1,$(CANDY_LIB)/Android.Ndk/$@/$1)
+endef
+
+
+$(LOCAL_BUILT_MODULE): $(MY_ARCH_ABI)
+
+$(MY_ARCH_ABI):
+	$(call host-mkdir,$(CANDY_LIB)/Android.Ndk)
+	$(call host-mkdir,$(CANDY_LIB)/Android.Ndk/$@)
+	$(call candy-copy,libboost-chrono.a)	
+
+
 
