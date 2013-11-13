@@ -3,7 +3,7 @@
 # - Otherwise it would be overwriten by other Android.mk files.
 #
 
-MY_LOCAL_PATH := $(call my-dir)
+CANDY_LOCAL_PATH := $(call my-dir)
 
 
 #
@@ -24,7 +24,7 @@ include $(call candy-make,Boost.System)
 # - Use this to launch the copy commands.
 #
 
-LOCAL_PATH := $(MY_LOCAL_PATH)
+LOCAL_PATH := $(CANDY_LOCAL_PATH)
 
 include $(CLEAR_VARS)
 
@@ -43,16 +43,16 @@ include $(BUILD_SHARED_LIBRARY)
 
 # My variables
 CANDY_LIB := ../../lib
-MY_ARCH_ABI := $(TARGET_ARCH_ABI)
+CANDY_ARCH_ABI := $(TARGET_ARCH_ABI)
 
 # $(call candy-copy,lib-name)
 define candy-copy
   $(call host-cp,obj/local/$@/$1,$(CANDY_LIB)/Android.Ndk/$@/$1)
 endef
 
-all: $(MY_ARCH_ABI)
+all: $(CANDY_ARCH_ABI)
 
-$(MY_ARCH_ABI): $(LOCAL_BUILT_MODULE)
+$(CANDY_ARCH_ABI): $(LOCAL_BUILT_MODULE)
 	$(call host-mkdir,$(CANDY_LIB)/Android.Ndk)
 	$(call host-mkdir,$(CANDY_LIB)/Android.Ndk/$@)
 	$(call candy-copy,libboost-chrono.a)
@@ -68,9 +68,9 @@ define candy-clean
   $(call host-rm,$(CANDY_LIB)/Android.Ndk/$(subst -clean,,$@)/$1.a)
 endef
 
-clean: $(MY_ARCH_ABI)-clean
+clean: $(CANDY_ARCH_ABI)-clean
 
-$(MY_ARCH_ABI)-clean:
+$(CANDY_ARCH_ABI)-clean:
 	$(call candy-clean,libboost-chrono)
 	$(call candy-clean,libboost-system)
 
