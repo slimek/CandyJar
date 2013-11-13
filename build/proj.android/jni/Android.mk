@@ -16,7 +16,12 @@ define candy-make
 endef
 
 include $(call candy-make,Boost.Chrono)
+include $(call candy-make,Boost.DateTime)
+include $(call candy-make,Boost.Filesystem)
+include $(call candy-make,Boost.ProgramOptions)
+include $(call candy-make,Boost.Regex)
 include $(call candy-make,Boost.System)
+include $(call candy-make,JsonCpp)
 
 
 #
@@ -32,7 +37,12 @@ LOCAL_MODULE := CandyJar
 
 LOCAL_WHOLE_STATIC_LIBRARIES := \
 	boost-chrono \
-	boost-system
+	boost-date_time \
+	boost-filesystem \
+	boost-program_options \
+	boost-regex \
+	boost-system \
+	JsonCpp
 
 include $(BUILD_SHARED_LIBRARY)
 
@@ -47,7 +57,7 @@ CANDY_ARCH_ABI := $(TARGET_ARCH_ABI)
 
 # $(call candy-copy,lib-name)
 define candy-copy
-  $(call host-cp,obj/local/$@/$1,$(CANDY_LIB)/Android.Ndk/$@/$1)
+  $(call host-cp,obj/local/$@/lib$1.a,$(CANDY_LIB)/Android.Ndk/$@/lib$1.a)
 endef
 
 all: $(CANDY_ARCH_ABI)
@@ -55,8 +65,13 @@ all: $(CANDY_ARCH_ABI)
 $(CANDY_ARCH_ABI): $(LOCAL_BUILT_MODULE)
 	$(call host-mkdir,$(CANDY_LIB)/Android.Ndk)
 	$(call host-mkdir,$(CANDY_LIB)/Android.Ndk/$@)
-	$(call candy-copy,libboost-chrono.a)
-	$(call candy-copy,libboost-system.a)
+	$(call candy-copy,boost-chrono)
+	$(call candy-copy,boost-date_time)
+	$(call candy-copy,boost-filesystem)
+	$(call candy-copy,boost-program_options)
+	$(call candy-copy,boost-regex)
+	$(call candy-copy,boost-system)
+	$(call candy-copy,JsonCpp)
 
 
 #
@@ -65,14 +80,19 @@ $(CANDY_ARCH_ABI): $(LOCAL_BUILT_MODULE)
 
 # $(call candy-clean,lib-name)
 define candy-clean
-  $(call host-rm,$(CANDY_LIB)/Android.Ndk/$(subst -clean,,$@)/$1.a)
+  $(call host-rm,$(CANDY_LIB)/Android.Ndk/$(subst -clean,,$@)/lib$1.a)
 endef
 
 clean: $(CANDY_ARCH_ABI)-clean
 
 $(CANDY_ARCH_ABI)-clean:
-	$(call candy-clean,libboost-chrono)
-	$(call candy-clean,libboost-system)
+	$(call candy-clean,boost-chrono)
+	$(call candy-clean,boost-date_time)
+	$(call candy-clean,boost-filesystem)
+	$(call candy-clean,boost-program_options)
+	$(call candy-clean,boost-regex)
+	$(call candy-clean,boost-system)
+	$(call candy-clean,JsonCpp)
 
 
 #
