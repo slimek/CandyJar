@@ -107,5 +107,4 @@ lib/ios/FacebookSDK.framework/Versions/A/Resources/FBUserSettingsViewResources.b
 lib/ios/FacebookSDK.framework/Versions/A/Resources/FacebookSDKResources.bundle.README
 lib/ios/FacebookSDK.framework/Versions/A/Resources/Info.plist
 lib/ios/FacebookSDK.framework/Versions/Current
-lib/ios/libAFNetworking.a
-lib/ios/libOpenKit.a
+libAFNetworking.a
