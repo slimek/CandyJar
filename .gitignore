@@ -1,11 +1,23 @@
+# Common Generated Files
 obj/
+
+# Visual Studio Generated Files
 *.sdf
 *.suo
 *.opensdf
 *.user
+
+# Xcode Generated Files
 *.xcworkspacedata
 *.xcscheme
 xcschememanagement.plist
+
+# Eclipse + NDK Generated Files
+bin/
+gen/
+.settings/
+
+# Prebuilt Librareis
 lib/ios-iphoneos/libAFNetworking.a
 lib/ios-iphonesimulator/libAFNetworking.a
 lib/ios/libAFNetworking.a
