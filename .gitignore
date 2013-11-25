@@ -17,8 +17,25 @@ bin/
 gen/
 .settings/
 
-# Prebuilt Librareis
 lib/ios-iphoneos/libAFNetworking.a
 lib/ios-iphonesimulator/libAFNetworking.a
 lib/ios/libAFNetworking.a
-lib/ios/libOpenKit.a
+lib/ios-iphoneos/libBoost.Chrono.a
+lib/ios-iphoneos/libBoost.DateTime.a
+lib/ios-iphoneos/libBoost.ProgramOptions.a
+lib/ios-iphoneos/libBoost.Regex.a
+lib/ios-iphoneos/libBoost.System.a
+lib/ios-iphoneos/libJsonCpp.a
+lib/ios-iphonesimulator/libBoost.Chrono.a
+lib/ios-iphonesimulator/libBoost.DateTime.a
+lib/ios-iphonesimulator/libBoost.ProgramOptions.a
+lib/ios-iphonesimulator/libBoost.Regex.a
+lib/ios-iphonesimulator/libBoost.System.a
+lib/ios-iphonesimulator/libJsonCpp.a
+lib/ios/libBoost.Chrono.a
+lib/ios/libBoost.DateTime.a
+lib/ios/libBoost.ProgramOptions.a
+lib/ios/libBoost.Regex.a
+lib/ios/libBoost.System.a
+lib/ios/libJsonCpp.a
+lib/ios/libo.rtf
