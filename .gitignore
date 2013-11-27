@@ -39,3 +39,5 @@ lib/ios/libBoost.Regex.a
 lib/ios/libBoost.System.a
 lib/ios/libJsonCpp.a
 lib/ios/libo.rtf
+lib/ios-iphoneos/libBoost.Filesystem.a
+lib/ios-iphonesimulator/libBoost.Filesystem.a
