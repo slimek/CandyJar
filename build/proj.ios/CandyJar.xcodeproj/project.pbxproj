@@ -1,0 +1,527 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXContainerItemProxy section */
+		6DA109E41856B44800588AA2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6DA109E01856B44800588AA2 /* AFNetworking.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6DCDFDAA18331D92007DC977;
+			remoteInfo = AFNetworking;
+		};
+		6DA109EA1856B44E00588AA2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6DA109E61856B44D00588AA2 /* Boost.Chrono.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6D4CB86A18223E7C00A1E5DF;
+			remoteInfo = Boost.Chrono;
+		};
+		6DA109F01856B45200588AA2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6DA109EC1856B45200588AA2 /* Boost.DateTime.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6DBEB94B183068A7009AA1AC;
+			remoteInfo = Boost.DateTime;
+		};
+		6DA109F61856B45A00588AA2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6DA109F21856B45A00588AA2 /* Boost.Filesystem.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6DAFE265181526E700859097;
+			remoteInfo = Boost.Filesystem;
+		};
+		6DA109FC1856B46000588AA2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6DA109F81856B46000588AA2 /* Boost.ProgramOptions.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6DAFE2A81815279900859097;
+			remoteInfo = Boost.ProgramOptions;
+		};
+		6DA10A021856B46C00588AA2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6DA109FE1856B46C00588AA2 /* Boost.System.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6DAFE2F01815281C00859097;
+			remoteInfo = Boost.System;
+		};
+		6DA10A081856B47300588AA2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6DA10A041856B47300588AA2 /* JsonCpp.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6DB372C9180CD91E008AF50F;
+			remoteInfo = JsonCpp;
+		};
+		6DA10A0A1856B4EB00588AA2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6DA109E01856B44800588AA2 /* AFNetworking.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 6DCDFDA918331D92007DC977;
+			remoteInfo = AFNetworking;
+		};
+		6DA10A0C1856B4EB00588AA2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6DA109E61856B44D00588AA2 /* Boost.Chrono.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 6D4CB86918223E7C00A1E5DF;
+			remoteInfo = Boost.Chrono;
+		};
+		6DA10A0E1856B4EB00588AA2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6DA109EC1856B45200588AA2 /* Boost.DateTime.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 6DBEB94A183068A7009AA1AC;
+			remoteInfo = Boost.DateTime;
+		};
+		6DA10A101856B4EB00588AA2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6DA109F21856B45A00588AA2 /* Boost.Filesystem.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 6DAFE264181526E700859097;
+			remoteInfo = Boost.Filesystem;
+		};
+		6DA10A121856B4EB00588AA2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6DA109F81856B46000588AA2 /* Boost.ProgramOptions.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 6DAFE2A71815279900859097;
+			remoteInfo = Boost.ProgramOptions;
+		};
+		6DA10A141856B4EB00588AA2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6DA109FE1856B46C00588AA2 /* Boost.System.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 6DAFE2EF1815281C00859097;
+			remoteInfo = Boost.System;
+		};
+		6DA10A161856B4EB00588AA2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6DA10A041856B47300588AA2 /* JsonCpp.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 6DB372C8180CD91E008AF50F;
+			remoteInfo = JsonCpp;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		6DA109B51856B42400588AA2 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		6DA109B71856B42400588AA2 /* libCandyJar.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libCandyJar.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		6DA109E01856B44800588AA2 /* AFNetworking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = AFNetworking.xcodeproj; path = ../../AFNetworking/AFNetworking.xcodeproj; sourceTree = "<group>"; };
+		6DA109E61856B44D00588AA2 /* Boost.Chrono.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Boost.Chrono.xcodeproj; path = ../../Boost.Chrono/proj.ios/Boost.Chrono.xcodeproj; sourceTree = "<group>"; };
+		6DA109EC1856B45200588AA2 /* Boost.DateTime.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Boost.DateTime.xcodeproj; path = ../../Boost.DateTime/proj.ios/Boost.DateTime.xcodeproj; sourceTree = "<group>"; };
+		6DA109F21856B45A00588AA2 /* Boost.Filesystem.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Boost.Filesystem.xcodeproj; path = ../../Boost.Filesystem/proj.ios/Boost.Filesystem.xcodeproj; sourceTree = "<group>"; };
+		6DA109F81856B46000588AA2 /* Boost.ProgramOptions.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Boost.ProgramOptions.xcodeproj; path = ../../Boost.ProgramOptions/proj.ios/Boost.ProgramOptions.xcodeproj; sourceTree = "<group>"; };
+		6DA109FE1856B46C00588AA2 /* Boost.System.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Boost.System.xcodeproj; path = ../../Boost.System/proj.ios/Boost.System.xcodeproj; sourceTree = "<group>"; };
+		6DA10A041856B47300588AA2 /* JsonCpp.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = JsonCpp.xcodeproj; path = ../../JsonCpp/proj.ios/JsonCpp.xcodeproj; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6DA109B41856B42400588AA2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6DA109AE1856B42400588AA2 = {
+			isa = PBXGroup;
+			children = (
+				6DA109E01856B44800588AA2 /* AFNetworking.xcodeproj */,
+				6DA109E61856B44D00588AA2 /* Boost.Chrono.xcodeproj */,
+				6DA109EC1856B45200588AA2 /* Boost.DateTime.xcodeproj */,
+				6DA109F21856B45A00588AA2 /* Boost.Filesystem.xcodeproj */,
+				6DA109F81856B46000588AA2 /* Boost.ProgramOptions.xcodeproj */,
+				6DA109FE1856B46C00588AA2 /* Boost.System.xcodeproj */,
+				6DA10A041856B47300588AA2 /* JsonCpp.xcodeproj */,
+				6DA109B81856B42400588AA2 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		6DA109B81856B42400588AA2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6DA109B71856B42400588AA2 /* libCandyJar.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6DA109E11856B44800588AA2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6DA109E51856B44800588AA2 /* libAFNetworking.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6DA109E71856B44D00588AA2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6DA109EB1856B44E00588AA2 /* libBoost.Chrono.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6DA109ED1856B45200588AA2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6DA109F11856B45200588AA2 /* libBoost.DateTime.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6DA109F31856B45A00588AA2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6DA109F71856B45A00588AA2 /* libBoost.Filesystem.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6DA109F91856B46000588AA2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6DA109FD1856B46000588AA2 /* libBoost.ProgramOptions.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6DA109FF1856B46C00588AA2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6DA10A031856B46C00588AA2 /* libBoost.System.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6DA10A051856B47300588AA2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6DA10A091856B47300588AA2 /* libJsonCpp.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		6DA109B61856B42400588AA2 /* CandyJar */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6DA109DA1856B42400588AA2 /* Build configuration list for PBXNativeTarget "CandyJar" */;
+			buildPhases = (
+				6DA109B31856B42400588AA2 /* Sources */,
+				6DA109B41856B42400588AA2 /* Frameworks */,
+				6DA109B51856B42400588AA2 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6DA10A0B1856B4EB00588AA2 /* PBXTargetDependency */,
+				6DA10A0D1856B4EB00588AA2 /* PBXTargetDependency */,
+				6DA10A0F1856B4EB00588AA2 /* PBXTargetDependency */,
+				6DA10A111856B4EB00588AA2 /* PBXTargetDependency */,
+				6DA10A131856B4EB00588AA2 /* PBXTargetDependency */,
+				6DA10A151856B4EB00588AA2 /* PBXTargetDependency */,
+				6DA10A171856B4EB00588AA2 /* PBXTargetDependency */,
+			);
+			name = CandyJar;
+			productName = CandyJar;
+			productReference = 6DA109B71856B42400588AA2 /* libCandyJar.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6DA109AF1856B42400588AA2 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = Sixion;
+			};
+			buildConfigurationList = 6DA109B21856B42400588AA2 /* Build configuration list for PBXProject "CandyJar" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 6DA109AE1856B42400588AA2;
+			productRefGroup = 6DA109B81856B42400588AA2 /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 6DA109E11856B44800588AA2 /* Products */;
+					ProjectRef = 6DA109E01856B44800588AA2 /* AFNetworking.xcodeproj */;
+				},
+				{
+					ProductGroup = 6DA109E71856B44D00588AA2 /* Products */;
+					ProjectRef = 6DA109E61856B44D00588AA2 /* Boost.Chrono.xcodeproj */;
+				},
+				{
+					ProductGroup = 6DA109ED1856B45200588AA2 /* Products */;
+					ProjectRef = 6DA109EC1856B45200588AA2 /* Boost.DateTime.xcodeproj */;
+				},
+				{
+					ProductGroup = 6DA109F31856B45A00588AA2 /* Products */;
+					ProjectRef = 6DA109F21856B45A00588AA2 /* Boost.Filesystem.xcodeproj */;
+				},
+				{
+					ProductGroup = 6DA109F91856B46000588AA2 /* Products */;
+					ProjectRef = 6DA109F81856B46000588AA2 /* Boost.ProgramOptions.xcodeproj */;
+				},
+				{
+					ProductGroup = 6DA109FF1856B46C00588AA2 /* Products */;
+					ProjectRef = 6DA109FE1856B46C00588AA2 /* Boost.System.xcodeproj */;
+				},
+				{
+					ProductGroup = 6DA10A051856B47300588AA2 /* Products */;
+					ProjectRef = 6DA10A041856B47300588AA2 /* JsonCpp.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				6DA109B61856B42400588AA2 /* CandyJar */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		6DA109E51856B44800588AA2 /* libAFNetworking.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libAFNetworking.a;
+			remoteRef = 6DA109E41856B44800588AA2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		6DA109EB1856B44E00588AA2 /* libBoost.Chrono.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libBoost.Chrono.a;
+			remoteRef = 6DA109EA1856B44E00588AA2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		6DA109F11856B45200588AA2 /* libBoost.DateTime.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libBoost.DateTime.a;
+			remoteRef = 6DA109F01856B45200588AA2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		6DA109F71856B45A00588AA2 /* libBoost.Filesystem.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libBoost.Filesystem.a;
+			remoteRef = 6DA109F61856B45A00588AA2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		6DA109FD1856B46000588AA2 /* libBoost.ProgramOptions.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libBoost.ProgramOptions.a;
+			remoteRef = 6DA109FC1856B46000588AA2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		6DA10A031856B46C00588AA2 /* libBoost.System.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libBoost.System.a;
+			remoteRef = 6DA10A021856B46C00588AA2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		6DA10A091856B47300588AA2 /* libJsonCpp.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libJsonCpp.a;
+			remoteRef = 6DA10A081856B47300588AA2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6DA109B31856B42400588AA2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		6DA10A0B1856B4EB00588AA2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = AFNetworking;
+			targetProxy = 6DA10A0A1856B4EB00588AA2 /* PBXContainerItemProxy */;
+		};
+		6DA10A0D1856B4EB00588AA2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Boost.Chrono;
+			targetProxy = 6DA10A0C1856B4EB00588AA2 /* PBXContainerItemProxy */;
+		};
+		6DA10A0F1856B4EB00588AA2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Boost.DateTime;
+			targetProxy = 6DA10A0E1856B4EB00588AA2 /* PBXContainerItemProxy */;
+		};
+		6DA10A111856B4EB00588AA2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Boost.Filesystem;
+			targetProxy = 6DA10A101856B4EB00588AA2 /* PBXContainerItemProxy */;
+		};
+		6DA10A131856B4EB00588AA2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Boost.ProgramOptions;
+			targetProxy = 6DA10A121856B4EB00588AA2 /* PBXContainerItemProxy */;
+		};
+		6DA10A151856B4EB00588AA2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Boost.System;
+			targetProxy = 6DA10A141856B4EB00588AA2 /* PBXContainerItemProxy */;
+		};
+		6DA10A171856B4EB00588AA2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = JsonCpp;
+			targetProxy = 6DA10A161856B4EB00588AA2 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		6DA109D81856B42400588AA2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				ONLY_ACTIVE_ARCH = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		6DA109D91856B42400588AA2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				ONLY_ACTIVE_ARCH = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		6DA109DB1856B42400588AA2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/CandyJar.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CandyJar/CandyJar-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		6DA109DC1856B42400588AA2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/CandyJar.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CandyJar/CandyJar-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6DA109B21856B42400588AA2 /* Build configuration list for PBXProject "CandyJar" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6DA109D81856B42400588AA2 /* Debug */,
+				6DA109D91856B42400588AA2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6DA109DA1856B42400588AA2 /* Build configuration list for PBXNativeTarget "CandyJar" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6DA109DB1856B42400588AA2 /* Debug */,
+				6DA109DC1856B42400588AA2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 6DA109AF1856B42400588AA2 /* Project object */;
+}
