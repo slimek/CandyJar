@@ -9,8 +9,6 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Boost.Filesystem_vc11", "..
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Boost.ProgramOptions_vc11", "..\..\Boost.ProgramOptions\proj.win32\Boost.ProgramOptions_vc11.vcxproj", "{CEC04A76-1DEE-42FC-BF8A-AE34DDCCFC00}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Boost.Regex_vc11", "..\..\Boost.Regex\proj.win32\Boost.Regex_vc11.vcxproj", "{7C11F249-3304-4792-B93B-3E95DFE3E3A6}"
-EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Boost.System_vc11", "..\..\Boost.System\proj.win32\Boost.System_vc11.vcxproj", "{9DB79365-6D14-412D-A454-9207CBADEA6E}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "JsonCpp_vc11", "..\..\JsonCpp\proj.win32\JsonCpp_vc11.vcxproj", "{6AA5D929-EE01-4F31-84AC-0CE0C351C539}"
@@ -41,10 +39,6 @@ Global
 		{CEC04A76-1DEE-42FC-BF8A-AE34DDCCFC00}.Debug|Win32.Build.0 = Debug|Win32
 		{CEC04A76-1DEE-42FC-BF8A-AE34DDCCFC00}.Release|Win32.ActiveCfg = Release|Win32
 		{CEC04A76-1DEE-42FC-BF8A-AE34DDCCFC00}.Release|Win32.Build.0 = Release|Win32
-		{7C11F249-3304-4792-B93B-3E95DFE3E3A6}.Debug|Win32.ActiveCfg = Debug|Win32
-		{7C11F249-3304-4792-B93B-3E95DFE3E3A6}.Debug|Win32.Build.0 = Debug|Win32
-		{7C11F249-3304-4792-B93B-3E95DFE3E3A6}.Release|Win32.ActiveCfg = Release|Win32
-		{7C11F249-3304-4792-B93B-3E95DFE3E3A6}.Release|Win32.Build.0 = Release|Win32
 		{9DB79365-6D14-412D-A454-9207CBADEA6E}.Debug|Win32.ActiveCfg = Debug|Win32
 		{9DB79365-6D14-412D-A454-9207CBADEA6E}.Debug|Win32.Build.0 = Debug|Win32
 		{9DB79365-6D14-412D-A454-9207CBADEA6E}.Release|Win32.ActiveCfg = Release|Win32

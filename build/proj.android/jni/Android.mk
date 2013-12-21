@@ -19,7 +19,6 @@ include $(call candy-make,Boost.Chrono)
 include $(call candy-make,Boost.DateTime)
 include $(call candy-make,Boost.Filesystem)
 include $(call candy-make,Boost.ProgramOptions)
-include $(call candy-make,Boost.Regex)
 include $(call candy-make,Boost.System)
 include $(call candy-make,JsonCpp)
 
@@ -40,7 +39,6 @@ LOCAL_WHOLE_STATIC_LIBRARIES := \
 	boost-date_time \
 	boost-filesystem \
 	boost-program_options \
-	boost-regex \
 	boost-system \
 	JsonCpp
 
@@ -70,7 +68,6 @@ $(CANDY_ARCH_ABI): $(LOCAL_BUILT_MODULE)
 	$(call candy-copy,boost-date_time)
 	$(call candy-copy,boost-filesystem)
 	$(call candy-copy,boost-program_options)
-	$(call candy-copy,boost-regex)
 	$(call candy-copy,boost-system)
 	$(call candy-copy,JsonCpp)
 
@@ -91,7 +88,6 @@ $(CANDY_ARCH_ABI)-clean:
 	$(call candy-clean,boost-date_time)
 	$(call candy-clean,boost-filesystem)
 	$(call candy-clean,boost-program_options)
-	$(call candy-clean,boost-regex)
 	$(call candy-clean,boost-system)
 	$(call candy-clean,JsonCpp)
 
