@@ -17,5 +17,6 @@ AdMob iOS   6.5.1
 
 # Java
 
-AdMob Android   6.4.1
-Flurry Android  3.3.0
+AdMob Android         6.4.1
+Flurry Android        3.3.0
+Google Play Services  rev.15 , 4242000
