@@ -6,9 +6,10 @@ Versions of each libraries
 Boost       1.54.0
 JsonCpp     0.5.0
 libjpeg     9
+libpng      1.6.2
 tinyxml2    1.0.11
 UnitTest++  1.4
-zlib        1.2.8
+zlib        1.2.5 (headers only, for libpng)
 
 
 # Prebuilt Libraries
