@@ -172,6 +172,9 @@ public enum OKManager {
 		}
 
 		getSharedCache().clearCachedSubmittedScores();
+		
+		// SIXION FIX: We should clear the FB friend list when logout.
+		this.fbFriendsArrayList = null;
 	}
 
 	public void logoutCurrentUserWithoutClearingFB()
