@@ -1,5 +1,7 @@
 package io.openkit.facebookutils;
 
+import java.util.Arrays;
+
 import io.openkit.OKLog;
 import io.openkit.facebook.Session;
 import io.openkit.facebook.SessionState;
@@ -60,7 +62,7 @@ public class FBLoginRequest {
 
 		if(!session.isOpened() && !session.isClosed()){
 			session.openForRead(new Session.OpenRequest(fragment)
-			//.setPermissions(Arrays.asList("basic_info"))
+			.setPermissions(Arrays.asList("public_profile,user_friends"))
 			.setCallback(sessionStatusCallback));
 		}
 		else if(session.isOpened())
