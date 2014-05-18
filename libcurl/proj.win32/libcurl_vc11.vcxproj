@@ -274,7 +274,7 @@
       </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;CURL_STATICLIB;CURL_DISABLE_LDAP;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;CURL_STATICLIB;HTTP_ONLY;USE_SSLEAY;USE_OPENSSL;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>..\src;..\..\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
@@ -290,7 +290,7 @@
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>WIN32;CURL_STATICLIB;CURL_DISABLE_LDAP;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;CURL_STATICLIB;HTTP_ONLY;USE_SSLEAY;USE_OPENSSL;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>..\src;..\..\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>

@@ -16,6 +16,7 @@ zlib        1.2.5 (headers only, for libpng)
 # Prebuilt Libraries
 
 AdMob iOS   6.5.1
+OpenSSL     1.0.1g
 
 
 # Java
