@@ -5,7 +5,7 @@ Versions of each libraries
 
 Boost       1.54.0
 JsonCpp     0.5.0
-libcurl     7.26.0
+libcurl     7.36.0
 libjpeg     9
 libpng      1.6.2
 tinyxml2    1.0.11
@@ -16,7 +16,6 @@ zlib        1.2.5 (headers only, for libpng)
 # Prebuilt Libraries
 
 AdMob iOS   6.5.1
-OpenSSL     1.0.1g
 
 
 # Java
