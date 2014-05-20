@@ -521,6 +521,12 @@
 #  endif
 #  define CURL_TYPEOF_CURL_SOCKLEN_T int
 #  define CURL_SIZEOF_CURL_SOCKLEN_T 4
+// CANDYJAR Insert
+// - CandyJar provides libcurl in static-linking form.
+#  if !defined( CURL_STATICLIB )
+#    define CURL_STATICLIB
+#  endif
+// Insert end
 
 /* ===================================== */
 /*    KEEP GENERIC GCC THE LAST ENTRY    */
