@@ -23,3 +23,5 @@ AdMob iOS   6.5.1
 AdMob Android         6.4.1
 Flurry Android        3.3.0
 Google Play Services  rev.15 , 4242000
+NendSDK	2.3.3
+NendAdapter 1.1.0
