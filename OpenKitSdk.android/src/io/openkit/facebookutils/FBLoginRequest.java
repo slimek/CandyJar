@@ -3,8 +3,8 @@ package io.openkit.facebookutils;
 import java.util.Arrays;
 
 import io.openkit.OKLog;
-import io.openkit.facebook.Session;
-import io.openkit.facebook.SessionState;
+import com.facebook.Session;
+import com.facebook.SessionState;
 import android.support.v4.app.Fragment;
 import android.content.Context;
 import android.content.Intent;
