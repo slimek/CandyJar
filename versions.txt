@@ -20,10 +20,11 @@ AdMob iOS   6.5.1
 
 # Java
 
-AdMob Android         6.4.1
-App42 Android         2.7
-Facebook Android      3.14.1
-Flurry Android        3.3.0
+AdMob                 6.4.1
+App42                 2.7
+Facebook              3.14.1
+Flurry                3.3.0
 Google Play Services  rev.17, v4.4, 445200
-NendSDK	2.3.3
-NendAdapter 1.1.0
+NendSDK               2.3.3
+NendAdapter           1.1.0
+UmengAnalytics        5.2.3
