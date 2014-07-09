@@ -1,7 +1,7 @@
 
 Versions of each libraries
 
-# Libraries with Source
+# C++ Libraries with Source
 
 Boost       1.54.0
 JsonCpp     0.5.0
@@ -11,6 +11,11 @@ libpng      1.6.2
 tinyxml2    1.0.11
 UnitTest++  1.4
 zlib        1.2.5 (headers only, for libpng)
+
+
+# C++ Header-only Libraries
+
+RapidJSON   2014-07-04 (GitHub master)
 
 
 # Prebuilt Libraries
