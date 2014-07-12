@@ -1,0 +1,164 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Sources">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Public Headers">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Public Headers\Win32">
+      <UniqueIdentifier>{7dad3a7e-7c53-488b-8fce-114ff7d9f3dc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Public Headers\Posix">
+      <UniqueIdentifier>{ecbb85bf-916d-4a4b-a82f-0106e1dfe3b2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sources\Posix">
+      <UniqueIdentifier>{bb50d4d0-ecea-425c-863c-3f51526b047c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sources\Win32">
+      <UniqueIdentifier>{ef09f92b-befc-4458-bfa4-692cede7c8a1}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\include\UnitTest++\AssertException.h">
+      <Filter>Public Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\UnitTest++\CheckMacros.h">
+      <Filter>Public Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\UnitTest++\Checks.h">
+      <Filter>Public Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\UnitTest++\Config.h">
+      <Filter>Public Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\UnitTest++\CurrentTest.h">
+      <Filter>Public Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\UnitTest++\ExecuteTest.h">
+      <Filter>Public Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\UnitTest++\MemoryOutStream.h">
+      <Filter>Public Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\UnitTest++\Test.h">
+      <Filter>Public Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\UnitTest++\TestDetails.h">
+      <Filter>Public Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\UnitTest++\TestList.h">
+      <Filter>Public Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\UnitTest++\TestMacros.h">
+      <Filter>Public Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\UnitTest++\TestResults.h">
+      <Filter>Public Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\UnitTest++\TestRunner.h">
+      <Filter>Public Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\UnitTest++\TestSuite.h">
+      <Filter>Public Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\UnitTest++\TimeConstraint.h">
+      <Filter>Public Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\UnitTest++\TimeHelpers.h">
+      <Filter>Public Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\UnitTest++\UnitTest++.h">
+      <Filter>Public Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\UnitTest++\Win32\TimeHelpers.h">
+      <Filter>Public Headers\Win32</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\UnitTest++\Posix\SignalTranslator.h">
+      <Filter>Public Headers\Posix</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\UnitTest++\Posix\TimeHelpers.h">
+      <Filter>Public Headers\Posix</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\DeferredTestReporter.h">
+      <Filter>Sources</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\DeferredTestResult.h">
+      <Filter>Sources</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\ReportAssert.h">
+      <Filter>Sources</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\TestReporter.h">
+      <Filter>Sources</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\TestReporterStdout.h">
+      <Filter>Sources</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\XmlTestReporter.h">
+      <Filter>Sources</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\AssertException.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Checks.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\CurrentTest.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\DeferredTestReporter.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\DeferredTestResult.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\MemoryOutStream.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\ReportAssert.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Test.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\TestDetails.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\TestList.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\TestReporter.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\TestReporterStdout.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\TestResults.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\TestRunner.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\TimeConstraint.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\XmlTestReporter.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Posix\SignalTranslator.cpp">
+      <Filter>Sources\Posix</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Posix\TimeHelpers.cpp">
+      <Filter>Sources\Posix</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Win32\TimeHelpers.cpp">
+      <Filter>Sources\Win32</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
