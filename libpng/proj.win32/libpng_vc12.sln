@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Express 2012 for Windows Desktop
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libpng_vc12", "libpng_vc12.vcxproj", "{6EA9A46C-8278-4386-B6F9-F6228CE3688A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6EA9A46C-8278-4386-B6F9-F6228CE3688A}.Debug|Win32.ActiveCfg = Debug|Win32
+		{6EA9A46C-8278-4386-B6F9-F6228CE3688A}.Debug|Win32.Build.0 = Debug|Win32
+		{6EA9A46C-8278-4386-B6F9-F6228CE3688A}.Release|Win32.ActiveCfg = Release|Win32
+		{6EA9A46C-8278-4386-B6F9-F6228CE3688A}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
