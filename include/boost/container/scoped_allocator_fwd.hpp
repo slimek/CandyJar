@@ -1,6 +1,6 @@
 //////////////////////////////////////////////////////////////////////////////
 //
-// (C) Copyright Ion Gaztanaga 2011-2013. Distributed under the Boost
+// (C) Copyright Ion Gaztanaga 2011-2012. Distributed under the Boost
 // Software License, Version 1.0. (See accompanying file
 // LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 //
@@ -11,11 +11,7 @@
 #ifndef BOOST_CONTAINER_ALLOCATOR_SCOPED_ALLOCATOR_FWD_HPP
 #define BOOST_CONTAINER_ALLOCATOR_SCOPED_ALLOCATOR_FWD_HPP
 
-//! \file
-//! This header file forward declares boost::container::scoped_allocator_adaptor
-//! and defines the following types:
-
-#if defined(_MSC_VER)
+#if (defined MSC_VER) && (_MSC_VER >= 1200)
 #  pragma once
 #endif
 
@@ -29,7 +25,7 @@
 
 namespace boost { namespace container {
 
-#ifndef BOOST_CONTAINER_DOXYGEN_INVOKED
+///@cond
 
 #if !defined(BOOST_NO_CXX11_VARIADIC_TEMPLATES)
 
@@ -59,7 +55,7 @@ class scoped_allocator_adaptor;
 
 #endif
 
-#endif   //#ifndef BOOST_CONTAINER_DOXYGEN_INVOKED
+///@endcond
 
 //! The allocator_arg_t struct is an empty structure type used as a unique type to
 //! disambiguate constructor and function overloading. Specifically, several types

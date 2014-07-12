@@ -1,6 +1,6 @@
 //////////////////////////////////////////////////////////////////////////////
 //
-// (C) Copyright Ion Gaztanaga 2005-2013. Distributed under the Boost
+// (C) Copyright Ion Gaztanaga 2005-2012. Distributed under the Boost
 // Software License, Version 1.0. (See accompanying file
 // LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 //
@@ -10,7 +10,7 @@
 #ifndef BOOST_CONTAINER_LIST_HPP
 #define BOOST_CONTAINER_LIST_HPP
 
-#if defined(_MSC_VER)
+#if (defined _MSC_VER) && (_MSC_VER >= 1200)
 #  pragma once
 #endif
 
@@ -18,8 +18,6 @@
 #include <boost/container/detail/workaround.hpp>
 #include <boost/container/container_fwd.hpp>
 #include <boost/container/detail/version_type.hpp>
-#include <boost/container/detail/iterators.hpp>
-#include <boost/container/detail/mpl.hpp>
 #include <boost/container/throw_exception.hpp>
 #include <boost/move/utility.hpp>
 #include <boost/move/iterator.hpp>
@@ -28,6 +26,7 @@
 #include <boost/container/detail/utilities.hpp>
 #include <boost/container/detail/algorithms.hpp>
 #include <boost/type_traits/has_trivial_destructor.hpp>
+#include <boost/container/detail/mpl.hpp>
 #include <boost/intrusive/list.hpp>
 #include <boost/assert.hpp>
 #include <boost/container/detail/node_alloc_holder.hpp>
@@ -47,7 +46,7 @@
 namespace boost {
 namespace container {
 
-#ifndef BOOST_CONTAINER_DOXYGEN_INVOKED
+/// @cond
 namespace container_detail {
 
 template<class VoidPointer>
@@ -65,16 +64,8 @@ struct list_node
    list_node();
 
    public:
-   typedef T value_type;
    typedef typename list_hook<VoidPointer>::type hook_type;
-
    T m_data;
-
-   T &get_data()
-   {  return this->m_data;   }
-
-   const T &get_data() const
-   {  return this->m_data;   }
 };
 
 template<class Allocator>
@@ -98,8 +89,107 @@ struct intrusive_list_type
    typedef container_type                       type ;
 };
 
+template<class T, class IIterator>
+class list_const_iterator
+   : public std::iterator< std::bidirectional_iterator_tag, T
+                         , typename iiterator_types<T, IIterator>::difference_type
+                         , typename iiterator_types<T, IIterator>::const_pointer
+                         , typename iiterator_types<T, IIterator>::const_reference>
+{
+   protected:
+
+   IIterator m_it;
+
+   public:
+   typedef typename iiterator_types<T, IIterator>::const_pointer     const_pointer;
+   typedef typename iiterator_types<T, IIterator>::const_reference   const_reference;
+
+   //Constructors
+   list_const_iterator()
+      : m_it()
+   {}
+
+   explicit list_const_iterator(const IIterator &it) 
+      : m_it(it)
+   {}
+
+   //Pointer like operators
+   const_reference operator*() const
+   { return this->m_it->m_data;  }
+
+   const_pointer   operator->() const
+   { return ::boost::intrusive::pointer_traits<const_pointer>::pointer_to(this->m_it->m_data); }
+
+   //Increment / Decrement
+   list_const_iterator& operator++()      
+   { ++this->m_it;  return *this; }
+
+   list_const_iterator operator++(int)     
+   { IIterator tmp = this->m_it; ++*this; return list_const_iterator(tmp);  }
+
+   list_const_iterator& operator--()
+   { --this->m_it; return *this;   }
+
+   list_const_iterator operator--(int)
+   {  IIterator tmp = this->m_it; --*this; return list_const_iterator(tmp); }
+
+   //Comparison operators
+   friend bool operator== (const list_const_iterator& l, const list_const_iterator& r)
+   {  return l.m_it == r.m_it;  }
+
+   friend bool operator!= (const list_const_iterator& l, const list_const_iterator& r)
+   {  return l.m_it != r.m_it;  }
+
+   const IIterator &get() const
+   {  return this->m_it;   }
+};
+
+template<class T, class IIterator>
+class list_iterator
+   : public list_const_iterator<T, IIterator>
+{
+   private:
+   typedef list_const_iterator<T, IIterator> const_iterator;
+
+   public:
+   typedef typename iiterator_types<T, IIterator>::pointer           pointer;
+   typedef typename iiterator_types<T, IIterator>::reference         reference;
+
+   //Constructors
+   list_iterator()
+      : const_iterator()
+   {}
+
+   explicit list_iterator(const IIterator &it)
+      :  const_iterator(it)
+   {}
+
+   //Pointer like operators
+   reference operator*()  const
+   {  return  this->m_it->m_data;  }
+
+   pointer   operator->() const
+   { return ::boost::intrusive::pointer_traits<pointer>::pointer_to(this->m_it->m_data); }
+
+   //Increment / Decrement
+   list_iterator& operator++() 
+   { ++this->m_it; return *this;  }
+
+   list_iterator operator++(int)
+   { IIterator tmp = this->m_it; ++*this; return list_iterator(tmp); }
+
+   list_iterator& operator--()
+   { --this->m_it; return *this;   }
+
+   list_iterator operator--(int)
+   {  IIterator tmp = this->m_it; --*this; return list_iterator(tmp); }
+
+   const IIterator &get() const
+   {  return this->m_it;   }
+};
+
 }  //namespace container_detail {
-#endif   //#ifndef BOOST_CONTAINER_DOXYGEN_INVOKED
+/// @endcond
 
 //! A list is a doubly linked list. That is, it is a Sequence that supports both
 //! forward and backward traversal, and (amortized) constant time insertion and
@@ -111,9 +201,6 @@ struct intrusive_list_type
 //! after a list operation than it did before), but the iterators themselves will
 //! not be invalidated or made to point to different elements unless that invalidation
 //! or mutation is explicit.
-//!
-//! \tparam T The type of object that is stored in the list
-//! \tparam Allocator The allocator used for all internal memory management
 #ifdef BOOST_CONTAINER_DOXYGEN_INVOKED
 template <class T, class Allocator = std::allocator<T> >
 #else
@@ -123,7 +210,7 @@ class list
    : protected container_detail::node_alloc_holder
       <Allocator, typename container_detail::intrusive_list_type<Allocator>::type>
 {
-   #ifndef BOOST_CONTAINER_DOXYGEN_INVOKED
+   /// @cond
    typedef typename
       container_detail::intrusive_list_type<Allocator>::type Icont;
    typedef container_detail::node_alloc_holder<Allocator, Icont>  AllocHolder;
@@ -168,9 +255,9 @@ class list
 
    BOOST_COPYABLE_AND_MOVABLE(list)
 
-   typedef container_detail::iterator<typename Icont::iterator, false>  iterator_impl;
-   typedef container_detail::iterator<typename Icont::iterator, true>   const_iterator_impl;
-   #endif   //#ifndef BOOST_CONTAINER_DOXYGEN_INVOKED
+   typedef container_detail::list_iterator<T, typename Icont::iterator>      iterator_impl;
+   typedef container_detail::list_const_iterator<T, typename Icont::iterator>const_iterator_impl;
+   /// @endcond
 
    public:
    //////////////////////////////////////////////
@@ -220,7 +307,7 @@ class list
    //! <b>Effects</b>: Constructs a list that will use a copy of allocator a
    //!   and inserts n copies of value.
    //!
-   //! <b>Throws</b>: If allocator_type's default constructor
+   //! <b>Throws</b>: If allocator_type's default constructor or copy constructor
    //!   throws or T's default or copy constructor throws.
    //!
    //! <b>Complexity</b>: Linear to n.
@@ -231,7 +318,7 @@ class list
    //! <b>Effects</b>: Constructs a list that will use a copy of allocator a
    //!   and inserts n copies of value.
    //!
-   //! <b>Throws</b>: If allocator_type's default constructor
+   //! <b>Throws</b>: If allocator_type's default constructor or copy constructor
    //!   throws or T's default or copy constructor throws.
    //!
    //! <b>Complexity</b>: Linear to n.
@@ -243,7 +330,7 @@ class list
    //!
    //! <b>Postcondition</b>: x == *this.
    //!
-   //! <b>Throws</b>: If allocator_type's default constructor throws.
+   //! <b>Throws</b>: If allocator_type's default constructor or copy constructor throws.
    //!
    //! <b>Complexity</b>: Linear to the elements x contains.
    list(const list& x)
@@ -290,8 +377,8 @@ class list
    //! <b>Effects</b>: Constructs a list that will use a copy of allocator a
    //!   and inserts a copy of the range [first, last) in the list.
    //!
-   //! <b>Throws</b>: If allocator_type's default constructor
-   //!   throws or T's constructor taking a dereferenced InIt throws.
+   //! <b>Throws</b>: If allocator_type's default constructor or copy constructor
+   //!   throws or T's constructor taking an dereferenced InIt throws.
    //!
    //! <b>Complexity</b>: Linear to the range [first, last).
    template <class InpIt>
@@ -332,40 +419,33 @@ class list
       return *this;
    }
 
-   //! <b>Effects</b>: Move assignment. All x's values are transferred to *this.
+   //! <b>Effects</b>: Move assignment. All mx's values are transferred to *this.
    //!
    //! <b>Postcondition</b>: x.empty(). *this contains a the elements x had
    //!   before the function.
    //!
-   //! <b>Throws</b>: If allocator_traits_type::propagate_on_container_move_assignment
-   //!   is false and (allocation throws or value_type's move constructor throws)
+   //! <b>Throws</b>: If allocator_type's copy constructor throws.
    //!
-   //! <b>Complexity</b>: Constant if allocator_traits_type::
-   //!   propagate_on_container_move_assignment is true or
-   //!   this->get>allocator() == x.get_allocator(). Linear otherwise.
+   //! <b>Complexity</b>: Constant.
    list& operator=(BOOST_RV_REF(list) x)
-      BOOST_CONTAINER_NOEXCEPT_IF(allocator_traits_type::propagate_on_container_move_assignment::value)
    {
-      BOOST_ASSERT(this != &x);
-      NodeAlloc &this_alloc = this->node_alloc();
-      NodeAlloc &x_alloc    = x.node_alloc();
-      const bool propagate_alloc = allocator_traits_type::
-            propagate_on_container_move_assignment::value;
-      const bool allocators_equal = this_alloc == x_alloc; (void)allocators_equal;
-      //Resources can be transferred if both allocators are
-      //going to be equal after this function (either propagated or already equal)
-      if(propagate_alloc || allocators_equal){
-         //Destroy
-         this->clear();
-         //Move allocator if needed
-         this->AllocHolder::move_assign_alloc(x);
-         //Obtain resources
-         this->icont() = boost::move(x.icont());
-      }
-      //Else do a one by one move
-      else{
-         this->assign( boost::make_move_iterator(x.begin())
-                     , boost::make_move_iterator(x.end()));
+      if (&x != this){
+         NodeAlloc &this_alloc = this->node_alloc();
+         NodeAlloc &x_alloc    = x.node_alloc();
+         //If allocators are equal we can just swap pointers
+         if(this_alloc == x_alloc){
+            //Destroy and swap pointers
+            this->clear();
+            this->icont() = boost::move(x.icont());
+            //Move allocator if needed
+            this->AllocHolder::move_assign_alloc(x);
+         }
+         //If unequal allocators, then do a one by one move
+         else{
+            typedef typename std::iterator_traits<iterator>::iterator_category ItCat;
+            this->assign( boost::make_move_iterator(x.begin())
+                        , boost::make_move_iterator(x.end()));
+         }
       }
       return *this;
    }
@@ -574,7 +654,7 @@ class list
    {  return AllocHolder::max_size();  }
 
    //! <b>Effects</b>: Inserts or erases elements at the end such that
-   //!   the size becomes n. New elements are value initialized.
+   //!   the size becomes n. New elements are default constructed.
    //!
    //! <b>Throws</b>: If memory allocation throws, or T's copy constructor throws.
    //!
@@ -582,8 +662,8 @@ class list
    void resize(size_type new_size)
    {
       if(!priv_try_shrink(new_size)){
-         typedef value_init_construct_iterator<value_type, difference_type> value_init_iterator;
-         this->insert(this->cend(), value_init_iterator(new_size - this->size()), value_init_iterator());
+         typedef default_construct_iterator<value_type, difference_type> default_iterator;
+         this->insert(this->cend(), default_iterator(new_size - this->size()), default_iterator());
       }
    }
 
@@ -788,7 +868,7 @@ class list
    //! <b>Complexity</b>: Amortized constant time.
    iterator insert(const_iterator position, T &&x);
    #else
-   BOOST_MOVE_CONVERSION_AWARE_CATCH_1ARG(insert, T, iterator, priv_insert, const_iterator, const_iterator)
+   BOOST_MOVE_CONVERSION_AWARE_CATCH_1ARG(insert, T, iterator, priv_insert, const_iterator)
    #endif
 
    //! <b>Requires</b>: p must be a valid iterator of *this.
@@ -1193,7 +1273,7 @@ class list
    //! <b>Throws</b>: If comparison throws.
    //!
    //! <b>Notes</b>: Iterators and references are not invalidated.
-   //!
+   //!  
    //! <b>Complexity</b>: The number of comparisons is approximately N log N, where N
    //!   is the list's size.
    void sort()
@@ -1225,65 +1305,9 @@ class list
    //!
    //! <b>Note</b>: Iterators and references are not invalidated
    void reverse() BOOST_CONTAINER_NOEXCEPT
-   {  this->icont().reverse(); }
+   {  this->icont().reverse(); }   
 
-   //! <b>Effects</b>: Returns true if x and y are equal
-   //!
-   //! <b>Complexity</b>: Linear to the number of elements in the container.
-   friend bool operator==(const list& x, const list& y)
-   {
-      if(x.size() != y.size()){
-         return false;
-      }
-      typedef typename list::const_iterator const_iterator;
-      const_iterator end1 = x.end();
-
-      const_iterator i1 = x.begin();
-      const_iterator i2 = y.begin();
-      while (i1 != end1 && *i1 == *i2) {
-         ++i1;
-         ++i2;
-      }
-      return i1 == end1;
-   }
-
-   //! <b>Effects</b>: Returns true if x and y are unequal
-   //!
-   //! <b>Complexity</b>: Linear to the number of elements in the container.
-   friend bool operator!=(const list& x, const list& y)
-   {  return !(x == y); }
-
-   //! <b>Effects</b>: Returns true if x is less than y
-   //!
-   //! <b>Complexity</b>: Linear to the number of elements in the container.
-   friend bool operator<(const list& x, const list& y)
-   {  return std::lexicographical_compare(x.begin(), x.end(), y.begin(), y.end());  }
-
-   //! <b>Effects</b>: Returns true if x is greater than y
-   //!
-   //! <b>Complexity</b>: Linear to the number of elements in the container.
-   friend bool operator>(const list& x, const list& y)
-   {  return y < x;  }
-
-   //! <b>Effects</b>: Returns true if x is equal or less than y
-   //!
-   //! <b>Complexity</b>: Linear to the number of elements in the container.
-   friend bool operator<=(const list& x, const list& y)
-   {  return !(y < x);  }
-
-   //! <b>Effects</b>: Returns true if x is equal or greater than y
-   //!
-   //! <b>Complexity</b>: Linear to the number of elements in the container.
-   friend bool operator>=(const list& x, const list& y)
-   {  return !(x < y);  }
-
-   //! <b>Effects</b>: x.swap(y)
-   //!
-   //! <b>Complexity</b>: Constant.
-   friend void swap(list& x, list& y)
-   {  x.swap(y);  }
-
-   #ifndef BOOST_CONTAINER_DOXYGEN_INVOKED
+   /// @cond
    private:
 
    bool priv_try_shrink(size_type new_size)
@@ -1326,13 +1350,13 @@ class list
       return iterator(this->icont().insert(p.get(), *tmp));
    }
 
-   void priv_push_back (const T &x)
+   void priv_push_back (const T &x)  
    {  this->insert(this->cend(), x);    }
 
    void priv_push_back (BOOST_RV_REF(T) x)
    {  this->insert(this->cend(), boost::move(x));    }
 
-   void priv_push_front (const T &x)
+   void priv_push_front (const T &x)  
    {  this->insert(this->cbegin(), x);  }
 
    void priv_push_front (BOOST_RV_REF(T) x)
@@ -1370,11 +1394,66 @@ class list
       bool operator()(const value_type &a, const value_type &b) const
          {  return a == b;  }
    };
-   #endif   //#ifndef BOOST_CONTAINER_DOXYGEN_INVOKED
+   /// @endcond
 
 };
 
-#ifndef BOOST_CONTAINER_DOXYGEN_INVOKED
+template <class T, class Allocator>
+inline bool operator==(const list<T,Allocator>& x, const list<T,Allocator>& y)
+{
+   if(x.size() != y.size()){
+      return false;
+   }
+   typedef typename list<T,Allocator>::const_iterator const_iterator;
+   const_iterator end1 = x.end();
+
+   const_iterator i1 = x.begin();
+   const_iterator i2 = y.begin();
+   while (i1 != end1 && *i1 == *i2) {
+      ++i1;
+      ++i2;
+   }
+   return i1 == end1;
+}
+
+template <class T, class Allocator>
+inline bool operator<(const list<T,Allocator>& x,
+                      const list<T,Allocator>& y)
+{
+  return std::lexicographical_compare(x.begin(), x.end(), y.begin(), y.end());
+}
+
+template <class T, class Allocator>
+inline bool operator!=(const list<T,Allocator>& x, const list<T,Allocator>& y)
+{
+  return !(x == y);
+}
+
+template <class T, class Allocator>
+inline bool operator>(const list<T,Allocator>& x, const list<T,Allocator>& y)
+{
+  return y < x;
+}
+
+template <class T, class Allocator>
+inline bool operator<=(const list<T,Allocator>& x, const list<T,Allocator>& y)
+{
+  return !(y < x);
+}
+
+template <class T, class Allocator>
+inline bool operator>=(const list<T,Allocator>& x, const list<T,Allocator>& y)
+{
+  return !(x < y);
+}
+
+template <class T, class Allocator>
+inline void swap(list<T, Allocator>& x, list<T, Allocator>& y)
+{
+  x.swap(y);
+}
+
+/// @cond
 
 }  //namespace container {
 
@@ -1387,7 +1466,7 @@ struct has_trivial_destructor_after_move<boost::container::list<T, Allocator> >
 
 namespace container {
 
-#endif   //#ifndef BOOST_CONTAINER_DOXYGEN_INVOKED
+/// @endcond
 
 }}
 

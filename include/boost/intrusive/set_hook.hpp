@@ -1,7 +1,7 @@
 /////////////////////////////////////////////////////////////////////////////
 //
 // (C) Copyright Olaf Krzikalla 2004-2006.
-// (C) Copyright Ion Gaztanaga  2006-2013
+// (C) Copyright Ion Gaztanaga  2006-2012
 //
 // Distributed under the Boost Software License, Version 1.0.
 //    (See accompanying file LICENSE_1_0.txt or copy at
@@ -16,7 +16,6 @@
 
 #include <boost/intrusive/detail/config_begin.hpp>
 #include <boost/intrusive/intrusive_fwd.hpp>
-
 #include <boost/intrusive/detail/utilities.hpp>
 #include <boost/intrusive/detail/rbtree_node.hpp>
 #include <boost/intrusive/rbtree_algorithms.hpp>
@@ -39,7 +38,7 @@ struct get_set_node_algo
 #if defined(BOOST_INTRUSIVE_DOXYGEN_INVOKED) || defined(BOOST_INTRUSIVE_VARIADIC_TEMPLATES)
 template<class ...Options>
 #else
-template<class O1 = void, class O2 = void, class O3 = void, class O4 = void>
+template<class O1 = none, class O2 = none, class O3 = none, class O4 = none>
 #endif
 struct make_set_base_hook
 {
@@ -53,12 +52,12 @@ struct make_set_base_hook
       #endif
       >::type packed_options;
 
-   typedef generic_hook
+   typedef detail::generic_hook
    < get_set_node_algo<typename packed_options::void_pointer
                       ,packed_options::optimize_size>
    , typename packed_options::tag
    , packed_options::link_mode
-   , RbTreeBaseHookId
+   , detail::SetBaseHook
    > implementation_defined;
    /// @endcond
    typedef implementation_defined type;
@@ -77,7 +76,7 @@ struct make_set_base_hook
 //! unique tag.
 //!
 //! \c void_pointer<> is the pointer type that will be used internally in the hook
-//! and the container configured to use this hook.
+//! and the the container configured to use this hook.
 //!
 //! \c link_mode<> will specify the linking mode of the hook (\c normal_link,
 //! \c auto_unlink or \c safe_link).
@@ -171,7 +170,7 @@ class set_base_hook
 #if defined(BOOST_INTRUSIVE_DOXYGEN_INVOKED) || defined(BOOST_INTRUSIVE_VARIADIC_TEMPLATES)
 template<class ...Options>
 #else
-template<class O1 = void, class O2 = void, class O3 = void, class O4 = void>
+template<class O1 = none, class O2 = none, class O3 = none, class O4 = none>
 #endif
 struct make_set_member_hook
 {
@@ -185,12 +184,12 @@ struct make_set_member_hook
       #endif
       >::type packed_options;
 
-   typedef generic_hook
+   typedef detail::generic_hook
    < get_set_node_algo<typename packed_options::void_pointer
                       ,packed_options::optimize_size>
    , member_tag
    , packed_options::link_mode
-   , NoBaseHookId
+   , detail::NoBaseHook
    > implementation_defined;
    /// @endcond
    typedef implementation_defined type;
@@ -204,7 +203,7 @@ struct make_set_member_hook
 //! \c link_mode<> and \c optimize_size<>.
 //!
 //! \c void_pointer<> is the pointer type that will be used internally in the hook
-//! and the container configured to use this hook.
+//! and the the container configured to use this hook.
 //!
 //! \c link_mode<> will specify the linking mode of the hook (\c normal_link,
 //! \c auto_unlink or \c safe_link).
