@@ -48,13 +48,13 @@
     <OutDir>..\..\lib\$(Platform).$(Configuration)\</OutDir>
     <IntDir>obj\$(Platform).$(Configuration)\$(ProjectName)\</IntDir>
     <TargetExt>.lib</TargetExt>
-    <TargetName>libboost_chrono-vc120-mt-gd-1_56</TargetName>
+    <TargetName>libboost_chrono-vc120-mt-gd-1_54</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <OutDir>..\..\lib\$(Platform).$(Configuration)\</OutDir>
     <IntDir>obj\$(Platform).$(Configuration)\$(ProjectName)\</IntDir>
     <TargetExt>.lib</TargetExt>
-    <TargetName>libboost_chrono-vc120-mt-1_56</TargetName>
+    <TargetName>libboost_chrono-vc120-mt-1_54</TargetName>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
