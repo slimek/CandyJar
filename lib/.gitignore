@@ -1,4 +1,4 @@
-Win32.Debug/
-Win32.Release/
+Win32.*.Debug/
+Win32.*.Release/
 Android.Ndk.Debug/
 Android.Ndk.Release/

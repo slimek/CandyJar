@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Express 2012 for Windows Desktop
+# Visual Studio Express 2013 for Windows Desktop
+VisualStudioVersion = 12.0.30501.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Boost.Chrono", "..\..\Boost.Chrono\proj.win32\Boost.Chrono.vcxproj", "{0F236C72-4B91-42A1-A51E-7FF7E0FF6A86}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Boost.DateTime", "..\..\Boost.DateTime\proj.win32\Boost.DateTime.vcxproj", "{2DA3BA1D-E70C-44F1-BE99-6C3F9191D03F}"
