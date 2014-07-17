@@ -33,4 +33,3 @@ Google Play Services  rev.17, v4.4, 445200
 NendSDK               2.3.3
 NendAdapter           1.1.0
 UmengAnalytics        5.2.3
-UmengSocial           3.3.8
