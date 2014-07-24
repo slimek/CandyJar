@@ -23,14 +23,18 @@ RapidJSON   2014-07-04 (GitHub master)
 AdMob iOS   6.5.1
 
 
-# Java
+# Android Java Libraries with Source
+
+Facebook SDK          3.14.1
+Google Play Services  rev.17, v4.4, 445200
+Weibo SDK             2.5.1
+
+
+# Java JARs
 
 AdMob                 6.4.1
 App42                 2.7
-Facebook              3.14.1
 Flurry                3.3.0
-Google Play Services  rev.17, v4.4, 445200
 NendSDK               2.3.3
 NendAdapter           1.1.0
 UmengAnalytics        5.2.3
-WeiboSdk              2.5.1
