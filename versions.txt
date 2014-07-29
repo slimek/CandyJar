@@ -3,14 +3,15 @@ Versions of each libraries
 
 # C++ Libraries with Source
 
-Boost       1.54.0
-JsonCpp     0.5.0
-libcurl     7.36.0
-libjpeg     9
-libpng      1.6.2
-tinyxml2    1.0.11
-UnitTest++  1.4
-zlib        1.2.5 (headers only, for libpng)
+Boost         1.54.0
+C++ REST SDK  2.1  (headers are compat, cpprest and pplx, websockets and pplx not built)
+JsonCpp       0.5.0
+libcurl       7.36.0
+libjpeg       9
+libpng        1.6.2
+tinyxml2      1.0.11
+UnitTest++    1.4
+zlib          1.2.5 (headers only, for libpng)
 
 
 # C++ Header-only Libraries

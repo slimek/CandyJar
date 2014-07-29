@@ -1,0 +1,265 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Public Headers">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Sources">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Public Headers\compat">
+      <UniqueIdentifier>{31ffbad6-b45f-4e0b-921d-334d98145e6e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Public Headers\cpprest">
+      <UniqueIdentifier>{e1cbe51d-89e6-4145-8671-879d4c751bbc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Public Headers\pplx">
+      <UniqueIdentifier>{8dc16cff-8cd7-44c8-8991-2d7f098a86c1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sources\http">
+      <UniqueIdentifier>{07daf249-88b4-4dba-ad48-ef09ba738d9f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sources\http\client">
+      <UniqueIdentifier>{c21fe421-5b75-4893-aef2-2b668a482489}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sources\http\common">
+      <UniqueIdentifier>{140fe7af-28ff-451b-bbe6-6cc844e4047e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sources\http\listener">
+      <UniqueIdentifier>{d3bacc2e-fdf6-4a8d-b5ec-758369a11a86}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sources\json">
+      <UniqueIdentifier>{49914d11-9c5f-46d3-86da-7ba9fe8d68a0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sources\pch">
+      <UniqueIdentifier>{7876cc4e-2f14-4825-9a24-25b65d963dc9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sources\streams">
+      <UniqueIdentifier>{2e4e5d62-4855-4d6d-9089-3791f8605d7b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sources\streams\windows">
+      <UniqueIdentifier>{febd24ae-20b9-43a6-97ff-24406f38db18}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sources\uri">
+      <UniqueIdentifier>{15a6f5d1-77db-4c53-8e12-0aca61e85ead}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sources\utilities">
+      <UniqueIdentifier>{ec2fb19f-4c11-4a67-841c-2af1429bac21}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\include\compat\apple_compat.h">
+      <Filter>Public Headers\compat</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\compat\linux_compat.h">
+      <Filter>Public Headers\compat</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\compat\nosal.h">
+      <Filter>Public Headers\compat</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\compat\pplxtasks.h">
+      <Filter>Public Headers\compat</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\compat\SafeInt3.hpp">
+      <Filter>Public Headers\compat</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\compat\windows_compat.h">
+      <Filter>Public Headers\compat</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\cpprest\astreambuf.h">
+      <Filter>Public Headers\cpprest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\cpprest\asyncrt_utils.h">
+      <Filter>Public Headers\cpprest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\cpprest\base_uri.h">
+      <Filter>Public Headers\cpprest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\cpprest\basic_types.h">
+      <Filter>Public Headers\cpprest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\cpprest\containerstream.h">
+      <Filter>Public Headers\cpprest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\cpprest\fileio.h">
+      <Filter>Public Headers\cpprest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\cpprest\filestream.h">
+      <Filter>Public Headers\cpprest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\cpprest\globals.h">
+      <Filter>Public Headers\cpprest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\cpprest\http_client.h">
+      <Filter>Public Headers\cpprest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\cpprest\http_client_impl.h">
+      <Filter>Public Headers\cpprest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\cpprest\http_headers.h">
+      <Filter>Public Headers\cpprest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\cpprest\http_helpers.h">
+      <Filter>Public Headers\cpprest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\cpprest\http_linux_server.h">
+      <Filter>Public Headers\cpprest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\cpprest\http_listener.h">
+      <Filter>Public Headers\cpprest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\cpprest\http_msg.h">
+      <Filter>Public Headers\cpprest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\cpprest\http_server.h">
+      <Filter>Public Headers\cpprest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\cpprest\http_server_api.h">
+      <Filter>Public Headers\cpprest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\cpprest\http_windows_server.h">
+      <Filter>Public Headers\cpprest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\cpprest\interopstream.h">
+      <Filter>Public Headers\cpprest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\cpprest\json.h">
+      <Filter>Public Headers\cpprest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\cpprest\producerconsumerstream.h">
+      <Filter>Public Headers\cpprest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\cpprest\rawptrstream.h">
+      <Filter>Public Headers\cpprest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\cpprest\streams.h">
+      <Filter>Public Headers\cpprest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\cpprest\targetver.h">
+      <Filter>Public Headers\cpprest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\cpprest\uri.h">
+      <Filter>Public Headers\cpprest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\cpprest\uri_builder.h">
+      <Filter>Public Headers\cpprest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\cpprest\uri_parser.h">
+      <Filter>Public Headers\cpprest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\cpprest\version.h">
+      <Filter>Public Headers\cpprest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\cpprest\web_utilities.h">
+      <Filter>Public Headers\cpprest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\cpprest\ws_client.h">
+      <Filter>Public Headers\cpprest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\cpprest\ws_msg.h">
+      <Filter>Public Headers\cpprest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\cpprest\xxpublic.h">
+      <Filter>Public Headers\cpprest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\pplx\ioscheduler.h">
+      <Filter>Public Headers\pplx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\pplx\pplx.h">
+      <Filter>Public Headers\pplx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\pplx\pplxcancellation_token.h">
+      <Filter>Public Headers\pplx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\pplx\pplxconv.h">
+      <Filter>Public Headers\pplx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\pplx\pplxinterface.h">
+      <Filter>Public Headers\pplx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\pplx\pplxlinux.h">
+      <Filter>Public Headers\pplx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\pplx\pplxtasks.h">
+      <Filter>Public Headers\pplx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\pplx\pplxwin.h">
+      <Filter>Public Headers\pplx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\pplx\threadpool.h">
+      <Filter>Public Headers\pplx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\pch\stdafx.h">
+      <Filter>Sources\pch</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\include\cpprest\http_constants.dat">
+      <Filter>Public Headers\cpprest</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\http\client\http_msg_client.cpp">
+      <Filter>Sources\http\client</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\http\client\http_win7.cpp">
+      <Filter>Sources\http\client</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\http\common\http_helpers.cpp">
+      <Filter>Sources\http\common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\http\common\http_msg.cpp">
+      <Filter>Sources\http\common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\http\listener\http_listener.cpp">
+      <Filter>Sources\http\listener</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\http\listener\http_msg_listen.cpp">
+      <Filter>Sources\http\listener</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\http\listener\http_server_api.cpp">
+      <Filter>Sources\http\listener</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\http\listener\http_windows_server.cpp">
+      <Filter>Sources\http\listener</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\json\json.cpp">
+      <Filter>Sources\json</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\json\json_parsing.cpp">
+      <Filter>Sources\json</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\json\json_serialization.cpp">
+      <Filter>Sources\json</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\pch\stdafx.cpp">
+      <Filter>Sources\pch</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\streams\windows\fileio.cpp">
+      <Filter>Sources\streams\windows</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\streams\windows\ioscheduler.cpp">
+      <Filter>Sources\streams\windows</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\uri\uri.cpp">
+      <Filter>Sources\uri</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\uri\uri_builder.cpp">
+      <Filter>Sources\uri</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\uri\uri_parser.cpp">
+      <Filter>Sources\uri</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\utilities\asyncrt_utils.cpp">
+      <Filter>Sources\utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\utilities\base64.cpp">
+      <Filter>Sources\utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\utilities\dllmain.cpp">
+      <Filter>Sources\utilities</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
