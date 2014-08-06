@@ -10,7 +10,10 @@ obj/
 # Xcode Generated Files
 *.xcworkspacedata
 *.xcscheme
+*.xcuserstate
+*.xccheckout
 xcschememanagement.plist
+xcuserdata/
 
 # Eclipse + NDK Generated Files
 bin/
