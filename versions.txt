@@ -39,3 +39,5 @@ Flurry                3.3.0
 NendSDK               2.3.3
 NendAdapter           1.1.0
 UmengAnalytics        5.2.3
+AdlocusSdk		3.3.0
+WaystormSdk 	1.2.0
