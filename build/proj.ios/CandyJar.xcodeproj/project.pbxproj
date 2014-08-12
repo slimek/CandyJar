@@ -6,7 +6,76 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		01A4729D199A239200AFFCB4 /* CandyJar */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 01A4729E199A239200AFFCB4 /* Build configuration list for PBXAggregateTarget "CandyJar" */;
+			buildPhases = (
+			);
+			dependencies = (
+				01A472A2199A23A500AFFCB4 /* PBXTargetDependency */,
+				01A472A4199A23A500AFFCB4 /* PBXTargetDependency */,
+				01A472A6199A23A500AFFCB4 /* PBXTargetDependency */,
+				01A472A8199A23A500AFFCB4 /* PBXTargetDependency */,
+				01A472AA199A23A500AFFCB4 /* PBXTargetDependency */,
+				01A472AC199A23A500AFFCB4 /* PBXTargetDependency */,
+				01A472AE199A23A500AFFCB4 /* PBXTargetDependency */,
+			);
+			name = CandyJar;
+			productName = CandyJar;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXContainerItemProxy section */
+		01A472A1199A23A500AFFCB4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6DA109E01856B44800588AA2 /* AFNetworking.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 6DCDFDA918331D92007DC977;
+			remoteInfo = AFNetworking;
+		};
+		01A472A3199A23A500AFFCB4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6DA109E61856B44D00588AA2 /* Boost.Chrono.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 6D4CB86918223E7C00A1E5DF;
+			remoteInfo = Boost.Chrono;
+		};
+		01A472A5199A23A500AFFCB4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6DA109EC1856B45200588AA2 /* Boost.DateTime.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 6DBEB94A183068A7009AA1AC;
+			remoteInfo = Boost.DateTime;
+		};
+		01A472A7199A23A500AFFCB4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6DA109F21856B45A00588AA2 /* Boost.Filesystem.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 6DAFE264181526E700859097;
+			remoteInfo = Boost.Filesystem;
+		};
+		01A472A9199A23A500AFFCB4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6DA109F81856B46000588AA2 /* Boost.ProgramOptions.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 6DAFE2A71815279900859097;
+			remoteInfo = Boost.ProgramOptions;
+		};
+		01A472AB199A23A500AFFCB4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6DA109FE1856B46C00588AA2 /* Boost.System.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 6DAFE2EF1815281C00859097;
+			remoteInfo = Boost.System;
+		};
+		01A472AD199A23A500AFFCB4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6DA10A041856B47300588AA2 /* JsonCpp.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 6DB372C8180CD91E008AF50F;
+			remoteInfo = JsonCpp;
+		};
 		6DA109E41856B44800588AA2 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 6DA109E01856B44800588AA2 /* AFNetworking.xcodeproj */;
@@ -56,71 +125,9 @@
 			remoteGlobalIDString = 6DB372C9180CD91E008AF50F;
 			remoteInfo = JsonCpp;
 		};
-		6DA10A0A1856B4EB00588AA2 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 6DA109E01856B44800588AA2 /* AFNetworking.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 6DCDFDA918331D92007DC977;
-			remoteInfo = AFNetworking;
-		};
-		6DA10A0C1856B4EB00588AA2 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 6DA109E61856B44D00588AA2 /* Boost.Chrono.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 6D4CB86918223E7C00A1E5DF;
-			remoteInfo = Boost.Chrono;
-		};
-		6DA10A0E1856B4EB00588AA2 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 6DA109EC1856B45200588AA2 /* Boost.DateTime.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 6DBEB94A183068A7009AA1AC;
-			remoteInfo = Boost.DateTime;
-		};
-		6DA10A101856B4EB00588AA2 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 6DA109F21856B45A00588AA2 /* Boost.Filesystem.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 6DAFE264181526E700859097;
-			remoteInfo = Boost.Filesystem;
-		};
-		6DA10A121856B4EB00588AA2 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 6DA109F81856B46000588AA2 /* Boost.ProgramOptions.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 6DAFE2A71815279900859097;
-			remoteInfo = Boost.ProgramOptions;
-		};
-		6DA10A141856B4EB00588AA2 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 6DA109FE1856B46C00588AA2 /* Boost.System.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 6DAFE2EF1815281C00859097;
-			remoteInfo = Boost.System;
-		};
-		6DA10A161856B4EB00588AA2 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 6DA10A041856B47300588AA2 /* JsonCpp.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 6DB372C8180CD91E008AF50F;
-			remoteInfo = JsonCpp;
-		};
 /* End PBXContainerItemProxy section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		6DA109B51856B42400588AA2 /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "include/$(PRODUCT_NAME)";
-			dstSubfolderSpec = 16;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
-		6DA109B71856B42400588AA2 /* libCandyJar.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libCandyJar.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		6DA109E01856B44800588AA2 /* AFNetworking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = AFNetworking.xcodeproj; path = ../../AFNetworking/AFNetworking.xcodeproj; sourceTree = "<group>"; };
 		6DA109E61856B44D00588AA2 /* Boost.Chrono.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Boost.Chrono.xcodeproj; path = ../../Boost.Chrono/proj.ios/Boost.Chrono.xcodeproj; sourceTree = "<group>"; };
 		6DA109EC1856B45200588AA2 /* Boost.DateTime.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Boost.DateTime.xcodeproj; path = ../../Boost.DateTime/proj.ios/Boost.DateTime.xcodeproj; sourceTree = "<group>"; };
@@ -129,16 +136,6 @@
 		6DA109FE1856B46C00588AA2 /* Boost.System.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Boost.System.xcodeproj; path = ../../Boost.System/proj.ios/Boost.System.xcodeproj; sourceTree = "<group>"; };
 		6DA10A041856B47300588AA2 /* JsonCpp.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = JsonCpp.xcodeproj; path = ../../JsonCpp/proj.ios/JsonCpp.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
-
-/* Begin PBXFrameworksBuildPhase section */
-		6DA109B41856B42400588AA2 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		6DA109AE1856B42400588AA2 = {
@@ -158,7 +155,6 @@
 		6DA109B81856B42400588AA2 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				6DA109B71856B42400588AA2 /* libCandyJar.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -221,33 +217,6 @@
 		};
 /* End PBXGroup section */
 
-/* Begin PBXNativeTarget section */
-		6DA109B61856B42400588AA2 /* CandyJar */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 6DA109DA1856B42400588AA2 /* Build configuration list for PBXNativeTarget "CandyJar" */;
-			buildPhases = (
-				6DA109B31856B42400588AA2 /* Sources */,
-				6DA109B41856B42400588AA2 /* Frameworks */,
-				6DA109B51856B42400588AA2 /* CopyFiles */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				6DA10A0B1856B4EB00588AA2 /* PBXTargetDependency */,
-				6DA10A0D1856B4EB00588AA2 /* PBXTargetDependency */,
-				6DA10A0F1856B4EB00588AA2 /* PBXTargetDependency */,
-				6DA10A111856B4EB00588AA2 /* PBXTargetDependency */,
-				6DA10A131856B4EB00588AA2 /* PBXTargetDependency */,
-				6DA10A151856B4EB00588AA2 /* PBXTargetDependency */,
-				6DA10A171856B4EB00588AA2 /* PBXTargetDependency */,
-			);
-			name = CandyJar;
-			productName = CandyJar;
-			productReference = 6DA109B71856B42400588AA2 /* libCandyJar.a */;
-			productType = "com.apple.product-type.library.static";
-		};
-/* End PBXNativeTarget section */
-
 /* Begin PBXProject section */
 		6DA109AF1856B42400588AA2 /* Project object */ = {
 			isa = PBXProject;
@@ -297,7 +266,7 @@
 			);
 			projectRoot = "";
 			targets = (
-				6DA109B61856B42400588AA2 /* CandyJar */,
+				01A4729D199A239200AFFCB4 /* CandyJar */,
 			);
 		};
 /* End PBXProject section */
@@ -354,55 +323,59 @@
 		};
 /* End PBXReferenceProxy section */
 
-/* Begin PBXSourcesBuildPhase section */
-		6DA109B31856B42400588AA2 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXSourcesBuildPhase section */
-
 /* Begin PBXTargetDependency section */
-		6DA10A0B1856B4EB00588AA2 /* PBXTargetDependency */ = {
+		01A472A2199A23A500AFFCB4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = AFNetworking;
-			targetProxy = 6DA10A0A1856B4EB00588AA2 /* PBXContainerItemProxy */;
+			targetProxy = 01A472A1199A23A500AFFCB4 /* PBXContainerItemProxy */;
 		};
-		6DA10A0D1856B4EB00588AA2 /* PBXTargetDependency */ = {
+		01A472A4199A23A500AFFCB4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Boost.Chrono;
-			targetProxy = 6DA10A0C1856B4EB00588AA2 /* PBXContainerItemProxy */;
+			targetProxy = 01A472A3199A23A500AFFCB4 /* PBXContainerItemProxy */;
 		};
-		6DA10A0F1856B4EB00588AA2 /* PBXTargetDependency */ = {
+		01A472A6199A23A500AFFCB4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Boost.DateTime;
-			targetProxy = 6DA10A0E1856B4EB00588AA2 /* PBXContainerItemProxy */;
+			targetProxy = 01A472A5199A23A500AFFCB4 /* PBXContainerItemProxy */;
 		};
-		6DA10A111856B4EB00588AA2 /* PBXTargetDependency */ = {
+		01A472A8199A23A500AFFCB4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Boost.Filesystem;
-			targetProxy = 6DA10A101856B4EB00588AA2 /* PBXContainerItemProxy */;
+			targetProxy = 01A472A7199A23A500AFFCB4 /* PBXContainerItemProxy */;
 		};
-		6DA10A131856B4EB00588AA2 /* PBXTargetDependency */ = {
+		01A472AA199A23A500AFFCB4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Boost.ProgramOptions;
-			targetProxy = 6DA10A121856B4EB00588AA2 /* PBXContainerItemProxy */;
+			targetProxy = 01A472A9199A23A500AFFCB4 /* PBXContainerItemProxy */;
 		};
-		6DA10A151856B4EB00588AA2 /* PBXTargetDependency */ = {
+		01A472AC199A23A500AFFCB4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Boost.System;
-			targetProxy = 6DA10A141856B4EB00588AA2 /* PBXContainerItemProxy */;
+			targetProxy = 01A472AB199A23A500AFFCB4 /* PBXContainerItemProxy */;
 		};
-		6DA10A171856B4EB00588AA2 /* PBXTargetDependency */ = {
+		01A472AE199A23A500AFFCB4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = JsonCpp;
-			targetProxy = 6DA10A161856B4EB00588AA2 /* PBXContainerItemProxy */;
+			targetProxy = 01A472AD199A23A500AFFCB4 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		01A4729F199A239200AFFCB4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		01A472A0199A239200AFFCB4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		6DA109D81856B42400588AA2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -476,47 +449,23 @@
 			};
 			name = Release;
 		};
-		6DA109DB1856B42400588AA2 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				DSTROOT = /tmp/CandyJar.dst;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "CandyJar/CandyJar-Prefix.pch";
-				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		6DA109DC1856B42400588AA2 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				DSTROOT = /tmp/CandyJar.dst;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "CandyJar/CandyJar-Prefix.pch";
-				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		01A4729E199A239200AFFCB4 /* Build configuration list for PBXAggregateTarget "CandyJar" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				01A4729F199A239200AFFCB4 /* Debug */,
+				01A472A0199A239200AFFCB4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		6DA109B21856B42400588AA2 /* Build configuration list for PBXProject "CandyJar" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6DA109D81856B42400588AA2 /* Debug */,
 				6DA109D91856B42400588AA2 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		6DA109DA1856B42400588AA2 /* Build configuration list for PBXNativeTarget "CandyJar" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				6DA109DB1856B42400588AA2 /* Debug */,
-				6DA109DC1856B42400588AA2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
