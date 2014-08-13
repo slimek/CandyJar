@@ -4,3 +4,5 @@ Android.Ndk.Debug/
 Android.Ndk.Release/
 Mac/Debug
 Mac/Release
+ios-iphoneos/
+ios-iphonesimulator/
