@@ -13,7 +13,6 @@
 			buildPhases = (
 			);
 			dependencies = (
-				01A472A2199A23A500AFFCB4 /* PBXTargetDependency */,
 				01A472A4199A23A500AFFCB4 /* PBXTargetDependency */,
 				01A472A6199A23A500AFFCB4 /* PBXTargetDependency */,
 				01A472A8199A23A500AFFCB4 /* PBXTargetDependency */,
@@ -27,13 +26,6 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXContainerItemProxy section */
-		01A472A1199A23A500AFFCB4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 6DA109E01856B44800588AA2 /* AFNetworking.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 6DCDFDA918331D92007DC977;
-			remoteInfo = AFNetworking;
-		};
 		01A472A3199A23A500AFFCB4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 6DA109E61856B44D00588AA2 /* Boost.Chrono.xcodeproj */;
@@ -75,13 +67,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = 6DB372C8180CD91E008AF50F;
 			remoteInfo = JsonCpp;
-		};
-		6DA109E41856B44800588AA2 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 6DA109E01856B44800588AA2 /* AFNetworking.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 6DCDFDAA18331D92007DC977;
-			remoteInfo = AFNetworking;
 		};
 		6DA109EA1856B44E00588AA2 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -128,7 +113,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		6DA109E01856B44800588AA2 /* AFNetworking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = AFNetworking.xcodeproj; path = ../../AFNetworking/AFNetworking.xcodeproj; sourceTree = "<group>"; };
 		6DA109E61856B44D00588AA2 /* Boost.Chrono.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Boost.Chrono.xcodeproj; path = ../../Boost.Chrono/proj.ios/Boost.Chrono.xcodeproj; sourceTree = "<group>"; };
 		6DA109EC1856B45200588AA2 /* Boost.DateTime.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Boost.DateTime.xcodeproj; path = ../../Boost.DateTime/proj.ios/Boost.DateTime.xcodeproj; sourceTree = "<group>"; };
 		6DA109F21856B45A00588AA2 /* Boost.Filesystem.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Boost.Filesystem.xcodeproj; path = ../../Boost.Filesystem/proj.ios/Boost.Filesystem.xcodeproj; sourceTree = "<group>"; };
@@ -141,7 +125,6 @@
 		6DA109AE1856B42400588AA2 = {
 			isa = PBXGroup;
 			children = (
-				6DA109E01856B44800588AA2 /* AFNetworking.xcodeproj */,
 				6DA109E61856B44D00588AA2 /* Boost.Chrono.xcodeproj */,
 				6DA109EC1856B45200588AA2 /* Boost.DateTime.xcodeproj */,
 				6DA109F21856B45A00588AA2 /* Boost.Filesystem.xcodeproj */,
@@ -155,14 +138,6 @@
 		6DA109B81856B42400588AA2 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		6DA109E11856B44800588AA2 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				6DA109E51856B44800588AA2 /* libAFNetworking.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -236,10 +211,6 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 6DA109E11856B44800588AA2 /* Products */;
-					ProjectRef = 6DA109E01856B44800588AA2 /* AFNetworking.xcodeproj */;
-				},
-				{
 					ProductGroup = 6DA109E71856B44D00588AA2 /* Products */;
 					ProjectRef = 6DA109E61856B44D00588AA2 /* Boost.Chrono.xcodeproj */;
 				},
@@ -272,13 +243,6 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		6DA109E51856B44800588AA2 /* libAFNetworking.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libAFNetworking.a;
-			remoteRef = 6DA109E41856B44800588AA2 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 		6DA109EB1856B44E00588AA2 /* libBoost.Chrono.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -324,11 +288,6 @@
 /* End PBXReferenceProxy section */
 
 /* Begin PBXTargetDependency section */
-		01A472A2199A23A500AFFCB4 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = AFNetworking;
-			targetProxy = 01A472A1199A23A500AFFCB4 /* PBXContainerItemProxy */;
-		};
 		01A472A4199A23A500AFFCB4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Boost.Chrono;
