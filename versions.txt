@@ -22,6 +22,7 @@ RapidJSON   2014-07-04 (GitHub master)
 # Prebuilt Libraries
 
 AdMob iOS   6.5.1
+WayStormAd  1.2.0
 
 
 # Android Java Libraries with Source
