@@ -16,13 +16,13 @@ zlib          1.2.5 (headers only, for libpng)
 
 # C++ Header-only Libraries
 
-RapidJSON   2014-07-04 (GitHub master)
+RapidJSON     2014-07-04 (GitHub master)
 
 
-# Prebuilt Libraries
+# iOS Prebuilt Libraries
 
-AdMob iOS   6.5.1
-WayStormAd  1.2.0
+AdMob         6.5.1
+WayStormAd    1.2.0 (32-bit only)
 
 
 # Android Java Libraries with Source
@@ -40,10 +40,11 @@ Flurry                3.3.0
 NendSDK               2.3.3
 NendAdapter           1.1.0
 UmengAnalytics        5.2.3
-AdlocusSdk		3.3.0
-WaystormSdk 		1.2.0
-VponSdk			4.2.6	
+AdLocusSdk            3.3.0
+WayStormSdk           1.2.0
+VponSdk               4.2.6
+
 
 # Objective-C Frameworks
 
-Shephertz App42		2.8
+Shephertz App42 iOS API  2.8
