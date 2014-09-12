@@ -43,7 +43,7 @@ UmengAnalytics        5.2.3
 AdLocusSdk            3.3.0
 WayStormSdk           1.2.0
 VponSdk               4.2.6
-
+play2getherSdk  20140818 v04
 
 # Objective-C Frameworks
 
