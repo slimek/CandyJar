@@ -25,8 +25,6 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libjpeg", "..\..\libjpeg\pr
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libpng", "..\..\libpng\proj.win32\libpng.vcxproj", "{6EA9A46C-8278-4386-B6F9-F6228CE3688A}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Boost.Thread", "..\..\Boost.Thread\proj.win32\Boost.Thread.vcxproj", "{652B7121-9328-4342-9302-2C655E474574}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -77,10 +75,6 @@ Global
 		{6EA9A46C-8278-4386-B6F9-F6228CE3688A}.Debug|Win32.Build.0 = Debug|Win32
 		{6EA9A46C-8278-4386-B6F9-F6228CE3688A}.Release|Win32.ActiveCfg = Release|Win32
 		{6EA9A46C-8278-4386-B6F9-F6228CE3688A}.Release|Win32.Build.0 = Release|Win32
-		{652B7121-9328-4342-9302-2C655E474574}.Debug|Win32.ActiveCfg = Debug|Win32
-		{652B7121-9328-4342-9302-2C655E474574}.Debug|Win32.Build.0 = Debug|Win32
-		{652B7121-9328-4342-9302-2C655E474574}.Release|Win32.ActiveCfg = Release|Win32
-		{652B7121-9328-4342-9302-2C655E474574}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
