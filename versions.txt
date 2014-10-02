@@ -37,7 +37,8 @@ Weibo SDK             2.5.1
 AdLocusSdk            3.3.0
 AdMob                 6.4.1
 App42                 2.7
-Flurry                3.3.0
+FlurryAd              3.3.0
+FlurryAnalytics       4.2.0
 NendSdk               2.3.3
 NendAdapter           1.1.0
 Play2getherSdk        20140818 v04
