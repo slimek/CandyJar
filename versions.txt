@@ -34,16 +34,17 @@ Weibo SDK             2.5.1
 
 # Java JARs
 
+AdLocusSdk            3.3.0
 AdMob                 6.4.1
 App42                 2.7
 Flurry                3.3.0
-NendSDK               2.3.3
+NendSdk               2.3.3
 NendAdapter           1.1.0
+Play2getherSdk        20140818 v04
 UmengAnalytics        5.2.3
-AdLocusSdk            3.3.0
-WayStormSdk           1.2.0
 VponSdk               4.2.6
-play2getherSdk  20140818 v04
+WaystormSdk           1.2.0
+
 
 # Objective-C Frameworks
 
