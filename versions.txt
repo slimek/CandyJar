@@ -21,8 +21,9 @@ RapidJSON     2014-07-04  (GitHub master)
 
 # iOS Prebuilt Libraries
 
-AdMob         6.5.1
-WaystormAd    1.2.0  (origin: waystorm-ad-sdk-only32bit-1.2.0.a)
+AdMob                 6.5.1
+FlurryAnalytics       5.4.0  (origin: libFlurry_5.4.0.a)
+WaystormAd            1.2.0  (origin: waystorm-ad-sdk-only32bit-1.2.0.a)
 
 
 # Android Java Libraries with Source
