@@ -103,7 +103,7 @@
 		6DB372C1180CD91E008AF50F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0510;
+				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = Sixion;
 			};
 			buildConfigurationList = 6DB372C4180CD91E008AF50F /* Build configuration list for PBXProject "JsonCpp" */;
