@@ -21,6 +21,7 @@ include $(call candy-make,Boost.Filesystem)
 include $(call candy-make,Boost.ProgramOptions)
 include $(call candy-make,Boost.System)
 include $(call candy-make,JsonCpp)
+include $(call candy-make,UnitTest++)
 
 
 #
@@ -40,7 +41,8 @@ LOCAL_WHOLE_STATIC_LIBRARIES := \
 	boost-filesystem \
 	boost-program_options \
 	boost-system \
-	JsonCpp
+	JsonCpp \
+	UnitTest++
 
 include $(BUILD_SHARED_LIBRARY)
 
@@ -69,6 +71,7 @@ $(CANDY_ARCH_ABI): $(LOCAL_BUILT_MODULE)
 	$(call candy-copy,boost-program_options)
 	$(call candy-copy,boost-system)
 	$(call candy-copy,JsonCpp)
+	$(call candy-copy,UnitTest++)
 
 
 #
@@ -89,6 +92,7 @@ $(CANDY_ARCH_ABI)-clean:
 	$(call candy-clean,boost-program_options)
 	$(call candy-clean,boost-system)
 	$(call candy-clean,JsonCpp)
+	$(call candy-clean,UnitTest++)
 
 
 #
