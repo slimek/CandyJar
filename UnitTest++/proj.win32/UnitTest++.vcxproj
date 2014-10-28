@@ -25,6 +25,7 @@
     <ClInclude Include="..\..\include\UnitTest++\TestList.h" />
     <ClInclude Include="..\..\include\UnitTest++\TestMacros.h" />
     <ClInclude Include="..\..\include\UnitTest++\TestReporter.h" />
+    <ClInclude Include="..\..\include\UnitTest++\TestReporterCout.h" />
     <ClInclude Include="..\..\include\UnitTest++\TestReporterStdout.h" />
     <ClInclude Include="..\..\include\UnitTest++\TestResults.h" />
     <ClInclude Include="..\..\include\UnitTest++\TestRunner.h" />
@@ -58,6 +59,7 @@
     <ClCompile Include="..\src\TestDetails.cpp" />
     <ClCompile Include="..\src\TestList.cpp" />
     <ClCompile Include="..\src\TestReporter.cpp" />
+    <ClCompile Include="..\src\TestReporterCout.cpp" />
     <ClCompile Include="..\src\TestReporterStdout.cpp" />
     <ClCompile Include="..\src\TestResults.cpp" />
     <ClCompile Include="..\src\TestRunner.cpp" />

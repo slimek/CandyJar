@@ -18,6 +18,7 @@ LOCAL_SRC_FILES := \
 	$(MY_SRC_DIR)/TestDetails.cpp \
 	$(MY_SRC_DIR)/TestList.cpp \
 	$(MY_SRC_DIR)/TestReporter.cpp \
+	$(MY_SRC_DIR)/TestReporterCout.cpp \
 	$(MY_SRC_DIR)/TestReporterStdout.cpp \
 	$(MY_SRC_DIR)/TestResults.cpp \
 	$(MY_SRC_DIR)/TestRunner.cpp \

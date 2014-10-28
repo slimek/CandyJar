@@ -101,6 +101,9 @@
     <ClInclude Include="..\..\include\UnitTest++\TestReporterStdout.h">
       <Filter>Public Headers</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\include\UnitTest++\TestReporterCout.h">
+      <Filter>Public Headers</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\AssertException.cpp">
@@ -159,6 +162,9 @@
     </ClCompile>
     <ClCompile Include="..\src\Win32\TimeHelpers.cpp">
       <Filter>Sources\Win32</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\TestReporterCout.cpp">
+      <Filter>Sources</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
