@@ -24,6 +24,8 @@
     <ClInclude Include="..\..\include\UnitTest++\TestDetails.h" />
     <ClInclude Include="..\..\include\UnitTest++\TestList.h" />
     <ClInclude Include="..\..\include\UnitTest++\TestMacros.h" />
+    <ClInclude Include="..\..\include\UnitTest++\TestReporter.h" />
+    <ClInclude Include="..\..\include\UnitTest++\TestReporterStdout.h" />
     <ClInclude Include="..\..\include\UnitTest++\TestResults.h" />
     <ClInclude Include="..\..\include\UnitTest++\TestRunner.h" />
     <ClInclude Include="..\..\include\UnitTest++\TestSuite.h" />
@@ -34,8 +36,6 @@
     <ClInclude Include="..\src\DeferredTestReporter.h" />
     <ClInclude Include="..\src\DeferredTestResult.h" />
     <ClInclude Include="..\src\ReportAssert.h" />
-    <ClInclude Include="..\src\TestReporter.h" />
-    <ClInclude Include="..\src\TestReporterStdout.h" />
     <ClInclude Include="..\src\XmlTestReporter.h" />
   </ItemGroup>
   <ItemGroup>

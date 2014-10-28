@@ -92,14 +92,14 @@
     <ClInclude Include="..\src\ReportAssert.h">
       <Filter>Sources</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\TestReporter.h">
-      <Filter>Sources</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\TestReporterStdout.h">
-      <Filter>Sources</Filter>
-    </ClInclude>
     <ClInclude Include="..\src\XmlTestReporter.h">
       <Filter>Sources</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\UnitTest++\TestReporter.h">
+      <Filter>Public Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\UnitTest++\TestReporterStdout.h">
+      <Filter>Public Headers</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
