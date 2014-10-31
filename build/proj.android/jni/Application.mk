@@ -9,13 +9,13 @@ ifeq ($(NDEBUG),1)
 
 # Release
 APP_OPTIM := release
-CANDY_CONFIG := Release
+CANDY_CONFIG := gcc48.Release
 
 else
 
 # Debug
 APP_OPTIM := debug
-CANDY_CONFIG := Debug
+CANDY_CONFIG := gcc48.Debug
 
 APP_CFLAGS += -g -DCOCOS2D_DEBUG=1
 
