@@ -1,5 +1,5 @@
 APP_PLATFORM := android-15
-APP_ABI := x86 armeabi armeabi-v7a
+APP_ABI := x86 armeabi
 
 APP_STL := c++_static
 NDK_TOOLCHAIN_VERSION := clang
@@ -12,15 +12,15 @@ ifeq ($(NDEBUG),1)
 
 # Release
 APP_OPTIM := release
-CANDY_CONFIG := gcc48.Release
+CANDY_CONFIG := clang.Release
 
 else
 
 # Debug
 APP_OPTIM := debug
-CANDY_CONFIG := gcc48.Debug
+CANDY_CONFIG := clang.Debug
 
-APP_CFLAGS += -g -DCOCOS2D_DEBUG=1
+APP_CFLAGS += -g
 
 endif
 
