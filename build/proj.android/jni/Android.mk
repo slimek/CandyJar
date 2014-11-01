@@ -54,17 +54,18 @@ include $(BUILD_SHARED_LIBRARY)
 # My variables
 CANDY_LIB := ../../lib
 CANDY_ARCH_ABI := $(TARGET_ARCH_ABI)
+NDK_CANDY_CONFIG := Android.Ndk.$(CANDY_CONFIG)
 
 # $(call candy-copy,lib-name)
 define candy-copy
-  $(call host-cp,obj/$(CANDY_CONFIG)/local/$@/lib$1.a,$(CANDY_LIB)/Android.Ndk.$(CANDY_CONFIG)/$@/lib$1.a)
+  $(call host-cp,obj/$(CANDY_CONFIG)/local/$@/lib$1.a,$(CANDY_LIB)/$(NDK_CANDY_CONFIG)/$@/lib$1.a)
 endef
 
 all: $(CANDY_ARCH_ABI)
 
 $(CANDY_ARCH_ABI): $(LOCAL_BUILT_MODULE)
-	$(call host-mkdir,$(CANDY_LIB)/Android.Ndk.$(CANDY_CONFIG))
-	$(call host-mkdir,$(CANDY_LIB)/Android.Ndk.$(CANDY_CONFIG)/$@)
+	$(call host-mkdir,$(CANDY_LIB)/$(NDK_CANDY_CONFIG))
+	$(call host-mkdir,$(CANDY_LIB)/$(NDK_CANDY_CONFIG)/$@)
 	$(call candy-copy,boost-chrono)
 	$(call candy-copy,boost-date_time)
 	$(call candy-copy,boost-filesystem)
@@ -80,7 +81,7 @@ $(CANDY_ARCH_ABI): $(LOCAL_BUILT_MODULE)
 
 # $(call candy-clean,lib-name)
 define candy-clean
-  $(call host-rm,$(CANDY_LIB)/Android.Ndk.$(CANDY_CONFIG)/$(subst -clean,,$@)/lib$1.a)
+  $(call host-rm,$(CANDY_LIB)/$(NDK_CANDY_CONFIG)/$(subst -clean,,$@)/lib$1.a)
 endef
 
 clean: $(CANDY_ARCH_ABI)-clean
