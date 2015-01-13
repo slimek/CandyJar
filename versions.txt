@@ -43,7 +43,6 @@ FlurryAd              3.3.0
 FlurryAnalytics       4.2.0
 NendSdk               2.3.3
 NendAdapter           1.1.0
-Play2getherSdk        20140818 v04
 UmengAnalytics        5.2.3
 VponSdk               4.2.6
 WaystormSdk           1.2.0
