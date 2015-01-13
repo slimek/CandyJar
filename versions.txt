@@ -17,6 +17,7 @@ zlib          1.2.5  (headers only, for libpng)
 # C++ Header-only Libraries
 
 RapidJSON     2014-07-04  (GitHub master)
+SafeInt       3.0.18
 
 
 # iOS Prebuilt Libraries
