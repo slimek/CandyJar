@@ -215,7 +215,6 @@
 		6D4CB88E18223E7D00A1E5DF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CONFIGURATION_BUILD_DIR = "$(inherited)";
 				DSTROOT = /tmp/Boost_Chrono.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -233,7 +232,6 @@
 		6D4CB88F18223E7D00A1E5DF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CONFIGURATION_BUILD_DIR = "$(inherited)";
 				DSTROOT = /tmp/Boost_Chrono.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
