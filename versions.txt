@@ -50,4 +50,5 @@ WaystormSdk           1.2.0
 
 # Objective-C Frameworks
 
+GoogleMobileAds          7.0
 Shephertz App42 iOS API  2.8
