@@ -189,7 +189,6 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				OBJROOT = obj;
-				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 				SYMROOT = "$(SRCROOT)/../../lib/Mac";
 			};

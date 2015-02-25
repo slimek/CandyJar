@@ -162,7 +162,7 @@
 		0154C9C01992162500D7B67D /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0510;
+				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = "6ion Studio";
 			};
 			buildConfigurationList = 0154C9C31992162500D7B67D /* Build configuration list for PBXProject "UnitTest++" */;
@@ -245,7 +245,6 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				OBJROOT = obj;
-				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 				SYMROOT = "$(SRCROOT)/../../lib/Mac";
 				USER_HEADER_SEARCH_PATHS = "../../include/UnitTest++";
