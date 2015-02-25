@@ -8,13 +8,13 @@ obj/
 *.user
 
 # Xcode Generated Files
-build/
 *.xcworkspacedata
 *.xcscheme
 *.xcuserstate
 *.xccheckout
 xcschememanagement.plist
 xcuserdata/
+*.build/
 
 # Eclipse + NDK Generated Files
 bin/

@@ -1,0 +1,432 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		01B6B8781A9C555000404118 /* CandyJar */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 01B6B87B1A9C555000404118 /* Build configuration list for PBXAggregateTarget "CandyJar" */;
+			buildPhases = (
+			);
+			dependencies = (
+				01B6B8AC1A9C591D00404118 /* PBXTargetDependency */,
+				01B6B89B1A9C563200404118 /* PBXTargetDependency */,
+				01B6B89D1A9C563200404118 /* PBXTargetDependency */,
+				01B6B89F1A9C563200404118 /* PBXTargetDependency */,
+				01B6B8A11A9C563200404118 /* PBXTargetDependency */,
+				01B6B8A31A9C563200404118 /* PBXTargetDependency */,
+			);
+			name = CandyJar;
+			productName = CandyJar;
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXContainerItemProxy section */
+		01B6B8801A9C556800404118 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 01B6B87C1A9C556800404118 /* Boost.Chrono.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6A706EC518498D63004C9602;
+			remoteInfo = Boost.Chrono;
+		};
+		01B6B8861A9C557600404118 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 01B6B8821A9C557600404118 /* Boost.DateTime.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6AAF39451849D5EF0010FAF1;
+			remoteInfo = Boost.DateTime;
+		};
+		01B6B88C1A9C558400404118 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 01B6B8881A9C558400404118 /* Boost.Filesystem.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6AAF38FB1849D4150010FAF1;
+			remoteInfo = Boost.Filesystem;
+		};
+		01B6B8921A9C55A000404118 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 01B6B88E1A9C55A000404118 /* Boost.ProgramOptions.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6AAF391E1849D4E80010FAF1;
+			remoteInfo = Boost.ProgramOptions;
+		};
+		01B6B8981A9C55AE00404118 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 01B6B8941A9C55AE00404118 /* Boost.System.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6A23F63018499CEC00FD4293;
+			remoteInfo = Boost.System;
+		};
+		01B6B89A1A9C563200404118 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 01B6B8941A9C55AE00404118 /* Boost.System.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 6A23F62F18499CEC00FD4293;
+			remoteInfo = Boost.System;
+		};
+		01B6B89C1A9C563200404118 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 01B6B88E1A9C55A000404118 /* Boost.ProgramOptions.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 6AAF391D1849D4E80010FAF1;
+			remoteInfo = Boost.ProgramOptions;
+		};
+		01B6B89E1A9C563200404118 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 01B6B8881A9C558400404118 /* Boost.Filesystem.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 6AAF38FA1849D4150010FAF1;
+			remoteInfo = Boost.Filesystem;
+		};
+		01B6B8A01A9C563200404118 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 01B6B8821A9C557600404118 /* Boost.DateTime.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 6AAF39441849D5EF0010FAF1;
+			remoteInfo = Boost.DateTime;
+		};
+		01B6B8A21A9C563200404118 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 01B6B87C1A9C556800404118 /* Boost.Chrono.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 6A706EC418498D63004C9602;
+			remoteInfo = Boost.Chrono;
+		};
+		01B6B8A91A9C572D00404118 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 01B6B8A51A9C572C00404118 /* UnitTest++.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 0154C9C81992162500D7B67D;
+			remoteInfo = "UnitTest++";
+		};
+		01B6B8AB1A9C591D00404118 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 01B6B8A51A9C572C00404118 /* UnitTest++.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 0154C9C71992162500D7B67D;
+			remoteInfo = "UnitTest++";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		01B6B87C1A9C556800404118 /* Boost.Chrono.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Boost.Chrono.xcodeproj; path = ../../Boost.Chrono/proj.mac/Boost.Chrono.xcodeproj; sourceTree = "<group>"; };
+		01B6B8821A9C557600404118 /* Boost.DateTime.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Boost.DateTime.xcodeproj; path = ../../Boost.DateTime/proj.mac/Boost.DateTime.xcodeproj; sourceTree = "<group>"; };
+		01B6B8881A9C558400404118 /* Boost.Filesystem.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Boost.Filesystem.xcodeproj; path = ../../Boost.Filesystem/proj.mac/Boost.Filesystem.xcodeproj; sourceTree = "<group>"; };
+		01B6B88E1A9C55A000404118 /* Boost.ProgramOptions.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Boost.ProgramOptions.xcodeproj; path = ../../Boost.ProgramOptions/proj.mac/Boost.ProgramOptions.xcodeproj; sourceTree = "<group>"; };
+		01B6B8941A9C55AE00404118 /* Boost.System.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Boost.System.xcodeproj; path = ../../Boost.System/proj.mac/Boost.System.xcodeproj; sourceTree = "<group>"; };
+		01B6B8A51A9C572C00404118 /* UnitTest++.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "UnitTest++.xcodeproj"; path = "../../UnitTest++/proj.mac/UnitTest++.xcodeproj"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		01B6B8551A9C54FA00404118 = {
+			isa = PBXGroup;
+			children = (
+				01B6B8A51A9C572C00404118 /* UnitTest++.xcodeproj */,
+				01B6B8941A9C55AE00404118 /* Boost.System.xcodeproj */,
+				01B6B88E1A9C55A000404118 /* Boost.ProgramOptions.xcodeproj */,
+				01B6B8881A9C558400404118 /* Boost.Filesystem.xcodeproj */,
+				01B6B8821A9C557600404118 /* Boost.DateTime.xcodeproj */,
+				01B6B87C1A9C556800404118 /* Boost.Chrono.xcodeproj */,
+			);
+			sourceTree = "<group>";
+		};
+		01B6B87D1A9C556800404118 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				01B6B8811A9C556800404118 /* libBoost.Chrono.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		01B6B8831A9C557600404118 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				01B6B8871A9C557600404118 /* libBoost.DateTime.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		01B6B8891A9C558400404118 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				01B6B88D1A9C558400404118 /* libBoost.Filesystem.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		01B6B88F1A9C55A000404118 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				01B6B8931A9C55A000404118 /* libBoost.ProgramOptions.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		01B6B8951A9C55AE00404118 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				01B6B8991A9C55AE00404118 /* libBoost.System.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		01B6B8A61A9C572C00404118 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				01B6B8AA1A9C572D00404118 /* libUnitTest++.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXProject section */
+		01B6B8561A9C54FA00404118 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = "6ion Studio";
+				TargetAttributes = {
+					01B6B8781A9C555000404118 = {
+						CreatedOnToolsVersion = 6.1.1;
+					};
+				};
+			};
+			buildConfigurationList = 01B6B8591A9C54FA00404118 /* Build configuration list for PBXProject "CandyJar" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 01B6B8551A9C54FA00404118;
+			productRefGroup = 01B6B8551A9C54FA00404118;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 01B6B87D1A9C556800404118 /* Products */;
+					ProjectRef = 01B6B87C1A9C556800404118 /* Boost.Chrono.xcodeproj */;
+				},
+				{
+					ProductGroup = 01B6B8831A9C557600404118 /* Products */;
+					ProjectRef = 01B6B8821A9C557600404118 /* Boost.DateTime.xcodeproj */;
+				},
+				{
+					ProductGroup = 01B6B8891A9C558400404118 /* Products */;
+					ProjectRef = 01B6B8881A9C558400404118 /* Boost.Filesystem.xcodeproj */;
+				},
+				{
+					ProductGroup = 01B6B88F1A9C55A000404118 /* Products */;
+					ProjectRef = 01B6B88E1A9C55A000404118 /* Boost.ProgramOptions.xcodeproj */;
+				},
+				{
+					ProductGroup = 01B6B8951A9C55AE00404118 /* Products */;
+					ProjectRef = 01B6B8941A9C55AE00404118 /* Boost.System.xcodeproj */;
+				},
+				{
+					ProductGroup = 01B6B8A61A9C572C00404118 /* Products */;
+					ProjectRef = 01B6B8A51A9C572C00404118 /* UnitTest++.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				01B6B8781A9C555000404118 /* CandyJar */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		01B6B8811A9C556800404118 /* libBoost.Chrono.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libBoost.Chrono.a;
+			remoteRef = 01B6B8801A9C556800404118 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		01B6B8871A9C557600404118 /* libBoost.DateTime.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libBoost.DateTime.a;
+			remoteRef = 01B6B8861A9C557600404118 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		01B6B88D1A9C558400404118 /* libBoost.Filesystem.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libBoost.Filesystem.a;
+			remoteRef = 01B6B88C1A9C558400404118 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		01B6B8931A9C55A000404118 /* libBoost.ProgramOptions.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libBoost.ProgramOptions.a;
+			remoteRef = 01B6B8921A9C55A000404118 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		01B6B8991A9C55AE00404118 /* libBoost.System.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libBoost.System.a;
+			remoteRef = 01B6B8981A9C55AE00404118 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		01B6B8AA1A9C572D00404118 /* libUnitTest++.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libUnitTest++.a";
+			remoteRef = 01B6B8A91A9C572D00404118 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXTargetDependency section */
+		01B6B89B1A9C563200404118 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Boost.System;
+			targetProxy = 01B6B89A1A9C563200404118 /* PBXContainerItemProxy */;
+		};
+		01B6B89D1A9C563200404118 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Boost.ProgramOptions;
+			targetProxy = 01B6B89C1A9C563200404118 /* PBXContainerItemProxy */;
+		};
+		01B6B89F1A9C563200404118 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Boost.Filesystem;
+			targetProxy = 01B6B89E1A9C563200404118 /* PBXContainerItemProxy */;
+		};
+		01B6B8A11A9C563200404118 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Boost.DateTime;
+			targetProxy = 01B6B8A01A9C563200404118 /* PBXContainerItemProxy */;
+		};
+		01B6B8A31A9C563200404118 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Boost.Chrono;
+			targetProxy = 01B6B8A21A9C563200404118 /* PBXContainerItemProxy */;
+		};
+		01B6B8AC1A9C591D00404118 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "UnitTest++";
+			targetProxy = 01B6B8AB1A9C591D00404118 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		01B6B8701A9C54FA00404118 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		01B6B8711A9C54FA00404118 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		01B6B8791A9C555000404118 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		01B6B87A1A9C555000404118 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		01B6B8591A9C54FA00404118 /* Build configuration list for PBXProject "CandyJar" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				01B6B8701A9C54FA00404118 /* Debug */,
+				01B6B8711A9C54FA00404118 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		01B6B87B1A9C555000404118 /* Build configuration list for PBXAggregateTarget "CandyJar" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				01B6B8791A9C555000404118 /* Debug */,
+				01B6B87A1A9C555000404118 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 01B6B8561A9C54FA00404118 /* Project object */;
+}
