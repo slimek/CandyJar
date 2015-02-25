@@ -1,5 +1,7 @@
 Win32.*.Debug/
 Win32.*.Release/
+x64.*.Debug/
+x64.*.Release/
 Android.Ndk.*.Debug/
 Android.Ndk.*.Release/
 Mac/Debug
