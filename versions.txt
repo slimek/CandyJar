@@ -30,14 +30,13 @@ WaystormAd            1.2.0  (origin: waystorm-ad-sdk-only32bit-1.2.0.a)
 # Android Java Libraries with Source
 
 Facebook SDK          3.14.1
-Google Play Services  rev.17, v4.4, 445200
+Google Play Services  rev.22, v6.5, 658700
 Weibo SDK             2.5.1
 
 
 # Java JARs
 
 AdLocusSdk            3.3.0
-AdMob                 6.4.1
 App42                 2.7
 FlurryAd              3.3.0
 FlurryAnalytics       4.2.0
