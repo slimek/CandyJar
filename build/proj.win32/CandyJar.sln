@@ -25,6 +25,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libjpeg", "..\..\libjpeg\pr
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libpng", "..\..\libpng\proj.win32\libpng.vcxproj", "{6EA9A46C-8278-4386-B6F9-F6228CE3688A}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Chipmunk", "..\..\Chipmunk\proj.win32\Chipmunk.vcxproj", "{890D8FC8-5802-4291-AE16-7FA098B0B01A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -121,6 +123,12 @@ Global
 		{6EA9A46C-8278-4386-B6F9-F6228CE3688A}.Release|Win32.Build.0 = Release|Win32
 		{6EA9A46C-8278-4386-B6F9-F6228CE3688A}.Release|x64.ActiveCfg = Release|x64
 		{6EA9A46C-8278-4386-B6F9-F6228CE3688A}.Release|x64.Build.0 = Release|x64
+		{890D8FC8-5802-4291-AE16-7FA098B0B01A}.Debug|Win32.ActiveCfg = Debug|Win32
+		{890D8FC8-5802-4291-AE16-7FA098B0B01A}.Debug|Win32.Build.0 = Debug|Win32
+		{890D8FC8-5802-4291-AE16-7FA098B0B01A}.Debug|x64.ActiveCfg = Debug|Win32
+		{890D8FC8-5802-4291-AE16-7FA098B0B01A}.Release|Win32.ActiveCfg = Release|Win32
+		{890D8FC8-5802-4291-AE16-7FA098B0B01A}.Release|Win32.Build.0 = Release|Win32
+		{890D8FC8-5802-4291-AE16-7FA098B0B01A}.Release|x64.ActiveCfg = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
