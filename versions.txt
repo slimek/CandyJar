@@ -3,7 +3,7 @@ Versions of each libraries
 
 # C++ Libraries with Source
 
-Boost         1.54.0
+Boost         1.56.0
 C++ REST SDK  2.1  (headers are compat, cpprest and pplx, websockets and pplx not built)
 JsonCpp       0.5.0
 libcurl       7.36.0
