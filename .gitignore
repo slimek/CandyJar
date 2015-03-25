@@ -16,7 +16,11 @@ xcschememanagement.plist
 xcuserdata/
 *.build/
 
+# iOS Frameworks Need to be Downloaded on each Machine
+GoogleMobileAds.framework
+
 # Eclipse + NDK Generated Files
 bin/
 gen/
 .settings/
+
