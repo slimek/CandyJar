@@ -50,3 +50,4 @@ WaystormSdk           1.2.0
 # Objective-C Frameworks
 
 Shephertz App42 iOS API  2.8
+UnityAds                 1.3.10
