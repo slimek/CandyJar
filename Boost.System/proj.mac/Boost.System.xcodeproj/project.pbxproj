@@ -91,7 +91,7 @@
 		6A23F62818499CEC00FD4293 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0610;
+				LastUpgradeCheck = 0620;
 				ORGANIZATIONNAME = slimek;
 			};
 			buildConfigurationList = 6A23F62B18499CEC00FD4293 /* Build configuration list for PBXProject "Boost.System" */;

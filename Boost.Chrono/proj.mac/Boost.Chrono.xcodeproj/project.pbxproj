@@ -93,7 +93,7 @@
 		6A706EBD18498D63004C9602 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0610;
+				LastUpgradeCheck = 0620;
 				ORGANIZATIONNAME = slimek;
 			};
 			buildConfigurationList = 6A706EC018498D63004C9602 /* Build configuration list for PBXProject "Boost.Chrono" */;

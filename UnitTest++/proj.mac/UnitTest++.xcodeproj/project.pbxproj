@@ -162,7 +162,7 @@
 		0154C9C01992162500D7B67D /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0610;
+				LastUpgradeCheck = 0620;
 				ORGANIZATIONNAME = "6ion Studio";
 			};
 			buildConfigurationList = 0154C9C31992162500D7B67D /* Build configuration list for PBXProject "UnitTest++" */;

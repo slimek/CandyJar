@@ -188,7 +188,7 @@
 		01B6B8561A9C54FA00404118 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0610;
+				LastUpgradeCheck = 0620;
 				ORGANIZATIONNAME = "6ion Studio";
 				TargetAttributes = {
 					01B6B8781A9C555000404118 = {
