@@ -10,9 +10,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="json_batchallocator.h">
-      <Filter>Sources</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\include\JsonCpp\autolink.h">
       <Filter>Public Headers</Filter>
     </ClInclude>
@@ -37,17 +34,9 @@
     <ClInclude Include="..\..\include\JsonCpp\writer.h">
       <Filter>Public Headers</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="json_internalarray.inl">
+    <ClInclude Include="..\src\json_tool.h">
       <Filter>Sources</Filter>
-    </None>
-    <None Include="json_internalmap.inl">
-      <Filter>Sources</Filter>
-    </None>
-    <None Include="json_valueiterator.inl">
-      <Filter>Sources</Filter>
-    </None>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\json_reader.cpp">
@@ -59,5 +48,13 @@
     <ClCompile Include="..\src\json_writer.cpp">
       <Filter>Sources</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\src\json_valueiterator.inl">
+      <Filter>Sources</Filter>
+    </None>
+    <None Include="..\src\version.h.in">
+      <Filter>Sources</Filter>
+    </None>
   </ItemGroup>
 </Project>

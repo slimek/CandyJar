@@ -27,17 +27,16 @@
     <ClInclude Include="..\..\include\JsonCpp\reader.h" />
     <ClInclude Include="..\..\include\JsonCpp\value.h" />
     <ClInclude Include="..\..\include\JsonCpp\writer.h" />
-    <ClInclude Include="json_batchallocator.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="json_internalarray.inl" />
-    <None Include="json_internalmap.inl" />
-    <None Include="json_valueiterator.inl" />
+    <ClInclude Include="..\src\json_tool.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\json_reader.cpp" />
     <ClCompile Include="..\src\json_value.cpp" />
     <ClCompile Include="..\src\json_writer.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\src\json_valueiterator.inl" />
+    <None Include="..\src\version.h.in" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{6AA5D929-EE01-4F31-84AC-0CE0C351C539}</ProjectGuid>
