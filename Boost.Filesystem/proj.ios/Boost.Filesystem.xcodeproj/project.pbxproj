@@ -112,7 +112,7 @@
 		6DAFE25D181526E700859097 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0620;
+				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = Sixion;
 			};
 			buildConfigurationList = 6DAFE260181526E700859097 /* Build configuration list for PBXProject "Boost.Filesystem" */;
