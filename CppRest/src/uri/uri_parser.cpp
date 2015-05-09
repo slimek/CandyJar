@@ -1,12 +1,12 @@
 /***
 * ==++==
 *
-* Copyright (c) Microsoft Corporation. All rights reserved. 
+* Copyright (c) Microsoft Corporation. All rights reserved.
 * Licensed under the Apache License, Version 2.0 (the "License");
 * you may not use this file except in compliance with the License.
 * You may obtain a copy of the License at
 * http://www.apache.org/licenses/LICENSE-2.0
-* 
+*
 * Unless required by applicable law or agreed to in writing, software
 * distributed under the License is distributed on an "AS IS" BASIS,
 * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -16,7 +16,7 @@
 * ==--==
 * =+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+
 *
-* uri_parser.h - A uri parsing implementation
+* URI parsing implementation
 *
 * For the latest on this and related APIs, please see http://casablanca.codeplex.com.
 *
@@ -24,14 +24,11 @@
 ****/
 #include "stdafx.h"
 #include <locale>
-#include "cpprest/uri_parser.h"
 
-namespace web { namespace details
+namespace web { namespace details { namespace uri_parser
 {
 
-const std::locale uri_parser::loc("C"); // use the C local to force the ASCII definitions of isalpha and friends
-
-bool uri_parser::validate(const utility::string_t &encoded_string) const
+bool validate(const utility::string_t &encoded_string)
 {
     const utility::char_t *scheme_begin = nullptr;
     const utility::char_t *scheme_end = nullptr;
@@ -65,9 +62,7 @@ bool uri_parser::validate(const utility::string_t &encoded_string) const
         &fragment_end);
 }
 
-bool uri_parser::parse(
-            const utility::string_t &encoded_string,
-            _uri_components &components) const
+bool parse(const utility::string_t &encoded_string, uri_components &components)
 {
     const utility::char_t *scheme_begin = nullptr;
     const utility::char_t *scheme_end = nullptr;
@@ -104,8 +99,8 @@ bool uri_parser::parse(
             components.m_scheme.assign(scheme_begin, scheme_end);
 
             // convert scheme to lowercase
-            std::transform(components.m_scheme.begin(), components.m_scheme.end(), components.m_scheme.begin(), [this](utility::char_t c) {
-                return std::tolower(c, this->loc);
+            std::transform(components.m_scheme.begin(), components.m_scheme.end(), components.m_scheme.begin(), [](utility::char_t c) {
+                return std::tolower(c, std::locale::classic());
             });
         }
         else
@@ -123,8 +118,8 @@ bool uri_parser::parse(
             components.m_host.assign(host_begin, host_end);
 
             // convert host to lowercase
-            std::transform(components.m_host.begin(), components.m_host.end(), components.m_host.begin(), [this](utility::char_t c) {
-                return std::tolower(c, this->loc);
+            std::transform(components.m_host.begin(), components.m_host.end(), components.m_host.begin(), [](utility::char_t c) {
+                return std::tolower(c, std::locale::classic());
             });
         }
         else
@@ -175,10 +170,9 @@ bool uri_parser::parse(
     {
         return false;
     }
-            
 }
 
-bool uri_parser::inner_parse(
+bool inner_parse(
             const utility::char_t *encoded,
             const utility::char_t **scheme_begin, const utility::char_t **scheme_end,
             const utility::char_t **uinfo_begin, const utility::char_t **uinfo_end,
@@ -186,7 +180,7 @@ bool uri_parser::inner_parse(
             _Out_ int *port,
             const utility::char_t **path_begin, const utility::char_t **path_end,
             const utility::char_t **query_begin, const utility::char_t **query_end,
-            const utility::char_t **fragment_begin, const utility::char_t **fragment_end) const
+            const utility::char_t **fragment_begin, const utility::char_t **fragment_end)
 {
     *scheme_begin = nullptr;
     *scheme_end = nullptr;
@@ -283,10 +277,7 @@ bool uri_parser::inner_parse(
                 //skip the colon
                 port_begin++;
 
-                utility::istringstream_t port_str(utility::string_t(port_begin, authority_end));
-                int port_num;
-                port_str >> port_num;
-                *port = port_num;
+                *port = utility::conversions::scan_string<int>(utility::string_t(port_begin, authority_end), std::locale::classic());
             }
             else
             {
@@ -313,7 +304,7 @@ bool uri_parser::inner_parse(
         }
     }
 
-    // if we see a path character or a slash, then the 
+    // if we see a path character or a slash, then the
     // if we see a slash, or any other legal path character, parse the path next
     if (*p == _XPLATSTR('/') || is_path_character(*p))
     {
@@ -369,4 +360,4 @@ bool uri_parser::inner_parse(
     return true;
 }
 
-}}
+}}}

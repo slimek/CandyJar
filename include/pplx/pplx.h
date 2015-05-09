@@ -16,8 +16,6 @@
 * ==--==
 * =+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+
 *
-* pplx.h
-*
 * Parallel Patterns Library
 *
 * For the latest on this and related APIs, please see http://casablanca.codeplex.com.
@@ -30,15 +28,15 @@
 #ifndef _PPLX_H
 #define _PPLX_H
 
-#if (defined(_MSC_VER) && (_MSC_VER >= 1800)) 
+#if (defined(_MSC_VER) && (_MSC_VER >= 1800)) && !CPPREST_FORCE_PPLX
 #error This file must not be included for Visual Studio 12 or later
 #endif
 
-#ifndef _MS_WINDOWS
+#ifndef _WIN32
 #if defined(_WIN32) || defined(__cplusplus_winrt)
-#define _MS_WINDOWS
+#define _WIN32
 #endif
-#endif // _MS_WINDOWS
+#endif // _WIN32
 
 #ifdef _NO_PPLXIMP
 #define _PPLXIMP
@@ -50,27 +48,28 @@
 #endif
 #endif
 
+#include "cpprest/details/cpprest_compat.h"
+
 // Use PPLx
-#ifdef _MS_WINDOWS
-#include "compat/windows_compat.h"
+#ifdef _WIN32
 #include "pplx/pplxwin.h"
 #elif defined(__APPLE__)
 #undef _PPLXIMP
 #define _PPLXIMP
-#include "compat/apple_compat.h"
 #include "pplx/pplxlinux.h"
 #else
-#include "compat/linux_compat.h"
 #include "pplx/pplxlinux.h"
-#endif // _MS_WINDOWS
+#endif // _WIN32
 
 // Common implementation across all the non-concrt versions
 #include "pplx/pplxcancellation_token.h"
 #include <functional>
 
 // conditional expression is constant
+#if defined(_MSC_VER)
 #pragma warning(push)
 #pragma warning(disable: 4127)
+#endif
 
 #pragma pack(push,_CRT_PACKING)
 
@@ -85,12 +84,12 @@ namespace pplx
 /// <summary>
 /// Sets the ambient scheduler to be used by the PPL constructs.
 /// </summary>
-_PPLXIMP void __cdecl set_ambient_scheduler(std::shared_ptr<pplx::scheduler_interface> _Scheduler);
+_PPLXIMP void _pplx_cdecl set_ambient_scheduler(std::shared_ptr<pplx::scheduler_interface> _Scheduler);
 
 /// <summary>
 /// Gets the ambient scheduler to be used by the PPL constructs
 /// </summary>
-_PPLXIMP std::shared_ptr<pplx::scheduler_interface> __cdecl get_ambient_scheduler();
+_PPLXIMP std::shared_ptr<pplx::scheduler_interface> _pplx_cdecl get_ambient_scheduler();
 
 namespace details
 {
@@ -122,7 +121,7 @@ namespace details
         virtual ~_TaskProcHandle() {}
         virtual void invoke() const = 0;
 
-        static void __cdecl _RunChoreBridge(void * _Parameter)
+        static void _pplx_cdecl _RunChoreBridge(void * _Parameter)
         {
             auto _PTaskHandle = static_cast<_TaskProcHandle *>(_Parameter);
             _AutoDeleter<_TaskProcHandle> _AutoDeleter(_PTaskHandle);
@@ -207,7 +206,7 @@ namespace details
             }
         }
 
-        static bool __cdecl _Is_cancellation_requested()
+        static bool _pplx_cdecl _Is_cancellation_requested()
         {
             // We do not yet have the ability to determine the current task. So return false always
             return false;
@@ -231,6 +230,8 @@ namespace details
 } // namespace pplx
 
 #pragma pack(pop)
+#if defined(_MSC_VER)
 #pragma warning(pop)
+#endif
 
 #endif // _PPLX_H

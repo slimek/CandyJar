@@ -16,8 +16,6 @@
 * ==--==
 * =+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+
 *
-* rawptrstream.h
-*
 * This file defines a stream buffer that is based on a raw pointer and block size. Unlike a vector-based
 * stream buffer, the buffer cannot be expanded or contracted, it has a fixed capacity.
 *
@@ -35,29 +33,9 @@
 #include <algorithm>
 #include <iterator>
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1800)
-#include <ppltasks.h>
-namespace pplx = Concurrency;
-#else
 #include "pplx/pplxtasks.h"
-#endif
-
 #include "cpprest/astreambuf.h"
 #include "cpprest/streams.h"
-
-#ifndef _CONCRT_H
-#ifndef _LWRCASE_CNCRRNCY
-#define _LWRCASE_CNCRRNCY
-// Note to reader: we're using lower-case namespace names everywhere, but the 'Concurrency' namespace
-// is capitalized for historical reasons. The alias let's us pretend that style issue doesn't exist.
-namespace Concurrency { }
-namespace concurrency = Concurrency;
-#endif
-#endif
-
-// Suppress unreferenced formal parameter warning as they are required for documentation
-#pragma warning(push)
-#pragma warning(disable : 4100)
 
 namespace Concurrency { namespace streams {
 
@@ -155,8 +133,8 @@ namespace Concurrency { namespace streams {
             // seek beyond the current size.
             _ASSERTE(m_current_position <= m_size);
 
-            SafeSize readhead(m_current_position);
-            SafeSize writeend(m_size);
+            msl::safeint3::SafeInt<size_t> readhead(m_current_position);
+            msl::safeint3::SafeInt<size_t> writeend(m_size);
             return (size_t)(writeend - readhead);
         }
 
@@ -200,7 +178,7 @@ namespace Concurrency { namespace streams {
 
         virtual pplx::task<size_t> _putn(const _CharType *ptr, size_t count)
         {
-            SafeSize newSize = SafeSize(count) + m_current_position;
+            msl::safeint3::SafeInt<size_t> newSize = msl::safeint3::SafeInt<size_t>(count) + m_current_position;
             if ( newSize > m_size )
                 return pplx::task_from_exception<size_t>(std::make_exception_ptr(std::runtime_error("Writing past the end of the buffer")));
             return pplx::task_from_result<size_t>(this->write(ptr, count));
@@ -215,8 +193,8 @@ namespace Concurrency { namespace streams {
         {
             if (!this->can_write()) return nullptr;
 
-            SafeSize readhead(m_current_position);
-            SafeSize writeend(m_size);
+            msl::safeint3::SafeInt<size_t> readhead(m_current_position);
+            msl::safeint3::SafeInt<size_t> writeend(m_size);
             size_t space_left = (size_t)(writeend - readhead);
 
             if (space_left < count) return nullptr;
@@ -439,8 +417,8 @@ namespace Concurrency { namespace streams {
         basic_rawptr_buffer(const _CharType* data, size_t size)
             : streambuf_state_manager<_CharType>(std::ios_base::in),
               m_data(const_cast<_CharType*>(data)),
-              m_current_position(0),
-              m_size(size)
+              m_size(size),
+              m_current_position(0)
         {
             validate_mode(std::ios_base::in);
         }
@@ -454,8 +432,8 @@ namespace Concurrency { namespace streams {
         basic_rawptr_buffer(_CharType* data, size_t size, std::ios_base::openmode mode)
             : streambuf_state_manager<_CharType>(mode),
               m_data(data),
-              m_current_position(0),
-              m_size(size)
+              m_size(size),
+              m_current_position(0)
         {
             validate_mode(mode);
         }
@@ -470,7 +448,7 @@ namespace Concurrency { namespace streams {
         /// <summary>
         /// Determines if the request can be satisfied.
         /// </summary>
-        bool can_satisfy(size_t count) const
+        bool can_satisfy(size_t) const
         {
             // We can always satisfy a read, at least partially, unless the
             // read position is at the very end of the buffer.
@@ -498,20 +476,20 @@ namespace Concurrency { namespace streams {
             if (!can_satisfy(count))
                 return 0;
 
-            SafeSize request_size(count);
-            SafeSize read_size = request_size.Min(in_avail());
+            msl::safeint3::SafeInt<size_t> request_size(count);
+            msl::safeint3::SafeInt<size_t> read_size = request_size.Min(in_avail());
 
             size_t newPos = m_current_position + read_size;
 
             auto readBegin = m_data + m_current_position;
             auto readEnd = m_data + newPos;
 
-#ifdef _MS_WINDOWS
+#ifdef _WIN32
             // Avoid warning C4996: Use checked iterators under SECURE_SCL
             std::copy(readBegin, readEnd, stdext::checked_array_iterator<_CharType *>(ptr, count));
 #else
             std::copy(readBegin, readEnd, ptr);
-#endif // _MS_WINDOWS
+#endif // _WIN32
 
             if (advance)
             {
@@ -528,18 +506,18 @@ namespace Concurrency { namespace streams {
         {
             if (!this->can_write() || (count == 0)) return 0;
 
-            SafeSize newSize = SafeSize(count) + m_current_position;
+            msl::safeint3::SafeInt<size_t> newSize = msl::safeint3::SafeInt<size_t>(count) +m_current_position;
 
             if ( newSize > m_size )
                 throw std::runtime_error("Writing past the end of the buffer");
 
             // Copy the data
-#ifdef _MS_WINDOWS
+#ifdef _WIN32
             // Avoid warning C4996: Use checked iterators under SECURE_SCL
             std::copy(ptr, ptr + count, stdext::checked_array_iterator<_CharType *>(m_data, m_size, m_current_position));
 #else
             std::copy(ptr, ptr + count, m_data+m_current_position);
-#endif // _MS_WINDOWS
+#endif // _WIN32
 
             // Update write head and satisfy pending reads if any
             update_current_position(newSize);
@@ -661,5 +639,4 @@ namespace Concurrency { namespace streams {
 
 }} // namespaces
 
-#pragma warning(pop) // 4100
-#endif  /* _CASA_RAWPTR_STREAMS_ */
+#endif

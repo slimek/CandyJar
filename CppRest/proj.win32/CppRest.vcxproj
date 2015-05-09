@@ -11,45 +11,42 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\include\compat\apple_compat.h" />
-    <ClInclude Include="..\..\include\compat\linux_compat.h" />
-    <ClInclude Include="..\..\include\compat\nosal.h" />
-    <ClInclude Include="..\..\include\compat\pplxtasks.h" />
-    <ClInclude Include="..\..\include\compat\SafeInt3.hpp" />
-    <ClInclude Include="..\..\include\compat\windows_compat.h" />
     <ClInclude Include="..\..\include\cpprest\astreambuf.h" />
     <ClInclude Include="..\..\include\cpprest\asyncrt_utils.h" />
     <ClInclude Include="..\..\include\cpprest\base_uri.h" />
-    <ClInclude Include="..\..\include\cpprest\basic_types.h" />
     <ClInclude Include="..\..\include\cpprest\containerstream.h" />
-    <ClInclude Include="..\..\include\cpprest\fileio.h" />
+    <ClInclude Include="..\..\include\cpprest\details\basic_types.h" />
+    <ClInclude Include="..\..\include\cpprest\details\cpprest_compat.h" />
+    <ClInclude Include="..\..\include\cpprest\details\fileio.h" />
+    <ClInclude Include="..\..\include\cpprest\details\http_client_impl.h" />
+    <ClInclude Include="..\..\include\cpprest\details\http_helpers.h" />
+    <ClInclude Include="..\..\include\cpprest\details\http_server.h" />
+    <ClInclude Include="..\..\include\cpprest\details\http_server_api.h" />
+    <ClInclude Include="..\..\include\cpprest\details\http_server_asio.h" />
+    <ClInclude Include="..\..\include\cpprest\details\http_server_httpsys.h" />
+    <ClInclude Include="..\..\include\cpprest\details\ioscheduler.h" />
+    <ClInclude Include="..\..\include\cpprest\details\nosal.h" />
+    <ClInclude Include="..\..\include\cpprest\details\SafeInt3.hpp" />
+    <ClInclude Include="..\..\include\cpprest\details\uri_parser.h" />
+    <ClInclude Include="..\..\include\cpprest\details\web_utilities.h" />
+    <ClInclude Include="..\..\include\cpprest\details\x509_cert_utilities.h" />
     <ClInclude Include="..\..\include\cpprest\filestream.h" />
-    <ClInclude Include="..\..\include\cpprest\globals.h" />
     <ClInclude Include="..\..\include\cpprest\http_client.h" />
-    <ClInclude Include="..\..\include\cpprest\http_client_impl.h" />
     <ClInclude Include="..\..\include\cpprest\http_headers.h" />
-    <ClInclude Include="..\..\include\cpprest\http_helpers.h" />
-    <ClInclude Include="..\..\include\cpprest\http_linux_server.h" />
     <ClInclude Include="..\..\include\cpprest\http_listener.h" />
     <ClInclude Include="..\..\include\cpprest\http_msg.h" />
-    <ClInclude Include="..\..\include\cpprest\http_server.h" />
-    <ClInclude Include="..\..\include\cpprest\http_server_api.h" />
-    <ClInclude Include="..\..\include\cpprest\http_windows_server.h" />
     <ClInclude Include="..\..\include\cpprest\interopstream.h" />
     <ClInclude Include="..\..\include\cpprest\json.h" />
+    <ClInclude Include="..\..\include\cpprest\oauth1.h" />
+    <ClInclude Include="..\..\include\cpprest\oauth2.h" />
     <ClInclude Include="..\..\include\cpprest\producerconsumerstream.h" />
     <ClInclude Include="..\..\include\cpprest\rawptrstream.h" />
     <ClInclude Include="..\..\include\cpprest\streams.h" />
-    <ClInclude Include="..\..\include\cpprest\targetver.h" />
     <ClInclude Include="..\..\include\cpprest\uri.h" />
     <ClInclude Include="..\..\include\cpprest\uri_builder.h" />
-    <ClInclude Include="..\..\include\cpprest\uri_parser.h" />
     <ClInclude Include="..\..\include\cpprest\version.h" />
-    <ClInclude Include="..\..\include\cpprest\web_utilities.h" />
     <ClInclude Include="..\..\include\cpprest\ws_client.h" />
     <ClInclude Include="..\..\include\cpprest\ws_msg.h" />
-    <ClInclude Include="..\..\include\cpprest\xxpublic.h" />
-    <ClInclude Include="..\..\include\pplx\ioscheduler.h" />
     <ClInclude Include="..\..\include\pplx\pplx.h" />
     <ClInclude Include="..\..\include\pplx\pplxcancellation_token.h" />
     <ClInclude Include="..\..\include\pplx\pplxconv.h" />
@@ -61,17 +58,53 @@
     <ClInclude Include="..\src\pch\stdafx.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\include\cpprest\http_constants.dat" />
+    <None Include="..\..\include\cpprest\details\http_constants.dat" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\src\http\client\http_msg_client.cpp" />
-    <ClCompile Include="..\src\http\client\http_win7.cpp" />
+    <ClCompile Include="..\src\http\client\http_client_asio.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\src\http\client\http_client_msg.cpp" />
+    <ClCompile Include="..\src\http\client\http_client_winhttp.cpp" />
+    <ClCompile Include="..\src\http\client\http_client_winrt.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\src\http\client\x509_cert_utilities.cpp" />
+    <ClCompile Include="..\src\http\client\x509_cert_utilities_android.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\src\http\client\x509_cert_utilities_apple.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\src\http\client\x509_cert_utilities_win32.cpp" />
     <ClCompile Include="..\src\http\common\http_helpers.cpp" />
     <ClCompile Include="..\src\http\common\http_msg.cpp" />
-    <ClCompile Include="..\src\http\listener\http_listener.cpp" />
-    <ClCompile Include="..\src\http\listener\http_msg_listen.cpp" />
-    <ClCompile Include="..\src\http\listener\http_server_api.cpp" />
-    <ClCompile Include="..\src\http\listener\http_windows_server.cpp" />
+    <ClCompile Include="..\src\http\listener\http_listener.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\src\http\listener\http_listener_msg.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\src\http\listener\http_server_api.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\src\http\listener\http_server_asio.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\src\http\listener\http_server_httpsys.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\src\http\oauth\oauth1.cpp" />
+    <ClCompile Include="..\src\http\oauth\oauth2.cpp" />
     <ClCompile Include="..\src\json\json.cpp" />
     <ClCompile Include="..\src\json\json_parsing.cpp" />
     <ClCompile Include="..\src\json\json_serialization.cpp" />
@@ -79,14 +112,62 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="..\src\streams\windows\fileio.cpp" />
-    <ClCompile Include="..\src\streams\windows\ioscheduler.cpp" />
+    <ClCompile Include="..\src\pplx\pplx.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\src\pplx\pplxapple.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\src\pplx\pplxlinux.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\src\pplx\pplxwin.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\src\pplx\threadpool.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\src\streams\fileio_posix.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\src\streams\fileio_win32.cpp" />
+    <ClCompile Include="..\src\streams\fileio_winrt.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\src\streams\ioscheduler.cpp" />
     <ClCompile Include="..\src\uri\uri.cpp" />
     <ClCompile Include="..\src\uri\uri_builder.cpp" />
     <ClCompile Include="..\src\uri\uri_parser.cpp" />
     <ClCompile Include="..\src\utilities\asyncrt_utils.cpp" />
     <ClCompile Include="..\src\utilities\base64.cpp" />
-    <ClCompile Include="..\src\utilities\dllmain.cpp" />
+    <ClCompile Include="..\src\utilities\dllmain.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\src\utilities\web_utilities.cpp" />
+    <ClCompile Include="..\src\websockets\client\ws_client.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\src\websockets\client\ws_client_winrt.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\src\websockets\client\ws_client_wspp.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\src\websockets\client\ws_msg.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{EB1670CF-D8C5-4F0A-A3F3-843BB79C1FE6}</ProjectGuid>

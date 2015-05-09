@@ -5,11 +5,12 @@ Versions of each libraries
 
 Boost         1.56.0
 Chipmunk      6.2.1   (consists with Cocos2d-x 3.4)
-C++ REST SDK  2.1     (headers are compat, cpprest and pplx, websockets and pplx not built)
+C++ REST SDK  2.5.0   (1. headers are cpprest and pplx. 2. pplx and websockets are not built in Win32.)
 JsonCpp       1.6.2
 libcurl       7.36.0
 libjpeg       9
 libpng        1.6.2
+OpenSSL       1.0.2a  (headers only, for C++ REST SDK)
 tinyxml2      1.0.11
 UnitTest++    1.4
 zlib          1.2.5   (headers only, for libpng)
@@ -17,7 +18,6 @@ zlib          1.2.5   (headers only, for libpng)
 
 # C++ Header-only Libraries
 
-OpenSSL       1.0.2a  (we provide OpenSSL headers for C++ REST SDK, but no binaries yet)
 RapidJSON     1.0.1
 SafeInt       3.0.18
 

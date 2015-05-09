@@ -16,34 +16,33 @@
 * ==--==
 * =+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+
 *
-* pplxlinux.h
-*
 * Linux specific pplx implementations
+*
+* For the latest on this and related APIs, please see http://casablanca.codeplex.com.
 *
 * =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 ****/
 
 #pragma once
 
-#ifndef _PPLXLINUX_H
-#define _PPLXLINUX_H
 
 #if (defined(_MSC_VER))
 #error This file must not be included for Visual Studio
 #endif
 
-#ifndef _MS_WINDOWS
+#ifndef _WIN32
 
 #include <signal.h>
-#include <mutex>
-#include <condition_variable>
 #include "pthread.h"
+#include "cpprest/details/cpprest_compat.h"
 
 #if defined(__APPLE__)
-#include "compat/apple_compat.h"
 #include <dispatch/dispatch.h>
+#include <boost/thread/mutex.hpp>
+#include <boost/thread/condition_variable.hpp>
 #else
-#include "compat/linux_compat.h"
+#include <mutex>   
+#include <condition_variable>
 #endif
 
 #include "pplx/pplxinterface.h"
@@ -51,6 +50,11 @@
 
 namespace pplx
 {
+#if defined(__APPLE__)
+    namespace cpprest_synchronization = ::boost;
+#else
+    namespace cpprest_synchronization = ::std;
+#endif
 namespace details
 {
 namespace platform
@@ -58,12 +62,12 @@ namespace platform
     /// <summary>
     /// Returns a unique identifier for the execution thread where this routine in invoked
     /// </summary>
-    _PPLXIMP long __cdecl GetCurrentThreadId();
+    _PPLXIMP long _pplx_cdecl GetCurrentThreadId();
 
     /// <summary>
     /// Yields the execution of the current execution thread - typically when spin-waiting
     /// </summary>
-    _PPLXIMP void __cdecl YieldExecution();
+    _PPLXIMP void _pplx_cdecl YieldExecution();
 
     /// <summary>
     /// Caputeres the callstack
@@ -80,8 +84,8 @@ namespace platform
     class event_impl
      {
     private:
-        std::mutex _lock;
-        std::condition_variable _condition;
+        cpprest_synchronization::mutex _lock;
+        cpprest_synchronization::condition_variable _condition;
         bool _signaled;
     public:
 
@@ -94,20 +98,20 @@ namespace platform
 
         void set()
         {
-            std::lock_guard<std::mutex> lock(_lock);
+            cpprest_synchronization::lock_guard<cpprest_synchronization::mutex> lock(_lock);
             _signaled = true;
             _condition.notify_all();
         }
 
         void reset()
         {
-            std::lock_guard<std::mutex> lock(_lock);
+            cpprest_synchronization::lock_guard<cpprest_synchronization::mutex> lock(_lock);
             _signaled = false;
         }
 
         unsigned int wait(unsigned int timeout)
         {
-            std::unique_lock<std::mutex> lock(_lock);
+            cpprest_synchronization::unique_lock<cpprest_synchronization::mutex> lock(_lock);
             if (timeout == event_impl::timeout_infinite)
             {
                 _condition.wait(lock, [this]() -> bool { return _signaled; });
@@ -115,7 +119,7 @@ namespace platform
             }
             else
             {
-                std::chrono::milliseconds period(timeout);
+                cpprest_synchronization::chrono::milliseconds period(timeout);
                 auto status = _condition.wait_for(lock, period, [this]() -> bool { return _signaled; });
                 _ASSERTE(status == _signaled);
                 // Return 0 if the wait completed as a result of signaling the event. Otherwise, return timeout_infinite
@@ -235,30 +239,26 @@ namespace platform
         }
 
     private:
-        ::std::mutex _M_cs;
-        long _M_recursionCount;
+        cpprest_synchronization::mutex _M_cs;
         volatile long _M_owner;
+        long _M_recursionCount;
     };
 
 #if defined(__APPLE__)
     class apple_scheduler : public pplx::scheduler_interface
-    {
-    public:
-        _PPLXIMP virtual void schedule( TaskProc_t proc, _In_ void* param);
-    };
 #else
     class linux_scheduler : public pplx::scheduler_interface
+#endif
     {
     public:
         _PPLXIMP virtual void schedule( TaskProc_t proc, _In_ void* param);
     };
-#endif
 
 } // namespace details
 
 /// <summary>
-///  A generic RAII wrapper for locks that implement the critical_section interface
-///  std::lock_guard
+///  A generic RAII wrapper for locks that implements the critical_section interface
+///  cpprest_synchronization::lock_guard
 /// </summary>
 template<class _Lock>
 class scoped_lock
@@ -286,7 +286,7 @@ namespace extensibility
 {
     typedef ::pplx::details::event_impl event_t;
 
-    typedef ::std::mutex critical_section_t;
+    typedef cpprest_synchronization::mutex critical_section_t;
     typedef scoped_lock<critical_section_t> scoped_critical_section_t;
 
     typedef ::pplx::details::reader_writer_lock_impl reader_writer_lock_t;
@@ -326,5 +326,4 @@ inline void* _ReturnAddress() { return __builtin_return_address(0); }
 
 } // namespace pplx
 
-#endif // !_MS_WINDOWS
-#endif // _PPLXLINUX_H
+#endif // !_WIN32

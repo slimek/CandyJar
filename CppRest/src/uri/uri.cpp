@@ -16,8 +16,6 @@
 * ==--==
 * =+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+
 *
-* uri.cpp
-*
 * Protocol independent support for URIs.
 *
 * For the latest on this and related APIs, please see http://casablanca.codeplex.com.
@@ -26,15 +24,12 @@
 ****/
 
 #include "stdafx.h"
-#include "cpprest/uri_parser.h"
-
-#define INTERNET_MAX_URL_LENGTH (2048)
 
 using namespace utility::conversions;
 
 namespace web { namespace details
 {
-utility::string_t _uri_components::join()
+utility::string_t uri_components::join()
 {
     // canonicalize components first
 
@@ -59,6 +54,7 @@ utility::string_t _uri_components::join()
     }
 
     utility::ostringstream_t os;
+    os.imbue(std::locale::classic());
 
     if (!m_scheme.empty())
     {
@@ -67,7 +63,14 @@ utility::string_t _uri_components::join()
 
     if (!m_host.empty())
     {
-        os << _XPLATSTR("//") << m_host;
+        os << _XPLATSTR("//");
+
+        if (!m_user_info.empty())
+        {
+            os << m_user_info << _XPLATSTR('@');
+        }
+
+        os << m_host;
 
         if (m_port > 0)
         {
@@ -101,11 +104,9 @@ utility::string_t _uri_components::join()
 
 using namespace details;
 
-#pragma region constructor
-
 uri::uri(const utility::string_t &uri_string)
 {
-    if (!details::uri_parser().parse(uri_string, m_components))
+    if (!details::uri_parser::parse(uri_string, m_components))
     {
         throw uri_exception("provided uri is invalid: " + utility::conversions::to_utf8string(uri_string));
     }
@@ -114,17 +115,12 @@ uri::uri(const utility::string_t &uri_string)
 
 uri::uri(const utility::char_t *uri_string): m_uri(uri_string)
 {
-    if (!details::uri_parser().parse(uri_string, m_components))
+    if (!details::uri_parser::parse(uri_string, m_components))
     {
         throw uri_exception("provided uri is invalid: " + utility::conversions::to_utf8string(uri_string));
     }
     m_uri = m_components.join();
 }
-
-#pragma endregion
-
-
-#pragma region encoding
 
 utility::string_t uri::encode_impl(const utility::string_t &raw, const std::function<bool(int)>& should_encode)
 {
@@ -264,14 +260,11 @@ utility::string_t uri::decode(const utility::string_t &encoded)
     return to_string_t(utf8raw);
 }
 
-#pragma endregion
-
-#pragma region splitting
-
 std::vector<utility::string_t> uri::split_path(const utility::string_t &path)
 {
     std::vector<utility::string_t> results;
     utility::istringstream_t iss(path);
+    iss.imbue(std::locale::classic());
     utility::string_t s;
 
     while (std::getline(iss, s, _XPLATSTR('/')))
@@ -323,30 +316,20 @@ std::map<utility::string_t, utility::string_t> uri::split_query(const utility::s
     return results;
 }
 
-#pragma endregion
-
-#pragma region validation
-
 bool uri::validate(const utility::string_t &uri_string)
 {
-    return uri_parser().validate(uri_string);
+    return uri_parser::validate(uri_string);
 }
 
-#pragma endregion
-
-#pragma region accessors
 uri uri::authority() const
 {
-        return uri_builder().set_scheme(this->scheme()).set_host(this->host()).set_port(this->port()).set_user_info(this->user_info()).to_uri();
+    return uri_builder().set_scheme(this->scheme()).set_host(this->host()).set_port(this->port()).set_user_info(this->user_info()).to_uri();
 }
 
 uri uri::resource() const
 {
-        return uri_builder().set_path(this->path()).set_query(this->query()).set_fragment(this->fragment()).to_uri();
+    return uri_builder().set_path(this->path()).set_query(this->query()).set_fragment(this->fragment()).to_uri();
 }
-#pragma endregion
-
-#pragma region operators
 
 bool uri::operator == (const uri &other) const
 {
@@ -394,7 +377,5 @@ bool uri::operator == (const uri &other) const
 
     return true;
 }
-
-#pragma endregion
 
 }

@@ -1,12 +1,12 @@
 /***
 * ==++==
 *
-* Copyright (c) Microsoft Corporation. All rights reserved. 
+* Copyright (c) Microsoft Corporation. All rights reserved.
 * Licensed under the Apache License, Version 2.0 (the "License");
 * you may not use this file except in compliance with the License.
 * You may obtain a copy of the License at
 * http://www.apache.org/licenses/LICENSE-2.0
-* 
+*
 * Unless required by applicable law or agreed to in writing, software
 * distributed under the License is distributed on an "AS IS" BASIS,
 * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -16,23 +16,17 @@
 * ==--==
 * =+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+
 *
-* http_headers.h
-*
 * For the latest on this and related APIs, please see http://casablanca.codeplex.com.
 *
 * =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 ****/
 #pragma once
 
-#ifndef _CASA_HTTP_HEADERS_H
-#define _CASA_HTTP_HEADERS_H
-
 #include <map>
 #include <memory>
 #include <string>
 #include <vector>
 #include <system_error>
-#include "cpprest/xxpublic.h"
 #include "cpprest/asyncrt_utils.h"
 
 namespace web { namespace http {
@@ -46,6 +40,7 @@ namespace web { namespace http {
 /// <param name="ref">The value to bind to.</param>
 /// <returns><c>true</c> if the binding succeeds, <c>false</c> otherwise.</returns>
 template<typename key_type, typename _t>
+CASABLANCA_DEPRECATED("This API is deprecated and will be removed in a future release, std::istringstream instead.")
 bool bind(const key_type &text, _t &ref) // const
 {
     utility::istringstream_t iss(text);
@@ -67,10 +62,11 @@ bool bind(const key_type &text, _t &ref) // const
 /// <param name="ref">The value to bind to.</param>
 /// <returns><c>true</c> if the binding succeeds, <c>false</c> otherwise.</returns>
 template <typename key_type>
-bool bind(const key_type &text, utility::string_t &ref) //const 
-{ 
-    ref = text; 
-    return true; 
+CASABLANCA_DEPRECATED("This API is deprecated and will be removed in a future release.")
+bool bind(const key_type &text, utility::string_t &ref) //const
+{
+    ref = text;
+    return true;
 }
 
 /// <summary>
@@ -84,7 +80,7 @@ public:
     {
         bool operator()(const utility::string_t &str1, const utility::string_t &str2) const
         {
-#ifdef _MS_WINDOWS
+#ifdef _WIN32
             return _wcsicmp(str1.c_str(), str2.c_str()) < 0;
 #else
             return utility::cmp::icmp(str1, str2) < 0;
@@ -181,7 +177,7 @@ public:
     }
 
     /// <summary>
-    /// Removes all elements from the hearders
+    /// Removes all elements from the headers.
     /// </summary>
     void clear() { m_headers.clear(); }
 
@@ -233,10 +229,10 @@ public:
             // Check to see if doesn't have a value.
             if(iter->second.empty())
             {
-                http::bind(iter->second, value);
+                bind_impl(iter->second, value);
                 return true;
             }
-            return http::bind(iter->second, value);
+            return bind_impl(iter->second, value);
         }
         else
         {
@@ -245,7 +241,7 @@ public:
     }
 
     /// <summary>
-    /// Returns an iterator refering to the first header field.
+    /// Returns an iterator referring to the first header field.
     /// </summary>
     /// <returns>An iterator to the beginning of the HTTP headers</returns>
     iterator begin() { return m_headers.begin(); }
@@ -254,7 +250,7 @@ public:
     /// <summary>
     /// Returns an iterator referring to the past-the-end header field.
     /// </summary>
-            /// <returns>An iterator to the element past the end of the HTTP headers</returns>
+    /// <returns>An iterator to the element past the end of the HTTP headers.</returns>
     iterator end() { return m_headers.end(); }
     const_iterator end() const { return m_headers.end(); }
 
@@ -308,9 +304,28 @@ public:
 
 private:
 
+    template<typename _t>
+    bool bind_impl(const key_type &text, _t &ref) const
+    {
+        utility::istringstream_t iss(text);
+        iss.imbue(std::locale::classic());
+        iss >> ref;
+        if (iss.fail() || !iss.eof())
+        {
+            return false;
+        }
+
+        return true;
+    }
+
+    bool bind_impl(const key_type &text, ::utility::string_t &ref) const
+    {
+        ref = text;
+        return true;
+    }
+
     // Headers are stored in a map with case insensitive key.
     std::map<utility::string_t, utility::string_t, _case_insensitive_cmp> m_headers;
 };
 
 }}
-#endif

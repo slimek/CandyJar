@@ -16,8 +16,6 @@
 * ==--==
 * =+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+
 *
-* pplxcancellation_token.h
-*
 * Parallel Patterns Library : cancellation_token
 *
 * =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
@@ -32,10 +30,11 @@
 #ifndef _PPLXCANCELLATION_TOKEN_H
 #define _PPLXCANCELLATION_TOKEN_H
 
-#if (defined(_MSC_VER) && (_MSC_VER >= 1800)) 
+#if (defined(_MSC_VER) && (_MSC_VER >= 1800)) && !CPPREST_FORCE_PPLX
 #error This file must not be included for Visual Studio 12 or later
 #endif
 
+#include <string>
 #include <pplx/pplxinterface.h>
 
 #pragma pack(push,_CRT_PACKING)
@@ -83,7 +82,7 @@ public:
 
     ~task_canceled() throw () {}
 
-    const char* what() const _noexcept
+    const char* what() const CPPREST_NOEXCEPT
     {
         return _message.c_str();
     }
@@ -126,7 +125,7 @@ public:
     
     ~invalid_operation() throw () {}
 
-    const char* what() const _noexcept
+    const char* what() const CPPREST_NOEXCEPT
     {
         return _message.c_str();
     }
@@ -317,8 +316,10 @@ namespace details
 
             ~TokenRegistrationContainer()
             {
+#if defined(_MSC_VER)
 #pragma warning(push)
 #pragma warning(disable: 6001)
+#endif
                 auto node = _M_begin;
                 while (node != nullptr) 
                 {
@@ -326,7 +327,9 @@ namespace details
                     node = node->_M_next;
                     ::free(tmp);
                 }
+#if defined(_MSC_VER)
 #pragma warning(pop)
+#endif
             }
 
             void swap(TokenRegistrationContainer& list)
@@ -814,7 +817,9 @@ public:
             // A callback cannot be registered if the token does not have an associated source.
             throw invalid_operation();
         }
+#if defined(_MSC_VER)
 #pragma warning(suppress: 28197)
+#endif
         details::_CancellationTokenCallback<_Function> *_PCallback = new details::_CancellationTokenCallback<_Function>(_Func);
         _M_Impl->_RegisterCallback(_PCallback);
         return cancellation_token_registration(_PCallback);

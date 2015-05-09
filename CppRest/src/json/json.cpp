@@ -1,12 +1,12 @@
 /***
 * ==++==
 *
-* Copyright (c) Microsoft Corporation. All rights reserved. 
+* Copyright (c) Microsoft Corporation. All rights reserved.
 * Licensed under the Apache License, Version 2.0 (the "License");
 * you may not use this file except in compliance with the License.
 * You may obtain a copy of the License at
 * http://www.apache.org/licenses/LICENSE-2.0
-* 
+*
 * Unless required by applicable law or agreed to in writing, software
 * distributed under the License is distributed on an "AS IS" BASIS,
 * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -15,8 +15,6 @@
 *
 * ==--==
 * =+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+
-*
-* json.cpp
 *
 * HTTP Library: JSON parser and writer
 *
@@ -47,72 +45,84 @@ utility::istream_t& web::json::operator >> (utility::istream_t &is, json::value 
     return is;
 }
 
-#pragma region json::value Constructors
-
-web::json::value::value() : 
+web::json::value::value() :
     m_value(utility::details::make_unique<web::json::details::_Null>())
 #ifdef ENABLE_JSON_VALUE_VISUALIZER
     ,m_kind(value::Null)
 #endif
     { }
 
-web::json::value::value(int32_t value) : 
+web::json::value::value(int32_t value) :
     m_value(utility::details::make_unique<web::json::details::_Number>(value))
 #ifdef ENABLE_JSON_VALUE_VISUALIZER
     ,m_kind(value::Number)
 #endif
     { }
 
-web::json::value::value(uint32_t value) : 
+web::json::value::value(uint32_t value) :
     m_value(utility::details::make_unique<web::json::details::_Number>(value))
 #ifdef ENABLE_JSON_VALUE_VISUALIZER
     ,m_kind(value::Number)
 #endif
     { }
 
-web::json::value::value(int64_t value) : 
+web::json::value::value(int64_t value) :
     m_value(utility::details::make_unique<web::json::details::_Number>(value))
 #ifdef ENABLE_JSON_VALUE_VISUALIZER
     ,m_kind(value::Number)
 #endif
     { }
 
-web::json::value::value(uint64_t value) : 
+web::json::value::value(uint64_t value) :
     m_value(utility::details::make_unique<web::json::details::_Number>(value))
 #ifdef ENABLE_JSON_VALUE_VISUALIZER
     ,m_kind(value::Number)
 #endif
     { }
 
-web::json::value::value(double value) : 
+web::json::value::value(double value) :
     m_value(utility::details::make_unique<web::json::details::_Number>(value))
 #ifdef ENABLE_JSON_VALUE_VISUALIZER
     ,m_kind(value::Number)
 #endif
     { }
 
-web::json::value::value(bool value) : 
+web::json::value::value(bool value) :
     m_value(utility::details::make_unique<web::json::details::_Boolean>(value))
 #ifdef ENABLE_JSON_VALUE_VISUALIZER
     ,m_kind(value::Boolean)
 #endif
     { }
 
-web::json::value::value(utility::string_t value) : 
+web::json::value::value(utility::string_t value) :
     m_value(utility::details::make_unique<web::json::details::_String>(std::move(value)))
 #ifdef ENABLE_JSON_VALUE_VISUALIZER
     ,m_kind(value::String)
 #endif
     { }
 
-web::json::value::value(const utility::char_t* value) : 
-    m_value(utility::details::make_unique<web::json::details::_String>(utility::string_t(value)))
+web::json::value::value(utility::string_t value, bool has_escape_chars) :
+m_value(utility::details::make_unique<web::json::details::_String>(std::move(value), has_escape_chars))
+#ifdef ENABLE_JSON_VALUE_VISUALIZER
+, m_kind(value::String)
+#endif
+{ }
+
+web::json::value::value(const utility::char_t* value) :
+    m_value(utility::details::make_unique<web::json::details::_String>(value))
 #ifdef ENABLE_JSON_VALUE_VISUALIZER
     ,m_kind(value::String)
 #endif
     { }
 
-web::json::value::value(const value &other) : 
+web::json::value::value(const utility::char_t* value, bool has_escape_chars) :
+m_value(utility::details::make_unique<web::json::details::_String>(utility::string_t(value), has_escape_chars))
+#ifdef ENABLE_JSON_VALUE_VISUALIZER
+, m_kind(value::String)
+#endif
+{ }
+
+web::json::value::value(const value &other) :
     m_value(other.m_value->_copy_value())
 #ifdef ENABLE_JSON_VALUE_VISUALIZER
     ,m_kind(other.m_kind)
@@ -130,14 +140,15 @@ web::json::value &web::json::value::operator=(const value &other)
     }
     return *this;
 }
-web::json::value::value(value &&other) : 
+
+web::json::value::value(value &&other) CPPREST_NOEXCEPT :
     m_value(std::move(other.m_value))
 #ifdef ENABLE_JSON_VALUE_VISUALIZER
     ,m_kind(other.m_kind)
 #endif
 {}
 
-web::json::value &web::json::value::operator=(web::json::value &&other)
+web::json::value &web::json::value::operator=(web::json::value &&other) CPPREST_NOEXCEPT
 {
     if(this != &other)
     {
@@ -148,11 +159,6 @@ web::json::value &web::json::value::operator=(web::json::value &&other)
     }
     return *this;
 }
-
-#pragma endregion
-
-
-#pragma region Static Factories
 
 web::json::value web::json::value::null()
 {
@@ -184,7 +190,17 @@ web::json::value web::json::value::string(utility::string_t value)
             );
 }
 
-#ifdef _MS_WINDOWS
+web::json::value web::json::value::string(utility::string_t value, bool has_escape_chars)
+{
+    std::unique_ptr<details::_Value> ptr = utility::details::make_unique<details::_String>(std::move(value), has_escape_chars);
+    return web::json::value(std::move(ptr)
+#ifdef ENABLE_JSON_VALUE_VISUALIZER
+            ,value::String
+#endif
+            );
+}
+
+#ifdef _WIN32
 web::json::value web::json::value::string(const std::string &value)
 {
     std::unique_ptr<details::_Value> ptr = utility::details::make_unique<details::_String>(utility::conversions::to_utf16string(value));
@@ -246,8 +262,6 @@ web::json::value web::json::value::array(std::vector<value> elements)
             );
 }
 
-#pragma endregion
-
 web::json::number web::json::value::as_number() const
 {
     return m_value->as_number();
@@ -257,7 +271,7 @@ double web::json::value::as_double() const
 {
     return m_value->as_double();
 }
- 
+
 int web::json::value::as_integer() const
 {
     return m_value->as_integer();
@@ -307,7 +321,7 @@ bool web::json::number::is_uint32() const
     case signed_type : return m_intval >= 0 && m_intval <= std::numeric_limits<uint32_t>::max();
     case unsigned_type : return m_uintval <= std::numeric_limits<uint32_t>::max();
     case double_type :
-    default : 
+    default :
         return false;
     }
 }
@@ -330,14 +344,14 @@ bool web::json::details::_String::has_escape_chars(const _String &str)
     return str.m_string.find_first_of(escapes) != utility::string_t::npos;
 }
 
-web::json::details::_Object::_Object(const _Object& other) : 
-    m_object(other.m_object.m_elements, other.m_object.m_keep_order), web::json::details::_Value(other) {}
+web::json::details::_Object::_Object(const _Object& other) :
+    web::json::details::_Value(other), m_object(other.m_object.m_elements, other.m_object.m_keep_order) {}
 
 web::json::value::value_type json::value::type() const { return m_value->type(); }
 
 bool json::value::is_integer() const
 {
-    if(!is_number()) 
+    if(!is_number())
     {
         return false;
     }
@@ -363,7 +377,13 @@ bool web::json::details::_Object::has_field(const utility::string_t &key) const
     return m_object.find(key) != m_object.end();
 }
 
-utility::string_t json::value::to_string() const { return m_value->to_string(); }
+utility::string_t json::value::to_string() const
+{
+#ifndef _WIN32
+    utility::details::scoped_c_thread_locale locale;
+#endif
+    return m_value->to_string();
+}
 
 bool json::value::operator==(const json::value &other) const
 {
@@ -387,7 +407,7 @@ bool json::value::operator==(const json::value &other) const
     case Array:
         return static_cast<const json::details::_Array*>(this->m_value.get())->is_equal(static_cast<const json::details::_Array*>(other.m_value.get()));
     }
-    UNREACHABLE;
+    __assume(0);
 }
 
 // at() overloads
@@ -411,7 +431,6 @@ const web::json::value& web::json::value::at(const utility::string_t& key) const
     return this->as_object().at(key);
 }
 
-
 web::json::value& web::json::value::operator [] (const utility::string_t &key)
 {
     if ( this->is_null() )
@@ -434,4 +453,10 @@ web::json::value& web::json::value::operator[](size_t index)
 #endif
     }
     return m_value->index(index);
+}
+
+const web::json::details::json_error_category_impl& web::json::details::json_error_category()
+{
+    static web::json::details::json_error_category_impl instance;
+    return instance;
 }

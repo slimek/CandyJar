@@ -1,12 +1,12 @@
 /***
 * ==++==
 *
-* Copyright (c) Microsoft Corporation. All rights reserved. 
+* Copyright (c) Microsoft Corporation. All rights reserved.
 * Licensed under the Apache License, Version 2.0 (the "License");
 * you may not use this file except in compliance with the License.
 * You may obtain a copy of the License at
 * http://www.apache.org/licenses/LICENSE-2.0
-* 
+*
 * Unless required by applicable law or agreed to in writing, software
 * distributed under the License is distributed on an "AS IS" BASIS,
 * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -15,8 +15,6 @@
 *
 * ==--==
 * =+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+
-*
-* producerconsumerstream.h
 *
 * This file defines a basic memory-based stream buffer, which allows consumer / producer pairs to communicate
 * data via a buffer.
@@ -35,28 +33,8 @@
 #include <algorithm>
 #include <iterator>
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1800)
-#include <ppltasks.h>
-namespace pplx = Concurrency;
-#else 
 #include "pplx/pplxtasks.h"
-#endif
-
 #include "cpprest/astreambuf.h"
-
-#ifndef _CONCRT_H
-#ifndef _LWRCASE_CNCRRNCY
-#define _LWRCASE_CNCRRNCY
-// Note to reader: we're using lower-case namespace names everywhere, but the 'Concurrency' namespace
-// is capitalized for historical reasons. The alias let's us pretend that style issue doesn't exist.
-namespace Concurrency { }
-namespace concurrency = Concurrency;
-#endif
-#endif
-
-// Suppress unreferenced formal parameter warning as they are required for documentation
-#pragma warning(push)
-#pragma warning(disable : 4100)
 
 namespace Concurrency { namespace streams {
 
@@ -78,20 +56,20 @@ namespace Concurrency { namespace streams {
             /// <summary>
             /// Constructor
             /// </summary>
-            basic_producer_consumer_buffer(size_t alloc_size) 
+            basic_producer_consumer_buffer(size_t alloc_size)
                 : streambuf_state_manager<_CharType>(std::ios_base::out | std::ios_base::in),
                 m_alloc_size(alloc_size),
                 m_allocBlock(nullptr),
                 m_total(0), m_total_read(0), m_total_written(0),
                 m_synced(0)
-            { 
+            {
             }
 
             /// <summary>
             /// Destructor
             /// </summary>
             virtual ~basic_producer_consumer_buffer()
-            { 
+            {
                 // Note: there is no need to call 'wait()' on the result of close(),
                 // since we happen to know that close() will return without actually
                 // doing anything asynchronously. Should the implementation of _close_write()
@@ -147,7 +125,7 @@ namespace Concurrency { namespace streams {
             /// </summary>
             /// <param name="direction">The I/O direction to seek (see remarks)</param>
             /// <returns>The current position. EOF if the operation fails.</returns>
-            /// <remarks>Some streams may have separate write and read cursors. 
+            /// <remarks>Some streams may have separate write and read cursors.
             ///          For such streams, the direction parameter defines whether to move the read or the write cursor.</remarks>
             virtual pos_type getpos(std::ios_base::openmode mode) const
             {
@@ -160,13 +138,13 @@ namespace Concurrency { namespace streams {
                 else if (mode == std::ios_base::out)
                     return (pos_type)m_total_written;
                 else
-                    return (pos_type)traits::eof(); 
+                    return (pos_type)traits::eof();
             }
 
             // Seeking is not supported
             virtual pos_type seekpos(pos_type, std::ios_base::openmode) { return (pos_type)traits::eof(); }
             virtual pos_type seekoff(off_type , std::ios_base::seekdir , std::ios_base::openmode ) { return (pos_type)traits::eof(); }
-            
+
             /// <summary>
             /// Allocates a contiguous memory block and returns it.
             /// </summary>
@@ -197,7 +175,7 @@ namespace Concurrency { namespace streams {
                 pplx::extensibility::scoped_critical_section_t l(m_lock);
 
                 // The count does not reflect the actual size of the block.
-                // Since we do not allow any more writes to this block it would suffice. 
+                // Since we do not allow any more writes to this block it would suffice.
                 // If we ever change the algorithm to reuse blocks then this needs to be revisited.
 
                 _ASSERTE((bool)m_allocBlock);
@@ -209,7 +187,7 @@ namespace Concurrency { namespace streams {
             }
 
             /// <summary>
-            /// Gets a pointer to the next already allocated contiguous block of data. 
+            /// Gets a pointer to the next already allocated contiguous block of data.
             /// </summary>
             /// <param name="ptr">A reference to a pointer variable that will hold the address of the block on success.</param>
             /// <param name="count">The number of contiguous characters available at the address in 'ptr.'</param>
@@ -304,7 +282,7 @@ namespace Concurrency { namespace streams {
             }
 
             virtual size_t _sgetn(_Out_writes_ (count) _CharType *ptr, _In_ size_t count)
-            { 
+            {
                 pplx::extensibility::scoped_critical_section_t l(m_lock);
                 return can_satisfy(count) ? this->read(ptr, count) : (size_t)traits::requires_async();
             }
@@ -359,8 +337,8 @@ namespace Concurrency { namespace streams {
             }
 
             virtual pplx::task<int_type> _ungetc()
-            {            
-                return pplx::task_from_result<int_type>(traits::eof()); 
+            {
+                return pplx::task_from_result<int_type>(traits::eof());
             }
 
         private:
@@ -412,7 +390,7 @@ namespace Concurrency { namespace streams {
                 // Allocate a new block if necessary
                 if ( m_blocks.empty() || m_blocks.back()->wr_chars_left() < count )
                 {
-                    SafeSize alloc = m_alloc_size.Max(count);
+                    msl::safeint3::SafeInt<size_t> alloc = m_alloc_size.Max(count);
                     m_blocks.push_back(std::make_shared<_block>((size_t)alloc));
                 }
 
@@ -454,7 +432,7 @@ namespace Concurrency { namespace streams {
             {
             public:
                 _block(size_t size)
-                    : m_read(0), m_pos(0), m_size(size), m_data(new _CharType[size]) 
+                    : m_read(0), m_pos(0), m_size(size), m_data(new _CharType[size])
                 {
                 }
 
@@ -487,21 +465,21 @@ namespace Concurrency { namespace streams {
                     return m_data + m_pos;
                 }
 
-                // Read upto count characters from the block
+                // Read up to count characters from the block
                 size_t read(_Out_writes_ (count) _CharType * dest, _In_ size_t count, bool advance = true)
                 {
-                    SafeSize avail(rd_chars_left());
+                    msl::safeint3::SafeInt<size_t> avail(rd_chars_left());
                     auto countRead = static_cast<size_t>(avail.Min(count));
 
                     _CharType * beg = rbegin();
                     _CharType * end = rbegin() + countRead;
 
-#ifdef _MS_WINDOWS
+#ifdef _WIN32
                     // Avoid warning C4996: Use checked iterators under SECURE_SCL
                     std::copy(beg, end, stdext::checked_array_iterator<_CharType *>(dest, count));
 #else
                     std::copy(beg, end, dest);
-#endif // _MS_WINDOWS
+#endif // _WIN32
 
                     if (advance)
                     {
@@ -514,17 +492,17 @@ namespace Concurrency { namespace streams {
                 // Write count characters into the block
                 size_t write(const _CharType * src, size_t count)
                 {
-                    SafeSize avail(wr_chars_left());
+                    msl::safeint3::SafeInt<size_t> avail(wr_chars_left());
                     auto countWritten = static_cast<size_t>(avail.Min(count));
 
                     const _CharType * srcEnd = src + countWritten;
 
-#ifdef _MS_WINDOWS
+#ifdef _WIN32
                     // Avoid warning C4996: Use checked iterators under SECURE_SCL
                     std::copy(src, srcEnd, stdext::checked_array_iterator<_CharType *>(wbegin(), static_cast<size_t>(avail)));
 #else
                     std::copy(src, srcEnd, wbegin());
-#endif // _MS_WINDOWS
+#endif // _WIN32
 
                     update_write_head(countWritten);
                     return countWritten;
@@ -668,6 +646,12 @@ namespace Concurrency { namespace streams {
             // The in/out mode for the buffer
             std::ios_base::openmode m_mode;
 
+            // Default block size
+            msl::safeint3::SafeInt<size_t> m_alloc_size;
+
+            // Block used for alloc/commit
+            std::shared_ptr<_block> m_allocBlock;
+
             // Total available data
             size_t m_total;
 
@@ -677,9 +661,6 @@ namespace Concurrency { namespace streams {
             // Keeps track of the number of chars that have been flushed but still
             // remain to be consumed by a read operation.
             size_t m_synced;
-
-            // Default block size
-            SafeSize m_alloc_size;
 
             // The producer-consumer buffer is intended to be used concurrently by a reader
             // and a writer, who are not coordinating their accesses to the buffer (coordination
@@ -694,12 +675,9 @@ namespace Concurrency { namespace streams {
 
             // Queue of requests
             std::queue<_request> m_requests;
-
-            // Block used for alloc/commit
-            std::shared_ptr<_block> m_allocBlock;
         };
 
-    } // namespace details 
+    } // namespace details
 
     /// <summary>
     /// The producer_consumer_buffer class serves as a memory-based steam buffer that supports both writing and reading
@@ -708,7 +686,7 @@ namespace Concurrency { namespace streams {
     /// <typeparam name="_CharType">
     /// The data type of the basic element of the <c>producer_consumer_buffer</c>.
     /// </typeparam>
-    /// <remarks> 
+    /// <remarks>
     /// This is a reference-counted version of basic_producer_consumer_buffer.</remarks>
     template<typename _CharType>
     class producer_consumer_buffer : public streambuf<_CharType>
@@ -720,7 +698,7 @@ namespace Concurrency { namespace streams {
         /// Create a producer_consumer_buffer.
         /// </summary>
         /// <param name="alloc_size">The internal default block size.</param>
-        producer_consumer_buffer(size_t alloc_size = 512) 
+        producer_consumer_buffer(size_t alloc_size = 512)
             : streambuf<_CharType>(std::make_shared<details::basic_producer_consumer_buffer<_CharType>>(alloc_size))
         {
         }
@@ -728,6 +706,4 @@ namespace Concurrency { namespace streams {
 
 }} // namespaces
 
-
-#pragma warning(pop) // 4100
-#endif  /* _CASA_PRODUCER_CONSUMER_STREAMS_H */
+#endif

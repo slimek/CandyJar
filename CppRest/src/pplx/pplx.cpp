@@ -16,8 +16,6 @@
 * ==--==
 * =+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+
 *
-* pplx.cpp
-*
 * Parallel Patterns Library implementation (common code across platforms)
 *
 * For the latest on this and related APIs, please see http://casablanca.codeplex.com.
@@ -27,14 +25,15 @@
 
 #include "stdafx.h"
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1800)
-#error This file must not be compiled for Visual Studio 12 or later
-#endif
+#if !defined(_WIN32) || _MSC_VER < 1800 || CPPREST_FORCE_PPLX
 
 #include "pplx/pplx.h"
 
 // Disable false alarm code analyze warning
+#if defined(_MSC_VER)
 #pragma warning (disable : 26165 26110)
+#endif
+
 namespace pplx
 {
 
@@ -144,14 +143,16 @@ private:
     sched_ptr m_scheduler;
 } _pplx_g_sched;
 
-_PPLXIMP std::shared_ptr<pplx::scheduler_interface> __cdecl get_ambient_scheduler()
+_PPLXIMP std::shared_ptr<pplx::scheduler_interface> _pplx_cdecl get_ambient_scheduler()
 {
     return _pplx_g_sched.get_scheduler();
 }
 
-_PPLXIMP void __cdecl set_ambient_scheduler(std::shared_ptr<pplx::scheduler_interface> _Scheduler)
+_PPLXIMP void _pplx_cdecl set_ambient_scheduler(std::shared_ptr<pplx::scheduler_interface> _Scheduler)
 {
     _pplx_g_sched.set_scheduler(std::move(_Scheduler));
 }
 
 } // namespace pplx
+
+#endif

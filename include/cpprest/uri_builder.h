@@ -1,12 +1,12 @@
 /***
 * ==++==
 *
-* Copyright (c) Microsoft Corporation. All rights reserved. 
+* Copyright (c) Microsoft Corporation. All rights reserved.
 * Licensed under the Apache License, Version 2.0 (the "License");
 * you may not use this file except in compliance with the License.
 * You may obtain a copy of the License at
 * http://www.apache.org/licenses/LICENSE-2.0
-* 
+*
 * Unless required by applicable law or agreed to in writing, software
 * distributed under the License is distributed on an "AS IS" BASIS,
 * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -15,8 +15,6 @@
 *
 * ==--==
 * =+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+
-*
-* uri_builder.h
 *
 * Builder style class for creating URIs.
 *
@@ -32,7 +30,6 @@
 #include <vector>
 
 #include "cpprest/base_uri.h"
-#include "cpprest/xxpublic.h"
 
 namespace web
 {
@@ -43,7 +40,6 @@ namespace web
     {
     public:
 
-#pragma region Constructors
         /// <summary>
         /// Creates a builder with an initially empty URI.
         /// </summary>
@@ -54,10 +50,6 @@ namespace web
         /// </summary>
         /// <param name="uri_str">Encoded string containing the URI.</param>
         uri_builder(const uri &uri_str): m_uri(uri_str.m_components) {}
-
-#pragma endregion
-
-#pragma region Accessors
 
         /// <summary>
         /// Get the scheme component of the URI as an encoded string.
@@ -101,16 +93,12 @@ namespace web
         /// <returns>The URI fragment as a string.</returns>
         const utility::string_t &fragment() const { return m_uri.m_fragment; }
 
-#pragma endregion
-
-#pragma region Modifiers
-
         /// <summary>
         /// Set the scheme of the URI.
         /// </summary>
         /// <param name="scheme">Uri scheme.</param>
         /// <returns>A reference to this <c>uri_builder</c> to support chaining.</returns>
-        uri_builder & set_scheme(const utility::string_t &scheme) 
+        uri_builder & set_scheme(const utility::string_t &scheme)
         {
             m_uri.m_scheme = scheme;
             return *this;
@@ -122,8 +110,8 @@ namespace web
         /// <param name="user_info">User info as a decoded string.</param>
         /// <param name="do_encoding">Specify whether to apply URI encoding to the given string.</param>
         /// <returns>A reference to this <c>uri_builder</c> to support chaining.</returns>
-        uri_builder & set_user_info(const utility::string_t &user_info, bool do_encoding = false) 
-        { 
+        uri_builder & set_user_info(const utility::string_t &user_info, bool do_encoding = false)
+        {
             m_uri.m_user_info = do_encoding ? uri::encode_uri(user_info, uri::components::user_info) : user_info;
             return *this;
         }
@@ -135,7 +123,7 @@ namespace web
         /// <param name="do_encoding">Specify whether to apply URI encoding to the given string.</param>
         /// <returns>A reference to this <c>uri_builder</c> to support chaining.</returns>
         uri_builder & set_host(const utility::string_t &host, bool do_encoding = false)
-        { 
+        {
             m_uri.m_host = do_encoding ? uri::encode_uri(host, uri::components::host) : host;
             return *this;
         }
@@ -145,9 +133,9 @@ namespace web
         /// </summary>
         /// <param name="port">Port as an integer.</param>
         /// <returns>A reference to this <c>uri_builder</c> to support chaining.</returns>
-        uri_builder & set_port(int port) 
-        { 
-            m_uri.m_port = port; 
+        uri_builder & set_port(int port)
+        {
+            m_uri.m_port = port;
             return *this;
         }
 
@@ -176,7 +164,7 @@ namespace web
         /// <param name="path">Path as a decoded string.</param>
         /// <param name="do_encoding">Specify whether to apply URI encoding to the given string.</param>
         /// <returns>A reference to this <c>uri_builder</c> to support chaining.</returns>
-        uri_builder & set_path(const utility::string_t &path, bool do_encoding = false) 
+        uri_builder & set_path(const utility::string_t &path, bool do_encoding = false)
         {
             m_uri.m_path = do_encoding ? uri::encode_uri(path, uri::components::path) : path;
             return *this;
@@ -190,7 +178,7 @@ namespace web
         /// <param name="do_encoding">Specify whether apply URI encoding to the given string.</param>
         /// <returns>A reference to this <c>uri_builder</c> to support chaining.</returns>
         uri_builder & set_query(const utility::string_t &query, bool do_encoding = false)
-        { 
+        {
             m_uri.m_query = do_encoding ? uri::encode_uri(query, uri::components::query) : query;
             return *this;
         }
@@ -202,7 +190,7 @@ namespace web
         /// <param name="do_encoding">Specify whether to apply URI encoding to the given string.</param>
         /// <returns>A reference to this <c>uri_builder</c> to support chaining.</returns>
         uri_builder & set_fragment(const utility::string_t &fragment, bool do_encoding = false)
-        { 
+        {
             m_uri.m_fragment = do_encoding ? uri::encode_uri(fragment, uri::components::fragment) : fragment;
             return *this;
         }
@@ -212,12 +200,9 @@ namespace web
         /// </summary>
         void clear()
         {
-            m_uri = details::_uri_components();
+            m_uri = details::uri_components();
         }
 
-#pragma endregion
-
-#pragma region Appending
         /// <summary>
         /// Appends another path to the path of this uri_builder.
         /// </summary>
@@ -249,16 +234,14 @@ namespace web
         /// <param name="value">The value portion of the query string</param>
         /// <returns>A reference to this uri_builder to support chaining.</returns>
         template<typename T>
-        uri_builder &append_query(utility::string_t name, const T &value)
+        uri_builder &append_query(utility::string_t name, const T &value, bool do_encoding = true)
         {
             utility::ostringstream_t ss;
+            ss.imbue(std::locale::classic());
             ss << name << _XPLATSTR("=") << value;
-            return append_query(ss.str(), true);
+            return append_query(ss.str(), do_encoding);
         }
 
-#pragma endregion
-
-#pragma region URI Creation
         /// <summary>
         /// Combine and validate the URI components into a encoded string. An exception will be thrown if the URI is invalid.
         /// </summary>
@@ -276,9 +259,8 @@ namespace web
         /// </summary>
         /// <returns>Whether the URI is valid.</returns>
         _ASYNCRTIMP bool is_valid();
-#pragma endregion
 
     private:
-        details::_uri_components m_uri;
+        details::uri_components m_uri;
     };
 } // namespace web

@@ -1,12 +1,12 @@
 /***
 * ==++==
 *
-* Copyright (c) Microsoft Corporation. All rights reserved. 
+* Copyright (c) Microsoft Corporation. All rights reserved.
 * Licensed under the Apache License, Version 2.0 (the "License");
 * you may not use this file except in compliance with the License.
 * You may obtain a copy of the License at
 * http://www.apache.org/licenses/LICENSE-2.0
-* 
+*
 * Unless required by applicable law or agreed to in writing, software
 * distributed under the License is distributed on an "AS IS" BASIS,
 * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -15,8 +15,6 @@
 *
 * ==--==
 * =+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+
-*
-* http_client.h
 *
 * HTTP Library: Client-side APIs.
 *
@@ -43,44 +41,35 @@ typedef void* native_handle;}}}
 #include <memory>
 #include <limits>
 
-#include "cpprest/xxpublic.h"
-#include "cpprest/http_msg.h"
-
-#if defined(_MSC_VER) && (_MSC_VER >= 1800)
-#include <ppltasks.h>
-namespace pplx = Concurrency;
-#else 
 #include "pplx/pplxtasks.h"
-#endif
-
+#include "cpprest/http_msg.h"
 #include "cpprest/json.h"
 #include "cpprest/uri.h"
-#include "cpprest/web_utilities.h"
-#include "cpprest/basic_types.h"
+#include "cpprest/details/web_utilities.h"
+#include "cpprest/details/basic_types.h"
 #include "cpprest/asyncrt_utils.h"
 
-namespace web 
+#if !defined(CPPREST_TARGET_XP) && (!defined(WINAPI_FAMILY) || WINAPI_FAMILY != WINAPI_FAMILY_PHONE_APP || _MSC_VER > 1700)
+#include "cpprest/oauth1.h"
+#endif
+
+#include "cpprest/oauth2.h"
+
+/// The web namespace contains functionality common to multiple protocols like HTTP and WebSockets.
+namespace web
 {
+/// Declarations and functionality for the HTTP protocol.
 namespace http
 {
+/// HTTP client side library.
 namespace client
 {
 
 // credentials and web_proxy class has been moved from web::http::client namespace to web namespace.
-// The below using declarations ensure we dont break existing code.
+// The below using declarations ensure we don't break existing code.
 // Please use the web::credentials and web::web_proxy class going forward.
 using web::credentials;
 using web::web_proxy;
-
-#ifdef _MS_WINDOWS
-namespace details {
-#ifdef __cplusplus_winrt
-        class winrt_client ;
-#else
-        class winhttp_client;
-#endif // __cplusplus_winrt
-}  
-#endif // _MS_WINDOWS
 
 /// <summary>
 /// HTTP client configuration class, used to set the possible configuration options
@@ -89,20 +78,56 @@ namespace details {
 class http_client_config
 {
 public:
-    http_client_config() : 
+    http_client_config() :
         m_guarantee_order(false),
         m_timeout(utility::seconds(30)),
-        m_chunksize(64 * 1024)
+        m_chunksize(0)
 #if !defined(__cplusplus_winrt)
         , m_validate_certificates(true)
 #endif
         , m_set_user_nativehandle_options([](native_handle)->void{})
-#ifdef _MS_WINDOWS
-#if !defined(__cplusplus_winrt)
+#if defined(_WIN32) && !defined(__cplusplus_winrt)
         , m_buffer_request(false)
 #endif
-#endif
     {
+    }
+
+#if !defined(CPPREST_TARGET_XP) && (!defined(WINAPI_FAMILY) || WINAPI_FAMILY != WINAPI_FAMILY_PHONE_APP || _MSC_VER > 1700)
+    /// <summary>
+    /// Get OAuth 1.0 configuration.
+    /// </summary>
+    /// <returns>Shared pointer to OAuth 1.0 configuration.</returns>
+    const std::shared_ptr<oauth1::experimental::oauth1_config> oauth1() const
+    {
+        return m_oauth1;
+    }
+
+    /// <summary>
+    /// Set OAuth 1.0 configuration.
+    /// </summary>
+    /// <param name="config">OAuth 1.0 configuration to set.</param>
+    void set_oauth1(oauth1::experimental::oauth1_config config)
+    {
+        m_oauth1 = std::make_shared<oauth1::experimental::oauth1_config>(std::move(config));
+    }
+#endif
+
+    /// <summary>
+    /// Get OAuth 2.0 configuration.
+    /// </summary>
+    /// <returns>Shared pointer to OAuth 2.0 configuration.</returns>
+    const std::shared_ptr<oauth2::experimental::oauth2_config> oauth2() const
+    {
+        return m_oauth2;
+    }
+
+    /// <summary>
+    /// Set OAuth 2.0 configuration.
+    /// </summary>
+    /// <param name="config">OAuth 2.0 configuration to set.</param>
+    void set_oauth2(oauth2::experimental::oauth2_config config)
+    {
+        m_oauth2 = std::make_shared<oauth2::experimental::oauth2_config>(std::move(config));
     }
 
     /// <summary>
@@ -118,9 +143,9 @@ public:
     /// Set the web proxy object
     /// </summary>
     /// <param name="proxy">A reference to the web proxy object.</param>
-    void set_proxy(const web_proxy& proxy)
+    void set_proxy(web_proxy proxy)
     {
-        m_proxy = proxy;
+        m_proxy = std::move(proxy);
     }
 
     /// <summary>
@@ -154,6 +179,7 @@ public:
     /// Set the 'guarantee order' property
     /// </summary>
     /// <param name="guarantee_order">The value of the property.</param>
+    CASABLANCA_DEPRECATED("Confusing API will be removed in future releases. If you need to order HTTP requests use task continuations.")
     void set_guarantee_order(bool guarantee_order)
     {
         m_guarantee_order = guarantee_order;
@@ -172,7 +198,7 @@ public:
     /// Set the timeout
     /// </summary>
     /// <param name="timeout">The timeout (in seconds) used for each send and receive operation on the client.</param>
-    void set_timeout(utility::seconds timeout)
+    void set_timeout(const utility::seconds &timeout)
     {
         m_timeout = timeout;
     }
@@ -183,7 +209,7 @@ public:
     /// <returns>The internal buffer size used by the http client when sending and receiving data from the network.</returns>
     size_t chunksize() const
     {
-        return m_chunksize;
+        return m_chunksize == 0 ? 64 * 1024 : m_chunksize;
     }
 
     /// <summary>
@@ -194,6 +220,16 @@ public:
     void set_chunksize(size_t size)
     {
         m_chunksize = size;
+    }
+
+    /// <summary>
+    /// Returns true if the default chunk size is in use.
+    /// <remarks>If true, implementations are allowed to choose whatever size is best.</remarks>
+    /// </summary>
+    /// <returns>True if default, false if set by user.</returns>
+    bool is_default_chunksize() const
+    {
+        return m_chunksize == 0;
     }
 
 #if !defined(__cplusplus_winrt)
@@ -209,7 +245,7 @@ public:
     /// <summary>
     /// Sets the server certificate validation property.
     /// </summary>
-    /// <param name="validate_cert">False to turn ignore all server certificate validation errors, true otherwise.</param>
+    /// <param name="validate_certs">False to turn ignore all server certificate validation errors, true otherwise.</param>
     /// <remarks>Note ignoring certificate errors can be dangerous and should be done with caution.</remarks>
     void set_validate_certificates(bool validate_certs)
     {
@@ -217,7 +253,7 @@ public:
     }
 #endif
 
-#ifdef _MS_WINDOWS
+#ifdef _WIN32
 #if !defined(__cplusplus_winrt)
     /// <summary>
     /// Checks if request data buffering is turned on, the default is off.
@@ -229,10 +265,11 @@ public:
     }
 
     /// <summary>
-    /// Sets the request buffering property. 
+    /// Sets the request buffering property.
     /// If true, in cases where the request body/stream doesn't support seeking the request data will be buffered.
     /// This can help in situations where an authentication challenge might be expected.
     /// </summary>
+    /// <param name="buffer_request">True to turn on buffer, false otherwise.</param>
     /// <remarks>Please note there is a performance cost due to copying the request data.</remarks>
     void set_buffer_request(bool buffer_request)
     {
@@ -240,55 +277,57 @@ public:
     }
 #endif
 #endif
-    
+
     /// <summary>
-    /// Sets a callback to enable custom setting of winhttp options
+    /// Sets a callback to enable custom setting of platform specific options.
     /// </summary>
+    /// <remarks>
+    /// The native_handle is the following type depending on the underlying platform:
+    ///     Windows Desktop, WinHTTP - HINTERNET
+    ///     Windows Runtime, WinRT - IXMLHTTPRequest2 *
+    ///     All other platforms, Boost.Asio:
+    ///         https - boost::asio::ssl::stream<boost::asio::ip::tcp::socket &> *
+    ///         http - boost::asio::ip::tcp::socket *
+    /// </remarks>
     /// <param name="callback">A user callback allowing for customization of the request</param>
-    void set_nativehandle_options(std::function<void(native_handle)> callback)
+    void set_nativehandle_options(const std::function<void(native_handle)> &callback)
     {
          m_set_user_nativehandle_options = callback;
     }
 
+    /// <summary>
+    /// Invokes a user's callback to allow for customization of the request.
+    /// </summary>
+    /// <param name="handle">A internal implementation handle.</param>
+    void invoke_nativehandle_options(native_handle handle) const
+    {
+        m_set_user_nativehandle_options(handle);
+    }
+
 private:
+#if !defined(CPPREST_TARGET_XP) && (!defined(WINAPI_FAMILY) || WINAPI_FAMILY != WINAPI_FAMILY_PHONE_APP || _MSC_VER > 1700)
+    std::shared_ptr<oauth1::experimental::oauth1_config> m_oauth1;
+#endif
+
+    std::shared_ptr<oauth2::experimental::oauth2_config> m_oauth2;
     web_proxy m_proxy;
     http::client::credentials m_credentials;
     // Whether or not to guarantee ordering, i.e. only using one underlying TCP connection.
     bool m_guarantee_order;
 
-    // IXmlHttpRequest2 doesn't allow configuration of certificate verification.
-#if !defined(__cplusplus_winrt)
-    bool m_validate_certificates;
-#endif
+    utility::seconds m_timeout;
+    size_t m_chunksize;
 
-#ifdef _MS_WINDOWS
 #if !defined(__cplusplus_winrt)
-    bool m_buffer_request;
-#endif
+    // IXmlHttpRequest2 doesn't allow configuration of certificate verification.
+    bool m_validate_certificates;
 #endif
 
     std::function<void(native_handle)> m_set_user_nativehandle_options;
 
-    utility::seconds m_timeout;
-    size_t m_chunksize;
-
-#ifdef _MS_WINDOWS
-#ifdef __cplusplus_winrt
-    friend class details::winrt_client;
-#else
-    friend class details::winhttp_client;
-#endif // __cplusplus_winrt  
-#endif // _MS_WINDOWS
-
-    /// <summary>
-    /// Invokes a user callback to allow for customization of the requst
-    /// </summary>
-    /// <param name="handle">The internal http_request handle</param>
-    /// <returns>True if users set WinHttp/IXAMLHttpRequest2 options correctly, false otherwise.</returns>
-    void call_user_nativehandle_options(native_handle handle) const
-    {
-         m_set_user_nativehandle_options(handle);
-    }
+#if defined(_WIN32) && !defined(__cplusplus_winrt)
+    bool m_buffer_request;
+#endif
 };
 
 /// <summary>
@@ -301,31 +340,28 @@ public:
     /// Creates a new http_client connected to specified uri.
     /// </summary>
     /// <param name="base_uri">A string representation of the base uri to be used for all requests. Must start with either "http://" or "https://"</param>
-    _ASYNCRTIMP http_client(uri base_uri);
+    _ASYNCRTIMP http_client(const uri &base_uri);
 
     /// <summary>
     /// Creates a new http_client connected to specified uri.
     /// </summary>
     /// <param name="base_uri">A string representation of the base uri to be used for all requests. Must start with either "http://" or "https://"</param>
-    /// <param name="client_config">The http client configuration object containing the possible configuration options to intitialize the <c>http_client</c>. </param>
-    _ASYNCRTIMP http_client(uri base_uri, http_client_config client_config);
+    /// <param name="client_config">The http client configuration object containing the possible configuration options to initialize the <c>http_client</c>. </param>
+    _ASYNCRTIMP http_client(const uri &base_uri, const http_client_config &client_config);
 
     /// <summary>
     /// Note the destructor doesn't necessarily close the connection and release resources.
     /// The connection is reference counted with the http_responses.
     /// </summary>
-    ~http_client() {}
+    ~http_client() CPPREST_NOEXCEPT {}
 
     /// <summary>
-    /// Gets the base uri
+    /// Gets the base URI.
     /// </summary>
     /// <returns>
-    /// A base uri initialized in constructor
-    /// </return>
-    const uri& base_uri() const
-    {
-        return _base_uri;
-    }
+    /// A base URI initialized in constructor
+    /// </returns>
+    _ASYNCRTIMP const uri& base_uri() const;
 
     /// <summary>
     /// Get client configuration object
@@ -337,16 +373,16 @@ public:
     /// Adds an HTTP pipeline stage to the client.
     /// </summary>
     /// <param name="handler">A function object representing the pipeline stage.</param>
-    void add_handler(std::function<pplx::task<http_response>(http_request, std::shared_ptr<http::http_pipeline_stage>)> handler)
+    void add_handler(const std::function<pplx::task<http_response>(http_request, std::shared_ptr<http::http_pipeline_stage>)> &handler)
     {
-        m_pipeline->append(std::make_shared< ::web::http::details::function_pipeline_wrapper>(handler));
+        m_pipeline->append(std::make_shared<::web::http::details::function_pipeline_wrapper>(handler));
     }
 
     /// <summary>
     /// Adds an HTTP pipeline stage to the client.
     /// </summary>
     /// <param name="stage">A shared pointer to a pipeline stage.</param>
-    void add_handler(std::shared_ptr<http::http_pipeline_stage> stage)
+    void add_handler(const std::shared_ptr<http::http_pipeline_stage> &stage)
     {
         m_pipeline->append(stage);
     }
@@ -357,7 +393,7 @@ public:
     /// <param name="request">Request to send.</param>
     /// <param name="token">Cancellation token for cancellation of this request operation.</param>
     /// <returns>An asynchronous operation that is completed once a response from the request is received.</returns>
-    _ASYNCRTIMP pplx::task<http_response> request(http_request request, pplx::cancellation_token token = pplx::cancellation_token::none());
+    _ASYNCRTIMP pplx::task<http_response> request(http_request request, const pplx::cancellation_token &token = pplx::cancellation_token::none());
 
     /// <summary>
     /// Asynchronously sends an HTTP request.
@@ -365,9 +401,9 @@ public:
     /// <param name="mtd">HTTP request method.</param>
     /// <param name="token">Cancellation token for cancellation of this request operation.</param>
     /// <returns>An asynchronous operation that is completed once a response from the request is received.</returns>
-    pplx::task<http_response> request(method mtd, pplx::cancellation_token token = pplx::cancellation_token::none())
+    pplx::task<http_response> request(const method &mtd, const pplx::cancellation_token &token = pplx::cancellation_token::none())
     {
-        http_request msg(std::move(mtd));
+        http_request msg(mtd);
         return request(msg, token);
     }
 
@@ -379,11 +415,11 @@ public:
     /// <param name="token">Cancellation token for cancellation of this request operation.</param>
     /// <returns>An asynchronous operation that is completed once a response from the request is received.</returns>
     pplx::task<http_response> request(
-        method mtd, 
+        const method &mtd,
         const utility::string_t &path_query_fragment,
-        pplx::cancellation_token token = pplx::cancellation_token::none())
+        const pplx::cancellation_token &token = pplx::cancellation_token::none())
     {
-        http_request msg(std::move(mtd));
+        http_request msg(mtd);
         msg.set_request_uri(path_query_fragment);
         return request(msg, token);
     }
@@ -397,19 +433,20 @@ public:
     /// <param name="token">Cancellation token for cancellation of this request operation.</param>
     /// <returns>An asynchronous operation that is completed once a response from the request is received.</returns>
     pplx::task<http_response> request(
-        method mtd, 
-        const utility::string_t &path_query_fragment, 
+        const method &mtd,
+        const utility::string_t &path_query_fragment,
         const json::value &body_data,
-        pplx::cancellation_token token = pplx::cancellation_token::none())
+        const pplx::cancellation_token &token = pplx::cancellation_token::none())
     {
-        http_request msg(std::move(mtd));
+        http_request msg(mtd);
         msg.set_request_uri(path_query_fragment);
         msg.set_body(body_data);
         return request(msg, token);
     }
 
     /// <summary>
-    /// Asynchronously sends an HTTP request.
+    /// Asynchronously sends an HTTP request with a string body. Assumes the
+    /// character encoding of the string is UTF-8.
     /// </summary>
     /// <param name="mtd">HTTP request method.</param>
     /// <param name="path_query_fragment">String containing the path, query, and fragment, relative to the http_client's base URI.</param>
@@ -418,20 +455,67 @@ public:
     /// <param name="token">Cancellation token for cancellation of this request operation.</param>
     /// <returns>An asynchronous operation that is completed once a response from the request is received.</returns>
     pplx::task<http_response> request(
-        method mtd, 
-        const utility::string_t &path_query_fragment,
-        const utility::string_t &body_data,
-        utility::string_t content_type = _XPLATSTR("text/plain"),
-        pplx::cancellation_token token = pplx::cancellation_token::none())
+        const method &mtd,
+        const utf8string &path_query_fragment,
+        const utf8string &body_data,
+        const utf8string &content_type = "text/plain; charset=utf-8",
+        const pplx::cancellation_token &token = pplx::cancellation_token::none())
     {
-        http_request msg(std::move(mtd));
-        msg.set_request_uri(path_query_fragment);
-        msg.set_body(body_data, std::move(content_type));
+        http_request msg(mtd);
+        msg.set_request_uri(::utility::conversions::to_string_t(path_query_fragment));
+        msg.set_body(body_data, content_type);
         return request(msg, token);
     }
 
     /// <summary>
-    /// Asynchronously sends an HTTP request.
+    /// Asynchronously sends an HTTP request with a string body. Assumes the
+    /// character encoding of the string is UTF-8.
+    /// </summary>
+    /// <param name="mtd">HTTP request method.</param>
+    /// <param name="path_query_fragment">String containing the path, query, and fragment, relative to the http_client's base URI.</param>
+    /// <param name="content_type">A string holding the MIME type of the message body.</param>
+    /// <param name="body_data">String containing the text to use in the message body.</param>
+    /// <param name="token">Cancellation token for cancellation of this request operation.</param>
+    /// <returns>An asynchronous operation that is completed once a response from the request is received.</returns>
+    pplx::task<http_response> request(
+        const method &mtd,
+        const utf8string &path_query_fragment,
+        utf8string &&body_data,
+        const utf8string &content_type = "text/plain; charset=utf-8",
+        const pplx::cancellation_token &token = pplx::cancellation_token::none())
+    {
+        http_request msg(mtd);
+        msg.set_request_uri(::utility::conversions::to_string_t(path_query_fragment));
+        msg.set_body(std::move(body_data), content_type);
+        return request(msg, token);
+    }
+
+    /// <summary>
+    /// Asynchronously sends an HTTP request with a string body. Assumes the
+    /// character encoding of the string is UTF-16 will perform conversion to UTF-8.
+    /// </summary>
+    /// <param name="mtd">HTTP request method.</param>
+    /// <param name="path_query_fragment">String containing the path, query, and fragment, relative to the http_client's base URI.</param>
+    /// <param name="content_type">A string holding the MIME type of the message body.</param>
+    /// <param name="body_data">String containing the text to use in the message body.</param>
+    /// <param name="token">Cancellation token for cancellation of this request operation.</param>
+    /// <returns>An asynchronous operation that is completed once a response from the request is received.</returns>
+    pplx::task<http_response> request(
+        const method &mtd,
+        const utf16string &path_query_fragment,
+        const utf16string &body_data,
+        const utf16string &content_type = ::utility::conversions::to_utf16string("text/plain"),
+        const pplx::cancellation_token &token = pplx::cancellation_token::none())
+    {
+        http_request msg(mtd);
+        msg.set_request_uri(::utility::conversions::to_string_t(path_query_fragment));
+        msg.set_body(body_data, content_type);
+        return request(msg, token);
+    }
+
+    /// <summary>
+    /// Asynchronously sends an HTTP request with a string body. Assumes the
+    /// character encoding of the string is UTF-8.
     /// </summary>
     /// <param name="mtd">HTTP request method.</param>
     /// <param name="path_query_fragment">String containing the path, query, and fragment, relative to the http_client's base URI.</param>
@@ -439,12 +523,51 @@ public:
     /// <param name="token">Cancellation token for cancellation of this request operation.</param>
     /// <returns>An asynchronous operation that is completed once a response from the request is received.</returns>
     pplx::task<http_response> request(
-        method mtd, 
-        const utility::string_t &path_query_fragment,
-        const utility::string_t &body_data,
-        pplx::cancellation_token token)
+        const method &mtd,
+        const utf8string &path_query_fragment,
+        const utf8string &body_data,
+        const pplx::cancellation_token &token)
     {
-        return request(mtd, path_query_fragment, body_data, _XPLATSTR("text/plain"), token);
+        return request(mtd, path_query_fragment, body_data, "text/plain; charset=utf-8", token);
+    }
+
+    /// <summary>
+    /// Asynchronously sends an HTTP request with a string body. Assumes the
+    /// character encoding of the string is UTF-8.
+    /// </summary>
+    /// <param name="mtd">HTTP request method.</param>
+    /// <param name="path_query_fragment">String containing the path, query, and fragment, relative to the http_client's base URI.</param>
+    /// <param name="body_data">String containing the text to use in the message body.</param>
+    /// <param name="token">Cancellation token for cancellation of this request operation.</param>
+    /// <returns>An asynchronous operation that is completed once a response from the request is received.</returns>
+    pplx::task<http_response> request(
+        const method &mtd,
+        const utf8string &path_query_fragment,
+        utf8string &&body_data,
+        const pplx::cancellation_token &token)
+    {
+        http_request msg(mtd);
+        msg.set_request_uri(::utility::conversions::to_string_t(path_query_fragment));
+        msg.set_body(std::move(body_data), "text/plain; charset=utf-8");
+        return request(msg, token);
+    }
+
+    /// <summary>
+    /// Asynchronously sends an HTTP request with a string body. Assumes
+    /// the character encoding of the string is UTF-16 will perform conversion to UTF-8.
+    /// </summary>
+    /// <param name="mtd">HTTP request method.</param>
+    /// <param name="path_query_fragment">String containing the path, query, and fragment, relative to the http_client's base URI.</param>
+    /// <param name="body_data">String containing the text to use in the message body.</param>
+    /// <param name="token">Cancellation token for cancellation of this request operation.</param>
+    /// <returns>An asynchronous operation that is completed once a response from the request is received.</returns>
+    pplx::task<http_response> request(
+        const method &mtd,
+        const utf16string &path_query_fragment,
+        const utf16string &body_data,
+        const pplx::cancellation_token &token)
+    {
+        return request(mtd, path_query_fragment, body_data, ::utility::conversions::to_utf16string("text/plain"), token);
     }
 
 #if !defined (__cplusplus_winrt)
@@ -458,15 +581,15 @@ public:
     /// <param name="token">Cancellation token for cancellation of this request operation.</param>
     /// <returns>A task that is completed once a response from the request is received.</returns>
     pplx::task<http_response> request(
-        method mtd, 
+        const method &mtd,
         const utility::string_t &path_query_fragment,
-        concurrency::streams::istream body,
-        utility::string_t content_type = _XPLATSTR("application/octet-stream"),
-        pplx::cancellation_token token = pplx::cancellation_token::none())
+        const concurrency::streams::istream &body,
+        const utility::string_t &content_type = _XPLATSTR("application/octet-stream"),
+        const pplx::cancellation_token &token = pplx::cancellation_token::none())
     {
-        http_request msg(std::move(mtd));
+        http_request msg(mtd);
         msg.set_request_uri(path_query_fragment);
-        msg.set_body(body, std::move(content_type));
+        msg.set_body(body, content_type);
         return request(msg, token);
     }
 
@@ -479,10 +602,10 @@ public:
     /// <param name="token">Cancellation token for cancellation of this request operation.</param>
     /// <returns>A task that is completed once a response from the request is received.</returns>
     pplx::task<http_response> request(
-        method mtd, 
+        const method &mtd,
         const utility::string_t &path_query_fragment,
-        concurrency::streams::istream body,
-        pplx::cancellation_token token)
+        const concurrency::streams::istream &body,
+        const pplx::cancellation_token &token)
     {
         return request(mtd, path_query_fragment, body, _XPLATSTR("application/octet-stream"), token);
     }
@@ -500,16 +623,16 @@ public:
     /// <returns>A task that is completed once a response from the request is received.</returns>
     /// <remarks>Winrt requires to provide content_length.</remarks>
     pplx::task<http_response> request(
-        method mtd, 
+        const method &mtd,
         const utility::string_t &path_query_fragment,
-        concurrency::streams::istream body,
+        const concurrency::streams::istream &body,
         size_t content_length,
-        utility::string_t content_type= _XPLATSTR("application/octet-stream"),
-        pplx::cancellation_token token = pplx::cancellation_token::none())
+        const utility::string_t &content_type = _XPLATSTR("application/octet-stream"),
+        const pplx::cancellation_token &token = pplx::cancellation_token::none())
     {
-        http_request msg(std::move(mtd));
+        http_request msg(mtd);
         msg.set_request_uri(path_query_fragment);
-        msg.set_body(body, content_length, std::move(content_type));
+        msg.set_body(body, content_length, content_type);
         return request(msg, token);
     }
 
@@ -524,25 +647,22 @@ public:
     /// <returns>A task that is completed once a response from the request is received.</returns>
     /// <remarks>Winrt requires to provide content_length.</remarks>
     pplx::task<http_response> request(
-        method mtd, 
+        const method &mtd,
         const utility::string_t &path_query_fragment,
-        concurrency::streams::istream body,
+        const concurrency::streams::istream &body,
         size_t content_length,
-        pplx::cancellation_token token)
+        const pplx::cancellation_token &token)
     {
         return request(mtd, path_query_fragment, body, content_length, _XPLATSTR("application/octet-stream"), token);
     }
 
 private:
 
-    void build_pipeline(uri base_uri, http_client_config client_config);
-    
-    std::shared_ptr<::web::http::http_pipeline> m_pipeline;
+    void build_pipeline(const uri &base_uri, const http_client_config &client_config);
 
-    uri _base_uri;
+    std::shared_ptr<::web::http::http_pipeline> m_pipeline;
 };
 
-} // namespace client
-}} // namespace web::http
+}}}
 
-#endif  /* _CASA_HTTP_CLIENT_H */
+#endif

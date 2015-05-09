@@ -16,8 +16,6 @@
 * ==--==
 * =+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+
 *
-* pplxtasks.h
-*
 * Parallel Patterns Library - PPLx Tasks
 *
 * For the latest on this and related APIs, please see http://casablanca.codeplex.com.
@@ -30,18 +28,42 @@
 #ifndef _PPLXTASKS_H
 #define _PPLXTASKS_H
 
+#if (defined(_MSC_VER) && (_MSC_VER >= 1800)) && !CPPREST_FORCE_PPLX
+#include <ppltasks.h>
+namespace pplx = Concurrency;
+#if (_MSC_VER >= 1900)
+#include <concrt.h>
+namespace Concurrency {
+    namespace extensibility {
+        typedef ::std::condition_variable condition_variable_t;
+        typedef ::std::mutex critical_section_t;
+        typedef ::std::unique_lock< ::std::mutex> scoped_critical_section_t;
+
+        typedef ::Concurrency::event event_t;
+        typedef ::Concurrency::reader_writer_lock reader_writer_lock_t;
+        typedef ::Concurrency::reader_writer_lock::scoped_lock scoped_rw_lock_t;
+        typedef ::Concurrency::reader_writer_lock::scoped_lock_read scoped_read_lock_t;
+
+        typedef ::Concurrency::details::_ReentrantBlockingLock recursive_lock_t;
+        typedef recursive_lock_t::_Scoped_lock scoped_recursive_lock_t;
+    }
+}
+#endif // _MSC_VER >= 1900
+#else
+
 #include "pplx/pplx.h"
 
+#if defined(__ANDROID__)
+#include <jni.h>
+void cpprest_init(JavaVM*);
+#endif
+
 // Cannot build using a compiler that is older than dev10 SP1
-#ifdef _MSC_VER
+#if defined(_MSC_VER)
 #if _MSC_FULL_VER < 160040219 /*IFSTRIP=IGN*/
 #error ERROR: Visual Studio 2010 SP1 or later is required to build ppltasks
 #endif /*IFSTRIP=IGN*/
-
-#if (defined(_MSC_VER) && (_MSC_VER >= 1800)) 
-#error This file must not be included for Visual Studio 12 or later
-#endif
-#endif
+#endif /* defined(_MSC_VER) */
 
 #include <functional>
 #include <vector>
@@ -49,7 +71,8 @@
 #include <exception>
 #include <algorithm>
 
-#if defined (__cplusplus_winrt)
+#if defined(_MSC_VER)
+#if defined(__cplusplus_winrt)
 #include <windows.h>
 #include <ctxtcall.h>
 #include <agile.h>
@@ -79,13 +102,14 @@
 #endif  /* _UITHREADCTXT_SUPPORT */
 
 #if _UITHREADCTXT_SUPPORT
-#include <uithreadctxt.h>
+    #include <uithreadctxt.h>
 #endif  /* _UITHREADCTXT_SUPPORT */
 
-#pragma detect_mismatch("_PPLTASKS_WITH_WINRT", "1")
-#else /* (__cplusplus_winrt) */
-#pragma detect_mismatch("_PPLTASKS_WITH_WINRT", "0")
-#endif /* #if defined(__cplusplus_winrt) */
+    #pragma detect_mismatch("_PPLTASKS_WITH_WINRT", "1")
+#else /* defined(__cplusplus_winrt) */
+    #pragma detect_mismatch("_PPLTASKS_WITH_WINRT", "0")
+#endif /* defined(__cplusplus_winrt) */
+#endif /* defined(_MSC_VER) */
 
 #ifdef _DEBUG
     #define _DBG_ONLY(X) X
@@ -103,22 +127,24 @@ namespace std
         return copy_exception(_Except);
     }
 }
-#endif
+#endif /* _MSC_VER < 1700 */
 #ifndef _PPLTASK_ASYNC_LOGGING
     #if _MSC_VER >= 1800 && defined(__cplusplus_winrt)
         #define _PPLTASK_ASYNC_LOGGING 1  // Only enable async logging under dev12 winrt
     #else
         #define _PPLTASK_ASYNC_LOGGING 0
     #endif
-#endif
-#endif
+#endif /* !_PPLTASK_ASYNC_LOGGING */
+#endif /* _MSC_VER */
 
 #pragma pack(push,_CRT_PACKING)
 
+#if defined(_MSC_VER)
 #pragma warning(push)
 #pragma warning(disable: 28197)
 #pragma warning(disable: 4100) // Unreferenced formal parameter - needed for document generation
 #pragma warning(disable: 4127) // constant express in if condition - we use it for meta programming
+#endif /* defined(_MSC_VER) */
 
 // All CRT public header files are required to be protected from the macro new
 #pragma push_macro("new")
@@ -201,7 +227,7 @@ template <> class task<void>;
 /// <seealso cref="cancellation_token Class"/>
 /// <seealso cref="cancel_current_task Function"/>
 /**/
-inline bool __cdecl is_task_cancellation_requested()
+inline bool _pplx_cdecl is_task_cancellation_requested()
 {
     return ::pplx::details::_TaskCollection_t::_Is_cancellation_requested();
 }
@@ -216,7 +242,7 @@ inline bool __cdecl is_task_cancellation_requested()
 /// </summary>
 /// <seealso cref="task Class"/>
 /**/
-inline __declspec(noreturn) void __cdecl cancel_current_task()
+inline __declspec(noreturn) void _pplx_cdecl cancel_current_task()
 {
     throw task_canceled();
 }
@@ -506,7 +532,7 @@ namespace details
         {
         }
 
-        static void __cdecl _Bridge(void *_PData)
+        static void _pplx_cdecl _Bridge(void *_PData)
         {
             _TaskProcThunk *_PThunk = reinterpret_cast<_TaskProcThunk *>(_PData);
             _Holder _ThunkHolder(_PThunk);
@@ -1671,8 +1697,10 @@ namespace details
             _Canceled
         };
 // _M_taskEventLogger - 'this' : used in base member initializer list
+#if defined(_MSC_VER)
 #pragma warning(push)
 #pragma warning(disable: 4355)
+#endif
         _Task_impl_base(_CancellationTokenState * _PTokenState, scheduler_ptr _Scheduler_arg) 
                           : _M_TaskState(_Created),
                             _M_fFromAsync(false), _M_fUnwrappedTask(false),
@@ -1685,7 +1713,9 @@ namespace details
             if (_M_pTokenState != _CancellationTokenState::_None())
                 _M_pTokenState->_Reference();
         }
+#if defined(_MSC_VER)
 #pragma warning(pop)
+#endif
 
         virtual ~_Task_impl_base()
         {
@@ -2310,16 +2340,16 @@ namespace details
         // is not observed by the time the internal object owned by the shared pointer destructs, the process will fail fast.
         std::shared_ptr<_ExceptionHolder> _M_exceptionHolder;
 
-        typedef _ContinuationTaskHandleBase * _ContinuationList;
-
         ::pplx::extensibility::critical_section_t _M_ContinuationsCritSec;
-        _ContinuationList _M_Continuations;
 
         // The cancellation token state.
         _CancellationTokenState * _M_pTokenState;
 
         // The registration on the token.
         _CancellationTokenRegistration * _M_pRegistration;
+
+        typedef _ContinuationTaskHandleBase * _ContinuationList;
+        _ContinuationList _M_Continuations;
 
         // The async task collection wrapper
         ::pplx::details::_TaskCollection_t _M_TaskCollection;
@@ -3676,6 +3706,7 @@ private:
         auto _LogWorkItemAndInvokeUserLambda(_Func && _func) const -> decltype(_func())
         {
             details::_TaskWorkItemRAIILogger _LogWorkItem(this->_M_pTask->_M_taskEventLogger);
+            CASABLANCA_UNREFERENCED_PARAMETER(_LogWorkItem);
             return _func();
         }
 
@@ -3786,6 +3817,7 @@ private:
         auto _LogWorkItemAndInvokeUserLambda(_Func && _func, _Arg && _value) const -> decltype(_func(std::forward<_Arg>(_value)))
         {
             details::_TaskWorkItemRAIILogger _LogWorkItem(this->_M_pTask->_M_taskEventLogger);
+            CASABLANCA_UNREFERENCED_PARAMETER(_LogWorkItem);
             return _func(std::forward<_Arg>(_value));
         }
 
@@ -7311,7 +7343,22 @@ namespace details
 } // namespace Concurrency
 
 #pragma pop_macro("new")
+
+#if defined(_MSC_VER)
 #pragma warning(pop)
+#endif
 #pragma pack(pop)
+
+#endif // (defined(_MSC_VER) && (_MSC_VER >= 1800))
+
+#ifndef _CONCRT_H
+#ifndef _LWRCASE_CNCRRNCY
+#define _LWRCASE_CNCRRNCY
+// Note to reader: we're using lower-case namespace names everywhere, but the 'Concurrency' namespace
+// is capitalized for historical reasons. The alias let's us pretend that style issue doesn't exist.
+namespace Concurrency {}
+namespace concurrency = Concurrency;
+#endif
+#endif
 
 #endif // _PPLXTASKS_H

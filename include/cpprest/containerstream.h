@@ -16,8 +16,6 @@
 * ==--==
 * =+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+
 *
-* containerstream.h
-*
 * This file defines a basic STL-container-based stream buffer. Reading from the buffer will not remove any data
 * from it and seeking is thus supported.
 *
@@ -32,29 +30,9 @@
 #include <algorithm>
 #include <iterator>
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1800)
-#include <ppltasks.h>
-namespace pplx = Concurrency;
-#else
 #include "pplx/pplxtasks.h"
-#endif
-
 #include "cpprest/astreambuf.h"
 #include "cpprest/streams.h"
-
-#ifndef _CONCRT_H
-#ifndef _LWRCASE_CNCRRNCY
-#define _LWRCASE_CNCRRNCY
-// Note to reader: we're using lower-case namespace names everywhere, but the 'Concurrency' namespace
-// is capitalized for historical reasons. The alias let's us pretend that style issue doesn't exist.
-namespace Concurrency { }
-namespace concurrency = Concurrency;
-#endif
-#endif
-
-// Suppress unreferenced formal parameter warning as they are required for documentation
-#pragma warning(push)
-#pragma warning(disable : 4100)
 
 namespace Concurrency { namespace streams {
 
@@ -65,12 +43,12 @@ namespace Concurrency { namespace streams {
     namespace details {
 
     /// <summary>
-        /// The basic_container_buffer class serves as a memory-based steam buffer that supports writing or reading
+    /// The basic_container_buffer class serves as a memory-based steam buffer that supports writing or reading
     /// sequences of characters.
-        /// The class itself should not be used in application code, it is used by the stream definitions farther down in the header file.
+    /// The class itself should not be used in application code, it is used by the stream definitions farther down in the header file.
     /// </summary>
-        /// <remarks> When closed, neither writing nor reading is supported any longer. <c>basic_container_buffer</c> does not support simultaneous use of the buffer
-        /// for reading and writing.</remarks>
+    /// <remarks> When closed, neither writing nor reading is supported any longer. <c>basic_container_buffer</c> does not support simultaneous use of the buffer
+    /// for reading and writing.</remarks>
     template<typename _CollectionType>
     class basic_container_buffer : public streams::details::streambuf_state_manager<typename _CollectionType::value_type>
     {
@@ -118,7 +96,7 @@ namespace Concurrency { namespace streams {
         /// </summary>
         virtual utility::size64_t size() const
         {
-            return utility::size64_t(m_size);
+            return utility::size64_t(m_data.size());
         }
 
         /// <summary>
@@ -151,10 +129,10 @@ namespace Concurrency { namespace streams {
         {
             // See the comment in seek around the restriction that we do not allow read head to
             // seek beyond the current write_end.
-            _ASSERTE(m_current_position <= m_size);
+            _ASSERTE(m_current_position <= m_data.size());
 
-            SafeSize readhead(m_current_position);
-            SafeSize writeend(m_size);
+            msl::safeint3::SafeInt<size_t> readhead(m_current_position);
+            msl::safeint3::SafeInt<size_t> writeend(m_data.size());
             return (size_t)(writeend - readhead);
         }
 
@@ -323,12 +301,12 @@ namespace Concurrency { namespace streams {
         {
             pos_type beg(0);
 
-            // Inorder to support relative seeking from the end postion we need to fix an end position.
+            // In order to support relative seeking from the end position we need to fix an end position.
             // Technically, there is no end for the stream buffer as new writes would just expand the buffer.
-            // For now, we assume that the current write_end is the end of the buffer. We use this aritifical
+            // For now, we assume that the current write_end is the end of the buffer. We use this artificial
             // end to restrict the read head from seeking beyond what is available.
 
-            pos_type end(m_size);
+            pos_type end(m_data.size());
 
             if (position >= beg)
             {
@@ -376,7 +354,7 @@ namespace Concurrency { namespace streams {
         {
             pos_type beg = 0;
             pos_type cur = static_cast<pos_type>(m_current_position);
-            pos_type end = static_cast<pos_type>(m_size);
+            pos_type end = static_cast<pos_type>(m_data.size());
 
             switch ( way )
             {
@@ -402,8 +380,7 @@ namespace Concurrency { namespace streams {
         /// </summary>
         basic_container_buffer(std::ios_base::openmode mode)
             : streambuf_state_manager<typename _CollectionType::value_type>(mode),
-              m_current_position(0),
-              m_size(0)
+              m_current_position(0)
         {
             validate_mode(mode);
         }
@@ -414,8 +391,7 @@ namespace Concurrency { namespace streams {
         basic_container_buffer(_CollectionType data, std::ios_base::openmode mode)
             : streambuf_state_manager<typename _CollectionType::value_type>(mode),
               m_data(std::move(data)),
-              m_current_position((mode & std::ios_base::in) ? 0 : m_data.size()),
-              m_size(m_data.size())
+              m_current_position((mode & std::ios_base::in) ? 0 : m_data.size())
         {
             validate_mode(mode);
         }
@@ -458,20 +434,20 @@ namespace Concurrency { namespace streams {
             if (!can_satisfy(count))
                 return 0;
 
-            SafeSize request_size(count);
-            SafeSize read_size = request_size.Min(in_avail());
+            msl::safeint3::SafeInt<size_t> request_size(count);
+            msl::safeint3::SafeInt<size_t> read_size = request_size.Min(in_avail());
 
             size_t newPos = m_current_position + read_size;
 
             auto readBegin = begin(m_data) + m_current_position;
             auto readEnd = begin(m_data) + newPos;
 
-#ifdef _MS_WINDOWS
+#ifdef _WIN32
             // Avoid warning C4996: Use checked iterators under SECURE_SCL
             std::copy(readBegin, readEnd, stdext::checked_array_iterator<_CharType *>(ptr, count));
 #else
             std::copy(readBegin, readEnd, ptr);
-#endif // _MS_WINDOWS
+#endif // _WIN32
 
             if (advance)
             {
@@ -507,10 +483,8 @@ namespace Concurrency { namespace streams {
         /// </summary>
         void resize_for_write(size_t newPos)
         {
-            _ASSERTE(m_size <= m_data.size());
-
             // Resize the container if required
-            if (newPos > m_size)
+            if (newPos > m_data.size())
             {
                 m_data.resize(newPos);
             }
@@ -523,15 +497,7 @@ namespace Concurrency { namespace streams {
         {
             // The new write head
             m_current_position = newPos;
-
-            if ( this->can_write() && m_size < m_current_position)
-            {
-                // Update the size of the buffer with valid data if required
-                m_size = m_current_position;
-            }
-
-            _ASSERTE(m_current_position <= m_size);
-            _ASSERTE(m_size <= m_data.size());
+            _ASSERTE(m_current_position <= m_data.size());
         }
 
         // The actual data store
@@ -539,7 +505,6 @@ namespace Concurrency { namespace streams {
 
         // Read/write head
         size_t m_current_position;
-        size_t m_size;
     };
 
     } // namespace details
@@ -593,9 +558,7 @@ namespace Concurrency { namespace streams {
     /// collections. The sole purpose of this class to avoid users from having to know
     /// anything about stream buffers.
     /// </summary>
-    /// <typeparam name="_CollectionType">
-    /// The type of the STL collection.
-    /// </typeparam>
+    /// <typeparam name="_CollectionType">The type of the STL collection.</typeparam>
     template<typename _CollectionType>
     class container_stream
     {
@@ -604,11 +567,20 @@ namespace Concurrency { namespace streams {
         typedef typename _CollectionType::value_type char_type;
         typedef container_buffer<_CollectionType> buffer_type;
 
+        /// <summary>
+        /// Creates an input stream given an STL container.
+        /// </summary>
+        /// </param name="data">STL container to back the input stream.</param>
+        /// <returns>An input stream.</returns>
         static concurrency::streams::basic_istream<char_type> open_istream(_CollectionType data)
         {
             return concurrency::streams::basic_istream<char_type>(buffer_type(std::move(data), std::ios_base::in));
         }
 
+        /// <summary>
+        /// Creates an output stream using an STL container as the storage.
+        /// </summary>
+        /// <returns>An output stream.</returns>
         static concurrency::streams::basic_ostream<char_type> open_ostream()
         {
             return concurrency::streams::basic_ostream<char_type>(buffer_type(std::ios_base::out));
@@ -626,18 +598,29 @@ namespace Concurrency { namespace streams {
     typedef wstringstream::buffer_type wstringstreambuf;
 
     /// <summary>
-    /// The <c>bytestream</c> allows an input stream to be constructed from any STL container.
+    /// The <c>bytestream</c> is a static class that allows an input stream to be constructed from any STL container.
     /// </summary>
     class bytestream
     {
     public:
 
+        /// <summary>
+        /// Creates a single byte character input stream given an STL container.
+        /// </summary>
+        /// <typeparam name="_CollectionType">The type of the STL collection.</typeparam>
+        /// <param name="data">STL container to back the input stream.</param>
+        /// <returns>An single byte character input stream.</returns>
         template<typename _CollectionType>
         static concurrency::streams::istream open_istream(_CollectionType data)
         {
             return concurrency::streams::istream(streams::container_buffer<_CollectionType>(std::move(data), std::ios_base::in));
         }
 
+        /// <summary>
+        /// Creates a single byte character output stream using an STL container as storage.
+        /// </summary>
+        /// <typeparam name="_CollectionType">The type of the STL collection.</typeparam>
+        /// <returns>A single byte character output stream.</returns>
         template<typename _CollectionType>
         static concurrency::streams::ostream open_ostream()
         {
@@ -647,5 +630,3 @@ namespace Concurrency { namespace streams {
 
 
 }} // namespaces
-
-#pragma warning(pop) // 4100
