@@ -17,6 +17,7 @@ zlib          1.2.5   (headers only, for libpng)
 
 # C++ Header-only Libraries
 
+OpenSSL       1.0.2a  (we provide OpenSSL headers for C++ REST SDK, but no binaries yet)
 RapidJSON     1.0.1
 SafeInt       3.0.18
 
