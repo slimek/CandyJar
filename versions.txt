@@ -9,7 +9,7 @@ C++ REST SDK  2.5.0   (1. headers are cpprest and pplx. 2. pplx and websockets a
 JsonCpp       1.6.2
 libcurl       7.36.0
 libjpeg       9
-libpng        1.6.2
+libpng        1.6.16  (consists with Cocos2d-x 3.6)
 OpenSSL       1.0.2a  (headers only, for C++ REST SDK)
 tinyxml2      1.0.11
 UnitTest++    1.4
