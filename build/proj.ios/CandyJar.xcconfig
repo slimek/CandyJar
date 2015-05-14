@@ -19,7 +19,7 @@ VALID_ARCHS = arm64 armv7
 /// Build Locations ///
 
 // Per-configuration Build Products Path
-CONFIGURATION_BUILD_DIR = ../../lib/iOS$(EFFECTIVE_PLATFORM_NAME)$(CONFIGURATION)
+CONFIGURATION_BUILD_DIR = ../../lib/iOS$(EFFECTIVE_PLATFORM_NAME).$(CONFIGURATION)
 
 
 /// Deployment ///
