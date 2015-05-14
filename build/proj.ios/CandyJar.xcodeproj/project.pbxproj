@@ -113,6 +113,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		013F246C1B046C51003C92E2 /* CandyJar.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = CandyJar.xcconfig; sourceTree = "<group>"; };
 		6DA109E61856B44D00588AA2 /* Boost.Chrono.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Boost.Chrono.xcodeproj; path = ../../Boost.Chrono/proj.ios/Boost.Chrono.xcodeproj; sourceTree = "<group>"; };
 		6DA109EC1856B45200588AA2 /* Boost.DateTime.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Boost.DateTime.xcodeproj; path = ../../Boost.DateTime/proj.ios/Boost.DateTime.xcodeproj; sourceTree = "<group>"; };
 		6DA109F21856B45A00588AA2 /* Boost.Filesystem.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Boost.Filesystem.xcodeproj; path = ../../Boost.Filesystem/proj.ios/Boost.Filesystem.xcodeproj; sourceTree = "<group>"; };
@@ -122,6 +123,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
+		013F246B1B046C31003C92E2 /* proj.ios */ = {
+			isa = PBXGroup;
+			children = (
+				013F246C1B046C51003C92E2 /* CandyJar.xcconfig */,
+			);
+			name = proj.ios;
+			sourceTree = "<group>";
+		};
 		6DA109AE1856B42400588AA2 = {
 			isa = PBXGroup;
 			children = (
@@ -131,6 +140,7 @@
 				6DA109F81856B46000588AA2 /* Boost.ProgramOptions.xcodeproj */,
 				6DA109FE1856B46C00588AA2 /* Boost.System.xcodeproj */,
 				6DA10A041856B47300588AA2 /* JsonCpp.xcodeproj */,
+				013F246B1B046C31003C92E2 /* proj.ios */,
 				6DA109B81856B42400588AA2 /* Products */,
 			);
 			sourceTree = "<group>";

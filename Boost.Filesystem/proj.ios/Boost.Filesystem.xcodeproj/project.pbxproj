@@ -30,6 +30,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		013F24721B046DEC003C92E2 /* CandyJar.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = CandyJar.xcconfig; path = ../../build/proj.ios/CandyJar.xcconfig; sourceTree = "<group>"; };
 		6DAFE265181526E700859097 /* libBoost.Filesystem.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libBoost.Filesystem.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		6DC2FB5218458F6000FEEEA0 /* codecvt_error_category.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = codecvt_error_category.cpp; sourceTree = "<group>"; };
 		6DC2FB5318458F6000FEEEA0 /* operations.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = operations.cpp; sourceTree = "<group>"; };
@@ -53,9 +54,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		013F24711B046DDD003C92E2 /* proj.ios */ = {
+			isa = PBXGroup;
+			children = (
+				013F24721B046DEC003C92E2 /* CandyJar.xcconfig */,
+			);
+			name = proj.ios;
+			sourceTree = "<group>";
+		};
 		6DAFE25C181526E700859097 = {
 			isa = PBXGroup;
 			children = (
+				013F24711B046DDD003C92E2 /* proj.ios */,
 				6DC2FB5118458F6000FEEEA0 /* src */,
 				6DAFE266181526E700859097 /* Products */,
 			);
@@ -153,6 +163,7 @@
 /* Begin XCBuildConfiguration section */
 		6DAFE286181526E700859097 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 013F24721B046DEC003C92E2 /* CandyJar.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
@@ -167,7 +178,6 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CONFIGURATION_BUILD_DIR = "../../lib/ios$(EFFECTIVE_PLATFORM_NAME)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -188,14 +198,12 @@
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					../../include,
 				);
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
-				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
 		6DAFE287181526E700859097 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 013F24721B046DEC003C92E2 /* CandyJar.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
@@ -210,7 +218,6 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CONFIGURATION_BUILD_DIR = "../../lib/ios$(EFFECTIVE_PLATFORM_NAME)";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -227,9 +234,6 @@
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					../../include,
 				);
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
-				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;

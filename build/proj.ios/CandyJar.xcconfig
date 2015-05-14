@@ -1,0 +1,31 @@
+//
+//  CandyJar.xcconfig
+//  CandyJar
+//
+//  Created by Slimek on 2015/5/14.
+//  Copyright (c) 2015年 Sixion. All rights reserved.
+//
+
+
+/// Architectures ///
+
+// Base SDK
+SDKROOT = iphoneos
+
+// Valid Architectures
+VALID_ARCHS = arm64 armv7
+
+
+/// Build Locations ///
+
+// Per-configuration Build Products Path
+CONFIGURATION_BUILD_DIR = ../../lib/iOS$(EFFECTIVE_PLATFORM_NAME)$(CONFIGURATION)
+
+
+/// Deployment ///
+
+// Target Device Family
+TARGETED_DEVICE_FAMILY = 1,2
+
+// iOS Deployment Target
+IPHONEOS_DEPLOYMENT_TARGET = 6.1
