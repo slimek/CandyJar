@@ -64,7 +64,6 @@ endef
 all: $(CANDY_ARCH_ABI)
 
 $(CANDY_ARCH_ABI): $(LOCAL_BUILT_MODULE)
-	$(call host-mkdir,$(CANDY_LIB)/$(NDK_CANDY_CONFIG))
 	$(call host-mkdir,$(CANDY_LIB)/$(NDK_CANDY_CONFIG)/$@)
 	$(call candy-copy,boost-chrono)
 	$(call candy-copy,boost-date_time)
