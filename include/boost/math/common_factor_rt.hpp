@@ -176,7 +176,7 @@ namespace detail
             while ( r[which] );
 
             // Shift-in the common factor of 2 to the residues' GCD
-            return static_cast< BuiltInUnsigned >( r[ !which ] << shifts );
+            return r[ !which ] << shifts;
         }
         else
         {
