@@ -336,7 +336,7 @@
       </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;CURL_STATICLIB;HTTP_ONLY;USE_WINDOWS_SSPI;USE_SCHANNEL;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;CURL_STATICLIB;HTTP_ONLY;HAVE_BOOL_T;USE_WINDOWS_SSPI;USE_SCHANNEL;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>..\src;..\..\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
@@ -366,7 +366,7 @@
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>WIN32;CURL_STATICLIB;HTTP_ONLY;USE_WINDOWS_SSPI;USE_SCHANNEL;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;CURL_STATICLIB;HTTP_ONLY;HAVE_BOOL_T;USE_WINDOWS_SSPI;USE_SCHANNEL;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>..\src;..\..\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
